@@ -31,21 +31,24 @@ function setup() {
 }
 
 function draw() {
-  background(20);
-   
-  grid.drawGrid();
-  grid.updateGrid();
+  	background(20);
+ 	grid.drawGrid();
+  	grid.updateGrid();
 }
  
 function keyPressed() {
-  //if (key == 'n') {
+  	//if (key == 'n') {
     grid.randomizeGrid();
   
 }
  
 function mousePressed() {
-  var cell = grid.getCellUnderMouse();
-  cell.setState(ALIVE);
+  	var cell = grid.getCellUnderMouse();
+  	cell.setState(ALIVE);
+}
+function touchEnded() {
+	var cell = grid.getTouchedCell();
+	cell.setState(ALIVE);
 }
 
 function windowResized() {
@@ -90,7 +93,6 @@ function Grid() {
 		this.grid.push([]);
 		for (var y = 0; y < ROWS; y++) {
 			this.grid[x][y] = new Cell(this.getRandomCellState());
-			//this.grid[x][y].push(Cell(this.getRandomCellState()));
 		}
 	}	
 }
@@ -135,10 +137,8 @@ Grid.prototype.drawGrid = function () {
         	originX = map(x, 0.0, COLUMNS, PADDING, WINDOW_WIDTH - PADDING);
 	        originY = map(y, 0.0, ROWS, PADDING, WINDOW_HEIGHT - PADDING);
 	        if (this.grid[x][y].isAlive()) {
-	          	//fill(this.aliveColor);
 	          	fill(255,198,0)
 	        } else if(this.grid[x][y] == cellUnderMouse) {
-	          	//fill(this.underMouseColor);
 	          	fill(0,136,255)
 	        } else {
 	          	fill(25,53,73);
@@ -151,7 +151,12 @@ Grid.prototype.getCellUnderMouse = function () {
     var x = Math.floor(constrain(map(mouseX, PADDING, WINDOW_WIDTH - PADDING, 0.0, COLUMNS), 0.0, COLUMNS-1));
     var y = Math.floor(constrain(map(mouseY, PADDING, WINDOW_HEIGHT - PADDING, 0.0, ROWS), 0.0, ROWS-1));
     return this.grid[x][y];
- }
+}
+Grid.prototype.getTouchedCell = function () {
+	var x = Math.floor(constrain(map(touchX, PADDING, WINDOW_WIDTH - PADDING, 0.0, COLUMNS), 0.0, COLUMNS-1));
+    var y = Math.floor(constrain(map(touchY, PADDING, WINDOW_HEIGHT - PADDING, 0.0, ROWS), 0.0, ROWS-1));
+    return this.grid[x][y];	
+}
 Grid.prototype.updateGrid = function () {
  	var numberLiveNeighbors = 0;
 	for (var x = 0; x < COLUMNS; x++) {
@@ -178,10 +183,6 @@ Grid.prototype.updateGrid = function () {
     for (var x = 0; x < COLUMNS; x++) {
       	for (var y = 0; y < ROWS; y++) {
         	this.grid[x][y].updateState();
-        	/*
-        	if (grid[x][y].isAlive()) {
-        	}
-        	*/
       	}
     }
 }
