@@ -124,7 +124,6 @@ function draw() {
 		oldMouseX = mouseX;
 		oldMouseY = mouseY;
 	}
-	console.log(mouseMoved);
 	logoMark.Draw();
 };
 
@@ -226,10 +225,13 @@ Mark.prototype.Draw = function() {
 	//If display is false call random then draw else 	
 	for (var i = 0; i < this.cells.length; i++) {
 		if (mouseMoved == false) {
+			xColour = color(25/2,53/2,73/2);
+			yColour =  color(25/2.5,53/2.5,73/2.5);
 			triStroke = false;
 			this.cells[i].SetInitial();
 			this.cells[i].Draw();
 		}else{
+			yColour =  color(255,198,0);
 			triStroke = true;
 			this.cells[i].Randomise();
 			this.cells[i].Draw();
