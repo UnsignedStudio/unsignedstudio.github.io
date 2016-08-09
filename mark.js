@@ -246,3 +246,5 @@ function windowResized() {
 	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
 	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
 };
+function onHoverEnter() { }
+function onHoverExit() { }
