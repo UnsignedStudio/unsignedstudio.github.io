@@ -5,13 +5,15 @@ var gridSize = 100;
 var xColour = null;
 var yColour = null;
 var triStrokeWidth = 1;
-var triStroke = true;
+var triStroke = false;
 var triStrokeColour = null;
 var logoMark = null;
 
 var oldMouseX = 0;
 var oldMouseY = 0;
 var mouseMoved = true;
+var xOffset = 100;
+var yOffset = 100;
 
 var MarkGrid =  {
 	rows: [
@@ -93,13 +95,17 @@ var MarkGrid =  {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	gridSize = windowWidth / 20;
+
+	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
+	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
 
 	//Init Colours
-	xColour = color(25,53,73);
+	xColour = color(25/2,53/2,73/2);
 	//xColour = color(0,0,0);
-	yColour =  color(100,136,255);
+	yColour =  color(25/2,53/2,73/2);
 	//yColour = color(0,0,0);
-	triStrokeColour = color(255,198,0);
+	triStrokeColour = color(0,136,255);
 
 	//Init the Mark
 	logoMark = new Mark();
@@ -143,12 +149,14 @@ function MarkCell () {
 };
 
 MarkCell.prototype.Draw  = function () {
-	var p_left = this.gridXPos * gridSize;
-	var p_top = this.gridYPos * gridSize;
+	var p_left = (this.gridXPos * gridSize) + xOffset;
+	var p_top = (this.gridYPos * gridSize) + yOffset;
 
 	if (triStroke) {
 		strokeWeight(triStrokeWidth);
 		stroke(triStrokeColour);
+	}else{
+		noStroke();
 	}
 
 	if (this.flipped) {
@@ -218,12 +226,21 @@ Mark.prototype.Draw = function() {
 	//If display is false call random then draw else 	
 	for (var i = 0; i < this.cells.length; i++) {
 		if (mouseMoved == false) {
+			triStroke = false;
 			this.cells[i].SetInitial();
 			this.cells[i].Draw();
 		}else{
+			triStroke = true;
 			this.cells[i].Randomise();
 			this.cells[i].Draw();
 		}
 	};
 };
 
+function windowResized() {
+  	resizeCanvas(windowWidth, windowHeight);
+  	gridSize = windowWidth / 20;
+
+	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
+	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
+};
