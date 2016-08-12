@@ -15,6 +15,8 @@ var mouseMoved = true;
 var xOffset = 100;
 var yOffset = 100;
 
+var fade = 255.0;
+
 var MarkGrid =  {
 	rows: [
 		[ 
@@ -134,7 +136,12 @@ function draw() {
 			drawRandLine();
 		}	
 	}
-	
+	drawFadeOverlay();
+};
+
+function drawFadeOverlay() {
+	background(color(0, fade));
+	fade -= 0.6;
 };
 
 function drawRandLine() {
@@ -155,7 +162,6 @@ function drawRandLine() {
 	}
 	
 	endShape(CLOSE);
-
 };
 
 
@@ -169,7 +175,7 @@ function triPoint () {
 	
 	this.x3 = 0;
 	this.y3 = 0;
-}
+};
 
 triPoint.prototype.RandPoint = function() {
 	var index = (Math.floor(Math.random() * 3) + 1);
@@ -182,7 +188,7 @@ triPoint.prototype.RandPoint = function() {
 	}else{
 		return [this.x2, this.y2];
 	}
-}
+};
 
 //Mark Cell 
 function MarkCell () {
@@ -301,10 +307,13 @@ Mark.prototype.Init = function(startStateGrid) {
 			this.cells.push(cl);
 		}
 	}
-}
+};
 
 Mark.prototype.Draw = function() {
 	//If display is false call random then draw else 	
+
+	var shouldRand = (!(Math.random()+.375|0));
+
 	for (var i = 0; i < this.cells.length; i++) {
 		if (mouseMoved == false) {
 			xColour = color(25/2,53/2,73/2);
@@ -314,8 +323,13 @@ Mark.prototype.Draw = function() {
 			this.cells[i].Draw();
 		}else{
 			yColour =  color(255,198,0);
+			if ((!(Math.random()+.575|0))) {
+				yColour = triStrokeColour;	
+			}
 			triStroke = true;
-			this.cells[i].Randomise();
+			if (shouldRand) {
+				this.cells[i].Randomise();
+			}
 			this.cells[i].Draw();
 		}
 	};
@@ -328,5 +342,5 @@ function windowResized() {
 	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
 	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
 };
-function onHoverEnter() { }
-function onHoverExit() { }
+function onHoverEnter() { };
+function onHoverExit() { };
