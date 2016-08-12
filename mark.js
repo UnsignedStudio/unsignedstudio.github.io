@@ -125,9 +125,64 @@ function draw() {
 		oldMouseY = mouseY;
 	}
 	logoMark.Draw();
+	if (mouseMoved) {
+		if (!(Math.random()+.675|0)) {
+			drawRandLine();
+		}	
+	}else{
+		if (!(Math.random()+.975|0)) {
+			drawRandLine();
+		}	
+	}
+	
+};
+
+function drawRandLine() {
+	noFill();
+	stroke(triStrokeColour);
+	
+	beginShape();
+	if (mouseMoved) {
+		vertex(mouseX, mouseY);
+	}
+	
+	for (var i = 0; i < Math.floor((Math.random() * 40) + 1); i++) {
+		
+		stroke(triStrokeColour);
+		var cl = logoMark.cells[Math.floor((Math.random() * logoMark.cells.length))];
+		var pt = cl.cachedTri.RandPoint();
+		vertex(pt[0], pt[1]);
+	}
+	
+	endShape(CLOSE);
+
 };
 
 
+function triPoint () {
+	
+	this.x1 = 0;
+	this.y1 = 0;
+	
+	this.x2 = 0;
+	this.y2 = 0;
+	
+	this.x3 = 0;
+	this.y3 = 0;
+}
+
+triPoint.prototype.RandPoint = function() {
+	var index = (Math.floor(Math.random() * 3) + 1);
+	if (index == 1) {
+		return [this.x1, this.y1];
+	}else if (index == 2) {
+		return [this.x2, this.y2];
+	}else if (index == 3) {
+		return [this.x3, this.y3];
+	}else{
+		return [this.x2, this.y2];
+	}
+}
 
 //Mark Cell 
 function MarkCell () {
@@ -145,6 +200,8 @@ function MarkCell () {
 	this.startX = 1;
 	this.startY = 1;
 	this.startFlipped = false;
+
+	this.cachedTri = new triPoint();
 };
 
 MarkCell.prototype.Draw  = function () {
@@ -164,24 +221,49 @@ MarkCell.prototype.Draw  = function () {
 		if (this.x == 1) {
 			fill(xColour);
 			triangle(p_left, p_top, p_left + gridSize, p_top, p_left + gridSize, p_top + gridSize);
+			this.cachedTri.x1 = p_left;
+			this.cachedTri.y1 = p_top;
+			this.cachedTri.x2 = p_left + gridSize;
+			this.cachedTri.y2 = p_top;
+			this.cachedTri.x3 = p_left + gridSize;
+			this.cachedTri.y3 = p_top + gridSize;
 		}
 
 		//Y Tri
 		if (this.y == 1) {
 			fill(yColour);
 			triangle(p_left, p_top, p_left + gridSize, p_top + gridSize, p_left, p_top + gridSize);
+			this.cachedTri.x1 = p_left;
+			this.cachedTri.y1 = p_top;
+			this.cachedTri.x2 = p_left + gridSize;
+			this.cachedTri.y2 = p_top + gridSize;
+			this.cachedTri.x3 = p_left;
+			this.cachedTri.y3 = p_top + gridSize;
 		}
+
 	}else{
 		//X Tri
 		if (this.x == 1) {
 			fill(xColour);
 			triangle(p_left, p_top, p_left + gridSize, p_top, p_left, p_top + gridSize);
+			this.cachedTri.x1 = p_left;
+			this.cachedTri.y1 = p_top;
+			this.cachedTri.x2 = p_left + gridSize;
+			this.cachedTri.y2 = p_top;
+			this.cachedTri.x3 = p_left;
+			this.cachedTri.y3 = p_top + gridSize;
 		}
 
 		//Y Tri
 		if (this.y == 1) {
 			fill(yColour);
 			triangle(p_left + gridSize, p_top, p_left + gridSize, p_top + gridSize, p_left, p_top + gridSize);
+			this.cachedTri.x1 = p_left + gridSize;
+			this.cachedTri.y1 = p_top;
+			this.cachedTri.x2 = p_left + gridSize;
+			this.cachedTri.y2 = p_top + gridSize;
+			this.cachedTri.x3 = p_left;
+			this.cachedTri.y3 = p_top + gridSize;
 		}
 	}
 };
