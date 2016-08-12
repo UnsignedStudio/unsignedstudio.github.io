@@ -14,7 +14,7 @@ var oldMouseY = 0;
 var mouseMoved = true;
 var xOffset = 100;
 var yOffset = 100;
-
+var borderPadding = 10;
 var fade = 255.0;
 
 var MarkGrid =  {
@@ -102,6 +102,8 @@ function setup() {
 	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
 	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
 
+	borderPadding = windowWidth * 0.025;
+
 	//Init Colours
 	xColour = color(25/2,53/2,73/2);
 	//xColour = color(0,0,0);
@@ -116,7 +118,15 @@ function setup() {
 
 function draw() {
 	clear();
-	
+
+	var _left = xOffset - ((gridSize * 10) / 2);
+	var _right = xOffset + ((gridSize * 10) / 2);
+	var _top = yOffset - ((gridSize * 6) / 2);
+	var _bottom = yOffset + ((gridSize * 6) / 2);
+	fill(color(0,120));
+	rect(xOffset - (borderPadding / 2), yOffset - (borderPadding / 2), _right - _left + borderPadding, _bottom - _top + borderPadding);
+
+
 	if (mouseX == oldMouseX && mouseY == oldMouseY) {
 		mouseMoved = false;
 		oldMouseX = mouseX;
@@ -311,9 +321,7 @@ Mark.prototype.Init = function(startStateGrid) {
 
 Mark.prototype.Draw = function() {
 	//If display is false call random then draw else 	
-
-	var shouldRand = (!(Math.random()+.375|0));
-
+	var shouldRand = (!(Math.random()+.175|0));
 	for (var i = 0; i < this.cells.length; i++) {
 		if (mouseMoved == false) {
 			xColour = color(25/2,53/2,73/2);
