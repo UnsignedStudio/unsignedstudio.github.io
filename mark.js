@@ -97,12 +97,19 @@ var MarkGrid =  {
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	gridSize = windowWidth / 20;
-
-	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
-	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
-
+	gridSize = windowWidth / 50;
 	borderPadding = windowWidth * 0.025;
+
+	//xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
+	//yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
+
+	xOffset = windowWidth - (gridSize * 10) - (borderPadding / 2) - 2;
+	yOffset = windowHeight - (gridSize * 6) - (borderPadding / 2) - 2;
+
+	//xOffset = 0;
+	//yOffset = gridSize * 6;
+
+	
 
 	//Init Colours
 	xColour = color(25/2,53/2,73/2);
@@ -119,13 +126,14 @@ function setup() {
 function draw() {
 	clear();
 
+	/*
 	var _left = xOffset - ((gridSize * 10) / 2);
 	var _right = xOffset + ((gridSize * 10) / 2);
 	var _top = yOffset - ((gridSize * 6) / 2);
 	var _bottom = yOffset + ((gridSize * 6) / 2);
 	fill(color(0,120));
 	rect(xOffset - (borderPadding / 2), yOffset - (borderPadding / 2), _right - _left + borderPadding, _bottom - _top + borderPadding);
-
+	*/
 
 	if (mouseX == oldMouseX && mouseY == oldMouseY) {
 		mouseMoved = false;
@@ -346,9 +354,11 @@ Mark.prototype.Draw = function() {
 function windowResized() {
   	resizeCanvas(windowWidth, windowHeight);
   	gridSize = windowWidth / 20;
-
-	xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
-	yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
+	borderPadding = windowWidth * 0.025;
+	//xOffset = (windowWidth / 2) - ((gridSize * 10) / 2);
+	//yOffset = (windowHeight / 2) - ((gridSize * 6) / 2);
+	xOffset = windowWidth - (gridSize * 10) - (borderPadding / 2) - 2;
+	yOffset = windowHeight - (gridSize * 6) - (borderPadding / 2) - 2;
 };
 function onHoverEnter() { };
 function onHoverExit() { };
