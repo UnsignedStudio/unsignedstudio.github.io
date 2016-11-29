@@ -45,7 +45,7 @@ a:hover {
     position: absolute;
     left: 2.4em;
     top: 2.4em;
-    width: 60%
+    width: 80%
 }
 
 .projets h1 {
@@ -55,7 +55,8 @@ a:hover {
 }
 
 .projets h2 {
-    font-size: 2.2em;
+    /* font-size: 2.2em; */
+    font-size: 3vh;
     font-family: 'Times New Roman', serif;
 }
 
@@ -70,7 +71,7 @@ a:hover {
 .about {
     display: block;
     position: absolute;
-    bottom: 20%;
+    bottom: 5%;
     left: 2.4em
 }
 
