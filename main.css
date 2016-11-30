@@ -79,3 +79,49 @@ a:hover {
     font-size: 1em;
     margin-bottom: 1em
 }
+
+.footer {
+    display:flex;
+    padding: 0.5em;
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+}
+.footer p {
+    align-content: center;
+    padding: 0.5em;
+    font-size: 0.5em;
+}
+
+.legal {
+    display: block;
+    position: absolute;
+    left: 2.4em;
+    top: 2.4em;
+    width: 80%
+}
+
+.legal p {
+    font-size: 0.7em;
+}
+
+.legal h1 {
+    font-size: 0.8em;
+    color: #ffc600;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.legal h2 {
+    /* font-size: 2.2em; */
+    font-size: 3vh;
+    font-family: 'Times New Roman', serif;
+}
+
+.legal a {
+	border-bottom: 1px solid #ffefff;
+}
+
+.legal a:hover {
+	border-bottom: none;
+}
