@@ -1,32 +1,35 @@
+//Misc Vars
 var NUM_PARTICLES = 750;
-
+var xVal = 0;
+var yVal = 0;
+var mDown = false;
 var ppp = null;
 
+//Setup 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
+  xVal = random(windowWidth);
+  yVal = random(windowHeight);
   ppp = new particleSys();
-  
   strokeWeight(1);
-  //stroke(255, 255, 255, 10);
   background(4,14,21);   
   smooth();
 }
 
-
+//Vector Stand In
 function uVec() {
   this.x = 0;
   this.y = 0;
-}
-uVec.prototype.add = function(vec) {
-  this.x += vec.x;
-  this.y += vec.y;
   this.r = 255;
   this.g = 255;
   this.b = 255;
 }
+uVec.prototype.add = function(vec) {
+  this.x += vec.x;
+  this.y += vec.y;
+}
 
-
+//Particle
 function particleObj() {
   this.position = new uVec();
   this.position.x = random(windowWidth);
@@ -34,8 +37,8 @@ function particleObj() {
   this.velocity = new uVec();
 }
 particleObj.prototype.update = function () {
-    this.velocity.x = 10 * ( noise( mouseX*1000 + this.position.y / 100 ) - 0.5);
-    this.velocity.y = 45 * ( noise( mouseY*1000 + this.position.x / 100 ) - 0.5);
+    this.velocity.x = 10 * ( noise( xVal * 1000 + this.position.y / 100 ) - 0.5);
+    this.velocity.y = 45 * ( noise( yVal * 1000 + this.position.x / 100 ) - 0.5);
     this.position.add(this.velocity);
     
     if(this.position.x < 0) this.position.x += windowWidth;
@@ -44,11 +47,16 @@ particleObj.prototype.update = function () {
     if(this.position.y > windowHeight) this.position.y -= windowHeight;
 }
 particleObj.prototype.render = function() {
-  stroke(this.r, this.g, this.b);
-  line(this.position.x, this.position.y, this.position.x - this.velocity.x, this.position.y - this.velocity.y);
+  if (mDown) {
+    fill(this.r, this.g, this.b)
+    ellipse(this.position.x, this.position.y, 2, 2);
+  }else{
+    stroke(this.r, this.g, this.b);
+    line(this.position.x, this.position.y, this.position.x - this.velocity.x, this.position.y - this.velocity.y);
+  }
 }
 
-
+//Particle System
 function particleSys() {
   this.particles = [];
   for(var i = 0; i < NUM_PARTICLES; i++) {
@@ -81,14 +89,13 @@ particleSys.prototype.render = function() {
   }
 }
 particleSys.prototype.reset = function () {
-
-
+  for (var i = 0; i < NUM_PARTICLES; i++) {
+    this.particles[i].position.x = random(windowWidth);
+    this.particles[i].position.y = random(windowHeight);
+  }
 }
 
-
-
-
-
+//P5 Stuff
 function draw() {
   noStroke();
   //ll("#040e15");
@@ -97,10 +104,23 @@ function draw() {
   ppp.update();
   ppp.render();
 }
-
+function mouseMoved() {
+  xVal = mouseX;
+  yVal = mouseY;
+}
+function touchMoved() {
+  xVal = mouseX;
+  yVal = mouseY;  
+}
+function mousePressed() { 
+  background("#040e15"); 
+  mDown = true; 
+}
+function mouseReleased() { mDown = false; }
 function windowResized() {
   background("#040e15");   
   resizeCanvas(windowWidth, windowHeight);
+  ppp.reset();
 }
 
 function onHoverEnter() { };
