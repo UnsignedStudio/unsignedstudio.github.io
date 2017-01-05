@@ -68,6 +68,34 @@ a:hover {
 	border-bottom: none;
 }
 
+.projectsDark {
+    display: block;
+    position: absolute;
+    left: 2.4em;
+    top: 2.4em;
+    width: 80%
+}
+
+.projectsDark h1 {
+    font-size: 1.2em;
+    color: #211F21;
+    margin-bottom: 2em;   
+}
+
+.projectsDark h2 {
+    /* font-size: 2.2em; */
+    font-size: 3vh;
+    font-family: 'Times New Roman', serif;
+}
+
+.projectsDark a {
+    border-bottom: 1px solid #ffefff;
+}
+
+.projectsDark a:hover {
+    border-bottom: none;
+}
+
 .about {
     display: block;
     position: absolute;
