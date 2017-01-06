@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
+
+.row {
+  margin-bottom: 2em;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+}
+
+.full-width {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-padding {
+  padding-top: 0;
+}
+
+@media (min-width: 768px ) {
+  .full-row {
+    position: relative;
+  }
+
+  .bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.extra-padding {
+  padding-left: 6em;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.centre {
+  text-align: center;
+}
+
+body {
+  background-color: #0C1217;
+  color: white;
+  font-family: 'Anonymous Pro', monospace;
+}
+
+.nav, .navbar {
+  background-color: #0C1217;
+  border: none;
+}
+
+.navbar {
+  padding-bottom: 4em;
+}
