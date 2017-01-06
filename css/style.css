@@ -15,7 +15,7 @@
   padding-top: 0;
 }
 
-@media (min-width: 768px ) {
+@media (min-width: 768px) {
   .full-row {
     position: relative;
   }
@@ -27,8 +27,10 @@
   }
 }
 
-.extra-padding {
-  padding-left: 6em;
+@media (min-width: 992px) {
+  .extra-padding {
+    padding-left: 5%;
+  }
 }
 
 .container-fluid {
@@ -48,8 +50,4 @@ body {
 .nav, .navbar {
   background-color: #0C1217;
   border: none;
-}
-
-.navbar {
-  padding-bottom: 4em;
 }
