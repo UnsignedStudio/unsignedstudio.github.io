@@ -43,8 +43,16 @@ body {
   border: none;
 }
 
+.navbar-inverse .navbar-header a,
+.navbar-inverse .navbar-nav li a
+{
+  color: white;
+}
+
 @media (min-width: 768px) {
-  .navbar-inverse .navbar-nav>li>a:hover:before {
+  .navbar-inverse .navbar-nav>li>a:hover:before,
+  .navbar-inverse .navbar-nav>li>a.active:before
+  {
     content: ' ';
     position: absolute;
     top: 50%;
@@ -87,6 +95,6 @@ body {
   font-weight: bold;
 }
 
-.white-link, .white-link:hover {
+.white-link, .white-link:hover, .white-link:link {
   color: white;
 }
