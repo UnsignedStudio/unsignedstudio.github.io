@@ -11,30 +11,20 @@
   padding-right: 0;
 }
 
-.no-padding {
+#navbar-logo {
   padding-top: 0;
-}
-
-@media (min-width: 768px) {
-  .full-row {
-    position: relative;
-  }
-
-  .bottom-align-text {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
 }
 
 @media (min-width: 992px) {
   .extra-padding {
-    padding-left: 5%;
+    padding-left: 4%;
   }
 }
 
-.container-fluid {
-  width: 100%;
+@media (max-width: 768px) {
+  .collapsed-col {
+    padding-top: 2em;
+  }
 }
 
 .centre {
@@ -45,9 +35,58 @@ body {
   background-color: #0C1217;
   color: white;
   font-family: 'Anonymous Pro', monospace;
+  padding-top: 60px;
 }
 
 .nav, .navbar {
   background-color: #0C1217;
   border: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-inverse .navbar-nav>li>a:hover:before {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    right: 13px;
+    margin-top: 9px;
+    height: 2px;
+    background-color: #DCB128;
+    opacity: 1
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  #address {
+    margin-top: 9em;
+  }
+  
+  #heading {
+    margin-top: 14em;
+  }
+  
+  #footer {
+    position: absolute;
+    bottom: 1em;
+    right: 0;
+    left: 0;
+  }
+}
+
+#heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.white-link, .white-link:hover {
+  color: white;
 }
