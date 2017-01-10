@@ -1,11 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
 
 .row {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   padding-left: 2.5%;
   padding-right: 2.5%;
 }
 
+/* full width images that fill entire screen */
 .full-width {
   padding-left: 0;
   padding-right: 0;
@@ -15,6 +16,7 @@
   padding-top: 0;
 }
 
+/* left padding for right-side columns in case studies */
 @media (min-width: 992px) {
   .extra-padding {
     padding-left: 4%;
@@ -50,6 +52,7 @@ body {
 }
 
 @media (min-width: 768px) {
+  /* navbar yellow underline */
   .navbar-inverse .navbar-nav>li>a:hover:before,
   .navbar-inverse .navbar-nav>li>a.active:before
   {
@@ -64,24 +67,29 @@ body {
     opacity: 1
   }
   
+  /* case study 'focus' */
   .relative {
     position: relative;
   }
   
+  /* case study 'focus' */
   .bottom-align-text {
     position: absolute;
     bottom: 0;
     right: 0;
   }
   
+  /* about page */
   #address {
     margin-top: 9em;
   }
   
+  /* about page */
   #heading {
     margin-top: 14em;
   }
   
+  /* about page */
   #footer {
     position: absolute;
     bottom: 1em;
@@ -90,11 +98,13 @@ body {
   }
 }
 
+/* about page */
 #heading {
   font-size: 20px;
   font-weight: bold;
 }
 
+/* navbar links */
 .white-link, .white-link:hover, .white-link:link {
   color: white;
 }
