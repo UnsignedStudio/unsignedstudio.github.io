@@ -1,0 +1,51 @@
+extends head
+block body
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a#navbar-logo.navbar-brand(href='index.html')
+          img(src='images/logo_white.png', alt='Unsigned Studio Logo', width='50')
+        a.navbar-brand(href='index.html') Unsigned Studio
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='casestudy.html') Projects
+          li
+            a(href='experiments.html') Experiments
+          li
+            a.active(href='about.html') About
+      // /.navbar-collapse
+    // /.container-fluid
+  .container-fluid
+    .row
+      .col-xs-12
+        h1#heading
+          | We are a technology-first creative studio. 
+          br
+          |  We design and build solutions for the physical world, for use on devices and for the web
+        address#address
+          | Unsigned Studio Pty Ltd
+          br
+          | 11 46-50 Regent St
+          br
+          | Richmond VIC 3121
+        p
+          | (03) 8560 1604
+        p
+          a.white-link(href='mailto:info@unsignedstudio.io') info@unsignedstudio.io
+        p
+          a.white-link(href='legal.html') Legal
+    .row
+      #footer.col-xs-12
+        include footer
+  // jQuery (necessary for Bootstrap's JavaScript plugins)
+  script(src='js/jquery.min.js')
+  // Include all compiled plugins (below), or include individual files as needed
+  script(src='js/bootstrap.min.js')

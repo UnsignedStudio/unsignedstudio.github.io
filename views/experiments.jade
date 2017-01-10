@@ -1,0 +1,50 @@
+extends head
+block body
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a#navbar-logo.navbar-brand(href='index.html')
+          img(src='images/logo_white.png', alt='Unsigned Studio Logo', width='50')
+        a.navbar-brand(href='index.html') Unsigned Studio
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='casestudy.html') Projects
+          li
+            a.active(href='experiments.html') Experiments
+          li
+            a(href='about.html') About
+      // /.navbar-collapse
+    // /.container-fluid
+  .container-fluid
+    .row
+      .col-xs-12
+        img(src='images/MT_World.jpg', width='100%', alt='MT World')
+    .row
+      .col-md-3.col-sm-6
+        h1 EXPERIMENT 001
+        p EXPERIMENT NAME
+          br
+          |           2017
+        p David Mackenzie
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      .col-md-3.col-sm-6.collapsed-col
+        img(src='images/MT_World.jpg', width='100%')
+      .col-md-3.col-sm-6.collapsed-col
+        img(src='images/MT_World.jpg', width='100%')
+      .col-md-3.col-sm-6.collapsed-col
+        img(src='images/MT_World.jpg', width='100%')
+    .row
+      .col-xs-12
+        include footer
+  // jQuery (necessary for Bootstrap's JavaScript plugins)
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  // Include all compiled plugins (below), or include individual files as needed
+  script(src='js/bootstrap.min.js')
