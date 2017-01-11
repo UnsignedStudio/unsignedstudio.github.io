@@ -60,7 +60,6 @@
     margin-top: 9em;
   }
   
-  /* about page */
   #heading {
     margin-top: 14em;
     font-size: 20px;
@@ -70,12 +69,12 @@
     position: relative;
     overflow: hidden;
     height: 500px;
+    margin-left:-31.25%;
   }
   
   .parallax img {
     position: absolute;
-    z-index: 1;
-    width: 2000px;
+    width: 125%;
   }
 
   .after-parallax {
