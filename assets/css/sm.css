@@ -1,5 +1,5 @@
 /* small-large */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   /* navbar yellow underline */
   .navbar-inverse .navbar-nav>li>a:hover:before,
   .navbar-inverse .navbar-nav>li>a.active:before
@@ -21,7 +21,7 @@
 
   .img-holder h1, .img-holder p {
     position: absolute;
-    left: 50px;
+    left: 65px;
   }
 
   .img-holder h1 {
@@ -30,6 +30,17 @@
 
   .img-holder p {
     bottom: 150px;
+  }
+  
+  /* small screen */
+  @media screen and (max-width: 991px) {
+    .img-holder h1 {
+      bottom: 140px;
+    }
+
+    .img-holder p {
+      bottom: 85px;
+    }
   }
   
   /* case study 'focus' */

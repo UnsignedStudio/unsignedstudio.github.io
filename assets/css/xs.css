@@ -26,6 +26,7 @@
 
   .img-holder p {
     bottom: 70px;
+    right: 50px;
   }
   
   /* columns that have collapsed after resizing */
@@ -42,15 +43,15 @@
   #address {
     margin-top: 2.5em;
   }
-  
-  .parallax {
-    visibility: hidden;
-    display: none;
-  }
-    
+        
   @media screen and (max-height: 500px) {
     #footer {
       position: relative;
     }
+  }
+  
+  .parallax {
+    visibility: hidden;
+    display: none;
   }
 }
