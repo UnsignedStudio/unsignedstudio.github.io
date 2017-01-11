@@ -1,15 +1,12 @@
 extends layout
 block links
-  li
-    a(href='casestudy.html') Projects
-  li
-    a.active(href='experiments.html') Experiments
-  li
-    a(href='about.html') About
+  li: a(href='casestudy.html') Projects
+  li: a.active(href='experiments.html') Experiments
+  li: a(href='about.html') About
 block content
-  .row
-    .col-xs-12
-      img(src='images/MT_World.jpg', width='100%', alt='MT World')
+  .row.full-width
+    .col-xs-12.full-width
+      img(src='images/MT_World.jpg', width='100%', alt='MT World', height="600px")
   .row
     .col-md-3.col-sm-6
       h1 EXPERIMENT 001
@@ -18,11 +15,11 @@ block content
         | 2017
       p David Mackenzie
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    .col-md-3.col-sm-6.collapsed-col
+    .col-md-3.col-sm-6.collapsed-col-sm
       img(src='images/MT_World.jpg', width='100%')
-    .col-md-3.col-sm-6.collapsed-col
+    .col-md-3.col-sm-6.collapsed-col-sm
       img(src='images/MT_World.jpg', width='100%')
-    .col-md-3.col-sm-6.collapsed-col
+    .col-md-3.col-sm-6.collapsed-col-sm
       img(src='images/MT_World.jpg', width='100%')
   .row
     .col-xs-12
