@@ -8,11 +8,9 @@ block links
     a(href='about.html') About
 block content
   .row
-    .col-xs-12
-      video
-  .row
     .col-sm-8
-      img(src='images/MT_World.jpg', width='100%', alt='Project Image')
+      video(autoplay='', muted='', loop='', width='100%')
+        source(src= 'https://videos.contentful.com/kmps1y0lcdmf/eNpZSYILpmOMWAIM6uaiS/b0986de5ec9bbf70f3dfc2c5153c760a/Unsigned-MT_Teaser_1.mp4', type='video/mp4')
     .col-sm-4.extra-padding.collapsed-col
       p Project Name
       p
@@ -30,10 +28,11 @@ block content
       h2 Focus
       p
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.
-  .row.full-width
+  .row.full-width.parallax(style= "background-image: url('../images/MT_World.jpg');")
+  .row#alt-parallax
     .col-xs-12
       img(src='images/MT_World.jpg', alt='Project Image', width='100%')
-  .row
+  .row.after-parallax
     .col-sm-8
       | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.
   .row.relative
