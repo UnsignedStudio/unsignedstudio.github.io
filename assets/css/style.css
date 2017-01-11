@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
 
 .row {
-  margin-bottom: 3em;
+  padding-bottom: 3em;
   padding-left: 2.5%;
   padding-right: 2.5%;
+  background-color: #0C1217;
 }
 
 /* full width images that fill entire screen */
@@ -23,6 +24,7 @@
   }
 }
 
+/* columns that have collapsed after resizing */
 @media (max-width: 768px) {
   .collapsed-col {
     padding-top: 2em;
@@ -51,6 +53,7 @@ body {
   color: white;
 }
 
+/* small-large */
 @media (min-width: 768px) {
   /* navbar yellow underline */
   .navbar-inverse .navbar-nav>li>a:hover:before,
@@ -75,7 +78,7 @@ body {
   /* case study 'focus' */
   .bottom-align-text {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     right: 0;
   }
   
@@ -87,24 +90,62 @@ body {
   /* about page */
   #heading {
     margin-top: 14em;
+    font-size: 20px;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  /* about page */
+  #heading {
+    font-size: 16px;
   }
   
-  /* about page */
-  #footer {
-    position: absolute;
-    bottom: 1em;
-    right: 0;
-    left: 0;
+  #address {
+    margin-top: 2em;
   }
+}
+
+#footer {
+  position: absolute;
+  bottom: 1em;
+  right: 0;
+  left: 0;
 }
 
 /* about page */
 #heading {
-  font-size: 20px;
   font-weight: bold;
 }
 
 /* navbar links */
 .white-link, .white-link:hover, .white-link:link {
   color: white;
+}
+
+.parallax-container {
+  height: 800px;
+  position: relative;
+  background-color: transparent;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../images/MT_World.jpg");
+
+  height: 1000px;
+  
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.after-parallax {
+  padding-top: 3em;
 }

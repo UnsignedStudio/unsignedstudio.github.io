@@ -44,20 +44,19 @@ block body
         h2 Focus
         p
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.
-    .row.full-width
-      .col-xs-12
-        img(src='images/MT_World.jpg', alt='Project Image', width='100%')
-    .row
+    .row.full-width.parallax-container
+      .parallax
+    .row.after-parallax
       .col-sm-8
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.
     .row
-      .col-sm-3.col-xs-6
+      .col-sm-3.col-xs-6.collapsed-col
         img(src='images/MT_World.jpg', alt='Project Image', width='100%')
-      .col-sm-3.col-xs-6
+      .col-sm-3.col-xs-6.collapsed-col
         img(src='images/MT_World.jpg', alt='Project Image', width='100%')
-      .col-sm-3.col-xs-6
+      .col-sm-3.col-xs-6.collapsed-col
         img(src='images/MT_World.jpg', alt='Project Image', width='100%')
-      .col-sm-3.col-xs-6
+      .col-sm-3.col-xs-6.collapsed-col
         img(src='images/MT_World.jpg', alt='Project Image', width='100%')
     .row
       .col-xs-4
@@ -86,3 +85,4 @@ block body
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
   // Include all compiled plugins (below), or include individual files as needed
   script(src='js/bootstrap.min.js')
+  script(src='js/parallax.js')
