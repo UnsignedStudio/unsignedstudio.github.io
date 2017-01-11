@@ -1,5 +1,33 @@
 /* mobile */
 @media screen and (max-width: 768px) {
+  .img-holder {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+  }
+
+  .img-holder img {
+    position: absolute;
+    z-index: -1;
+    width: 1000px;
+    height: inherit;
+    margin-left: -250px;
+    margin-right: -250px;
+  }
+
+  .img-holder h1, .img-holder p {
+    position: absolute;
+    left: 50px;
+  }
+
+  .img-holder h1 {
+    bottom: 140px;
+  }
+
+  .img-holder p {
+    bottom: 70px;
+  }
+  
   /* columns that have collapsed after resizing */
   .collapsed-col {
     padding-top: 2em;

@@ -73,29 +73,9 @@ body {
 }
 
   
-@media screen and (max-width: 991px) {
-  /* columns that have collapsed after resizing */
-  .collapsed-col-sm {
-    padding-top: 2em;
+  @media screen and (max-width: 991px) {
+    /* columns that have collapsed after resizing */
+    .collapsed-col-sm {
+      padding-top: 2em;
   }
-}
-
-.img-holder {
-  position: relative;
-}
-
-.img-holder img {
-  height: 1080px;
-}
-
-.img-holder h1 {
-    position: absolute;
-    left: 50px;
-    bottom: 200px;
-  }
-
-.img-holder p {
-  position: absolute;
-  left: 50px;
-  bottom: 145px;
 }

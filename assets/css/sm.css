@@ -15,6 +15,23 @@
     opacity: 1
   }
   
+  .img-holder {
+    position: relative;
+  }
+
+  .img-holder h1, .img-holder p {
+    position: absolute;
+    left: 50px;
+  }
+
+  .img-holder h1 {
+    bottom: 200px;
+  }
+
+  .img-holder p {
+    bottom: 150px;
+  }
+  
   /* case study 'focus' */
   .relative {
     position: relative;
