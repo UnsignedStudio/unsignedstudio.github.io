@@ -65,13 +65,17 @@
     margin-top: 14em;
     font-size: 20px;
   }
-
+  
   .parallax {
-    height: 600px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+  }
+  
+  .parallax img {
+    position: absolute;
+    z-index: 1;
+    width: 2000px;
   }
 
   .after-parallax {

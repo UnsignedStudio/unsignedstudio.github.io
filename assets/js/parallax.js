@@ -1,6 +1,6 @@
-var parallaxElements = $('.parallax'),
+var parallaxElements = $('.parallax-img'),
     parallaxQuantity = parallaxElements.length;
-var buffer = 150;
+var buffer = -700;
 
 $(window).on('scroll', function ()
 {
@@ -9,10 +9,11 @@ $(window).on('scroll', function ()
     for (var i = 0; i < parallaxQuantity; i++)
     {
       var currentElement = parallaxElements.eq(i);
-      var scrolled = buffer + $(window).scrollTop() * -0.15 + 'px';
+      var scrolled = buffer + $(window).scrollTop() * 0.4 + 'px';
+      console.log(scrolled);
 
       currentElement.css({
-        'transform': 'translate3d(0,' + scrolled + ', 0)'
+        'margin-top': scrolled
       });
     }
   });
