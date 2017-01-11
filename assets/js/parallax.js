@@ -1,5 +1,6 @@
 var parallaxElements = $('.parallax'),
     parallaxQuantity = parallaxElements.length;
+var buffer = 170;
 
 $(window).on('scroll', function ()
 {
@@ -8,10 +9,10 @@ $(window).on('scroll', function ()
     for (var i = 0; i < parallaxQuantity; i++)
     {
       var currentElement = parallaxElements.eq(i);
-      var scrolled = $(window).scrollTop();
+      var scrolled = buffer + $(window).scrollTop() * -0.15 + 'px';
 
       currentElement.css({
-        'transform': 'translate3d(0,' + scrolled * -0.1 + 'px, 0)'
+        'transform': 'translate3d(0,' + scrolled + ', 0)'
       });
     }
   });
