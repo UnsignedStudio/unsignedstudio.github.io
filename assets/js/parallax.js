@@ -1,6 +1,6 @@
 var parallaxElements = $('.parallax'),
     parallaxQuantity = parallaxElements.length;
-var buffer = 170;
+var buffer = 150;
 
 $(window).on('scroll', function ()
 {

@@ -24,13 +24,6 @@
   }
 }
 
-/* columns that have collapsed after resizing */
-@media (max-width: 768px) {
-  .collapsed-col {
-    padding-top: 2em;
-  }
-}
-
 .centre {
   text-align: center;
 }
@@ -48,9 +41,15 @@ body {
 }
 
 .navbar-inverse .navbar-header a,
-.navbar-inverse .navbar-nav li a
-{
+.navbar-inverse .navbar-nav li a {
   color: white;
+}
+
+#footer {
+  position: absolute;
+  bottom: 1em;
+  right: 0;
+  left: 0;
 }
 
 /* small-large */
@@ -92,10 +91,50 @@ body {
     margin-top: 14em;
     font-size: 20px;
   }
+  
+  .parallax-container {
+    height: 400px;
+    position: relative;
+    background-color: transparent;
+  }
+
+  .parallax {
+    /* The image used */
+    background-image: url("../images/MT_World.jpg");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .after-parallax {
+    padding-top: 3em;
+  }
+  
+  #alt-parallax {
+    visibility: hidden;
+    display: none;
+  }
+  
+  @media (max-height: 790px) {
+    #footer {
+      position: relative;
+    }
+  }
 }
 
 /* mobile */
 @media (max-width: 768px) {
+  /* columns that have collapsed after resizing */
+  .collapsed-col {
+    padding-top: 2em;
+  }
+  
   /* about page */
   #heading {
     font-size: 16px;
@@ -105,14 +144,19 @@ body {
   #address {
     margin-top: 2em;
   }
+  
+  .parallax {
+    visibility: hidden;
+    display: none;
+  }
+    
+  @media (max-height: 500px) {
+    #footer {
+      position: relative;
+    }
+  }
 }
 
-#footer {
-  position: absolute;
-  bottom: 1em;
-  right: 0;
-  left: 0;
-}
 
 /* about page */
 #heading {
@@ -122,31 +166,4 @@ body {
 /* navbar links */
 .white-link, .white-link:hover, .white-link:link {
   color: white;
-}
-
-.parallax-container {
-  height: 800px;
-  position: relative;
-  background-color: transparent;
-}
-
-.parallax {
-  /* The image used */
-  background-image: url("../images/MT_World.jpg");
-
-  height: 1000px;
-  
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.after-parallax {
-  padding-top: 3em;
 }
