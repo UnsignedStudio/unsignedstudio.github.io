@@ -1,5 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
 
+body {
+  background-color: #0C1217;
+  color: white;
+  font-family: 'Anonymous Pro', monospace;
+  padding-top: 60px;
+}
+
+.nav, .navbar {
+  background-color: #0C1217;
+  border: none;
+}
+
+.navbar-inverse .navbar-header a,
+.navbar-inverse .navbar-nav li a {
+  color: white;
+}
+
 .row {
   padding-bottom: 3em;
   padding-left: 2.5%;
@@ -28,129 +45,12 @@
   text-align: center;
 }
 
-body {
-  background-color: #0C1217;
-  color: white;
-  font-family: 'Anonymous Pro', monospace;
-  padding-top: 60px;
-}
-
-.nav, .navbar {
-  background-color: #0C1217;
-  border: none;
-}
-
-.navbar-inverse .navbar-header a,
-.navbar-inverse .navbar-nav li a {
-  color: white;
-}
-
 #footer {
   position: absolute;
   bottom: 1em;
   right: 0;
   left: 0;
 }
-
-/* small-large */
-@media (min-width: 768px) {
-  /* navbar yellow underline */
-  .navbar-inverse .navbar-nav>li>a:hover:before,
-  .navbar-inverse .navbar-nav>li>a.active:before
-  {
-    content: ' ';
-    position: absolute;
-    top: 50%;
-    left: 11px;
-    right: 13px;
-    margin-top: 9px;
-    height: 2px;
-    background-color: #DCB128;
-    opacity: 1
-  }
-  
-  /* case study 'focus' */
-  .relative {
-    position: relative;
-  }
-  
-  /* case study 'focus' */
-  .bottom-align-text {
-    position: absolute;
-    bottom: 30px;
-    right: 0;
-  }
-  
-  /* about page */
-  #address {
-    margin-top: 9em;
-  }
-  
-  /* about page */
-  #heading {
-    margin-top: 14em;
-    font-size: 20px;
-  }
-  
-  .parallax-container {
-    height: 400px;
-    position: relative;
-    background-color: transparent;
-  }
-
-  .parallax {
-    height: 500px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .after-parallax {
-    padding-top: 3em;
-  }
-  
-  #alt-parallax {
-    visibility: hidden;
-    display: none;
-  }
-  
-  @media (max-height: 790px) {
-    #footer {
-      position: relative;
-    }
-  }
-}
-
-/* mobile */
-@media (max-width: 768px) {
-  /* columns that have collapsed after resizing */
-  .collapsed-col {
-    padding-top: 2em;
-  }
-  
-  /* about page */
-  #heading {
-    font-size: 16px;
-    margin-top: 4em;
-  }
-  
-  #address {
-    margin-top: 2em;
-  }
-  
-  .parallax {
-    visibility: hidden;
-    display: none;
-  }
-    
-  @media (max-height: 500px) {
-    #footer {
-      position: relative;
-    }
-  }
-}
-
 
 /* about page */
 #heading {

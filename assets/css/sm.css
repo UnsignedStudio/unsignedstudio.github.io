@@ -1,0 +1,63 @@
+/* small-large */
+@media (min-width: 768px) {
+  /* navbar yellow underline */
+  .navbar-inverse .navbar-nav>li>a:hover:before,
+  .navbar-inverse .navbar-nav>li>a.active:before
+  {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 11px;
+    right: 13px;
+    margin-top: 9px;
+    height: 2px;
+    background-color: #DCB128;
+    opacity: 1
+  }
+  
+  /* case study 'focus' */
+  .relative {
+    position: relative;
+  }
+  
+  /* case study 'focus' */
+  .bottom-align-text {
+    position: absolute;
+    bottom: 2em;
+    right: 0;
+  }
+  
+  /* about page */
+  #address {
+    margin-top: 9em;
+  }
+  
+  /* about page */
+  #heading {
+    margin-top: 14em;
+    font-size: 20px;
+  }
+
+  .parallax {
+    height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .after-parallax {
+    padding-top: 3em;
+  }
+  
+  #alt-parallax {
+    visibility: hidden;
+    display: none;
+  }
+  
+  @media (max-height: 790px) {
+    #footer {
+      position: relative;
+    }
+  }
+}
