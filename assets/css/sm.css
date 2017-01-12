@@ -69,12 +69,12 @@
     position: relative;
     overflow: hidden;
     height: 500px;
-    margin-left:-31.25%;
   }
   
   .parallax img {
     position: absolute;
-    width: 125%;
+    width: 150%;
+    margin-left: -25%
   }
 
   .after-parallax {

@@ -1,6 +1,5 @@
 var parallaxElements = $('.parallax-img'),
     parallaxQuantity = parallaxElements.length;
-var buffer = -40;
 
 $(window).on('scroll', function ()
 {
@@ -9,8 +8,8 @@ $(window).on('scroll', function ()
     for (var i = 0; i < parallaxQuantity; i++)
     {
       var currentElement = parallaxElements.eq(i);
-      var scrolled = buffer + $(window).scrollTop() * 0.025 + '%';
-      console.log(scrolled);
+      var height = currentElement.height();
+      var scrolled = height * -0.4 + $(window).scrollTop() * 0.3 + 'px';
 
       currentElement.css({
         'margin-top': scrolled
