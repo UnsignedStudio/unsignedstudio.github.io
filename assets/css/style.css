@@ -71,7 +71,6 @@ body {
 .white-link, .white-link:hover, .white-link:link {
   color: white;
 }
-
   
   @media screen and (max-width: 991px) {
     /* columns that have collapsed after resizing */
