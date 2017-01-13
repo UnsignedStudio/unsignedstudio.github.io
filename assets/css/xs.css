@@ -50,7 +50,8 @@
     }
   }
   
-  .parallax {
+  .parallax,
+  .parallax-row {
     visibility: hidden;
     display: none;
   }
