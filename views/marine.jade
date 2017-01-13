@@ -46,27 +46,25 @@ block content
       img(src='images/blockchain/small4.png', alt='Project Image', width='100%')
   .row
     .col-sm-4.collapsed-col
-      video(autoplay='', muted='', loop='', width='100%')
+      video.video-scroll(preload='auto', muted='', loop='', width='100%')
         source(src= 'videos/LA_10S.mp4')
     .col-sm-4.collapsed-col
-      video(autoplay='', muted='', loop='', width='100%')
-        source(src= 'videos/WORLD_10S.mp4')
-    .col-sm-4.collapsed-col
-      video(autoplay='', muted='', loop='', width='100%')
+      video.video-scroll(preload='auto', muted='', loop='', width='100%')
         source(src= 'videos/SINGAPORE_10S.mp4')
+    .col-sm-4.collapsed-col
+      video.video-scroll(preload='auto', muted='', loop='', width='100%')
+        source(src= 'videos/WORLD_10S.mp4')
   .row
+    .col-sm-2.col-sm-offset-1.col-xs-4.centre.collapsed-col
+      | Marine Traffic
     .col-sm-2.col-xs-4.centre.collapsed-col
-      a.white-link(href='#') Project A
-    .col-sm-2.col-xs-4.centre.collapsed-col
-      a.white-link(href='#') Project B
+      a.white-link(href='blockchain.html') Blockchain
     .col-sm-2.col-xs-4.centre.collapsed-col
       a.white-link(href='#') Project C
-    .col-sm-2.col-xs-4.centre.collapsed-col
+    .col-sm-2.col-xs-6.centre.collapsed-col
       a.white-link(href='#') Project D
-    .col-sm-2.col-xs-4.centre.collapsed-col
+    .col-sm-2.col-xs-6.centre.collapsed-col
       a.white-link(href='#') Project E
-    .col-sm-2.col-xs-4.centre.collapsed-col
-      a.white-link(href='#') Project F
   .row
     .col-xs-12
       include footer

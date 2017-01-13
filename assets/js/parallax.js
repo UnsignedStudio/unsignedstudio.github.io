@@ -3,6 +3,15 @@ var parallaxElements = $('.parallax-img'),
 
 $(window).on('scroll', function ()
 {
+  parallax();
+});
+
+$(window).on('resize', function ()
+{
+  parallax();
+});
+
+function parallax() {
   window.requestAnimationFrame(function ()
   {
     for (var i = 0; i < parallaxQuantity; i++)
@@ -15,5 +24,6 @@ $(window).on('scroll', function ()
         'margin-top': scrolled
       });
     }
+    console.log(true);
   });
-});
+}
