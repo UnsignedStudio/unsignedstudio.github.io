@@ -6,10 +6,6 @@ block links
 block content
   .row.full-width
     .col-xs-12#canvas-parent
-      
-    script(src= 'js/p5.min.js')
-    script(src= 'js/p5.dom.min.js')
-    script(src= 'js/bg_dec.js')
   .row
     .col-md-3.col-sm-6
       h1 EXPERIMENT 001
@@ -17,12 +13,18 @@ block content
       p David Mackenzie
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/marine/MT_World.jpg', width='100%')
+      img.grow(src='images/experiments/Lines.jpg', width='100%')
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/marine/MT_World.jpg', width='100%')
+      img.grow(src='images/experiments/Spiral.jpg', width='100%')
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/marine/MT_World.jpg', width='100%')
+      img.grow(src='images/experiments/Yellow.jpg', width='100%')
   .row
     .col-xs-12
       include footer
-      
+
+block scripts
+  script(src= 'js/p5.min.js')
+  script(src= 'js/p5.dom.min.js')
+  script(src= 'js/bg_jan.js')
+  script(src= 'js/bg_oct.js')
+  script(src= 'js/bg_dec.js')

@@ -1,5 +1,5 @@
-var parallaxElements = $('.parallax-img'),
-    parallaxQuantity = parallaxElements.length;
+var parallaxElements = $('.parallax-img');
+var parallaxQuantity = parallaxElements.length;
 
 $(window).on('scroll', function ()
 {
