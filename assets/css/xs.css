@@ -29,6 +29,12 @@
     right: 50px;
   }
   
+  .img-holder a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
   /* columns that have collapsed after resizing */
   .collapsed-col {
     padding-top: 2em;

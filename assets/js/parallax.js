@@ -24,6 +24,5 @@ function parallax() {
         'margin-top': scrolled
       });
     }
-    console.log(true);
   });
 }

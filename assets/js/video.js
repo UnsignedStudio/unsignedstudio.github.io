@@ -2,7 +2,7 @@ $(document).ready(function()
 {
   // Get media - with autoplay disabled (audio or video)
   var media = $('video').not("[autoplay='autoplay']");
-  var tolerancePixel = 150;
+  var tolerancePixel = 80;
 
   function checkMedia()
   {
