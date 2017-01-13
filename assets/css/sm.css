@@ -51,7 +51,7 @@
   /* case study 'focus' */
   .bottom-align-text {
     position: absolute;
-    bottom: 2em;
+    bottom: 0;
     right: 0;
   }
   

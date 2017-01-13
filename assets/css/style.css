@@ -7,6 +7,10 @@ body {
   padding-top: 60px;
 }
 
+p, span, .large-font {
+  font-size: 16px;
+}
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -28,16 +32,16 @@ body {
 }
 
 .row {
-  padding-bottom: 3em;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
+  margin-bottom: 3em;
+  margin-left: 3%;
+  margin-right: 3%;
   background-color: #0C1217;
 }
 
 /* full width images that fill entire screen */
 .full-width {
-  padding-left: 0;
-  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #navbar-logo {
