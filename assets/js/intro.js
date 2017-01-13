@@ -105,7 +105,7 @@ lineHandlder.prototype.render = function() {
 }
 
 
-//Timing 
+//Timing
 var _d = new Date();
 var _animTime = 10;
 var _sT = (new Date()).getTime(); //Start Time

@@ -5,22 +5,24 @@ block links
   li: a(href='about.html') About
 block content
   .row.full-width
-    .col-xs-12.full-width
-      img(src='images/MT_World.jpg', width='100%', alt='MT World', height="600px")
+    .col-xs-12#canvas-parent
+      
+    script(src= 'js/p5.min.js')
+    script(src= 'js/p5.dom.min.js')
+    script(src= 'js/bg_dec.js')
   .row
     .col-md-3.col-sm-6
       h1 EXPERIMENT 001
-      p EXPERIMENT NAME
-        br
-        | 2017
+      p EXPERIMENT NAME <br /> 2017
       p David Mackenzie
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/MT_World.jpg', width='100%')
+      img(src='images/marine/MT_World.jpg', width='100%')
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/MT_World.jpg', width='100%')
+      img(src='images/marine/MT_World.jpg', width='100%')
     .col-md-3.col-sm-6.collapsed-col-sm
-      img(src='images/MT_World.jpg', width='100%')
+      img(src='images/marine/MT_World.jpg', width='100%')
   .row
     .col-xs-12
       include footer
+      
