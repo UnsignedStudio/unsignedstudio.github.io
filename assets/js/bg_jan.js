@@ -5,7 +5,7 @@ var gResolution = 128;
 var grid = [];
 
 function setup() {
-  var _ctx = createCanvas(windowWidth, 600);
+  var _ctx = createCanvas(windowWidth, 1000);
   _ctx.parent('canvas-parent');
 
   //Background Colour
@@ -89,5 +89,5 @@ function mouseReleased() { shouldFill = true; }
 function mouseMoved() { mMoved = true; }
 
 function windowResized() {
-  resizeCanvas(windowWidth, 600);
+  resizeCanvas(windowWidth, 1000);
 }

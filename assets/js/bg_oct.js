@@ -9,7 +9,7 @@ var mY = 0;
 var hasRun = false;
 
 function setup() {
-  var _cnv = createCanvas(windowWidth, 600);
+  var _cnv = createCanvas(windowWidth, 1000);
   _cnv.parent('canvas-parent');
   
   strokeWeight(1);
@@ -82,7 +82,7 @@ lnObj.prototype.draw = function () {
 }
 function windowResized() {
   background("#040e15");
-  resizeCanvas(windowWidth, 600);
+  resizeCanvas(windowWidth, 1000);
 }
 
 function onHoverEnter() { };

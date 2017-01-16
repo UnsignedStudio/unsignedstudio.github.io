@@ -5,26 +5,9 @@ block links
   li: a(href='about.html') About
 block content
   .row.full-width
-    .col-xs-12#canvas-parent
-  .row
-    .col-md-3.col-sm-6
-      h1 EXPERIMENT 001
-      p EXPERIMENT NAME <br /> 2017
-      p David Mackenzie
-      p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    .col-md-3.col-sm-6.collapsed-col-sm
-      img.grow(src='images/experiments/Lines.jpg', width='100%')
-    .col-md-3.col-sm-6.collapsed-col-sm
-      img.grow(src='images/experiments/Spiral.jpg', width='100%')
-    .col-md-3.col-sm-6.collapsed-col-sm
-      img.grow(src='images/experiments/Yellow.jpg', width='100%')
+    iframe(src= 'exp1.html')
+    iframe(src= 'exp2.html')
+    iframe(src= 'exp3.html')
   .row
     .col-xs-12
       include footer
-
-block scripts
-  script(src= 'js/p5.min.js')
-  script(src= 'js/p5.dom.min.js')
-  script(src= 'js/bg_jan.js')
-  script(src= 'js/bg_oct.js')
-  script(src= 'js/bg_dec.js')

@@ -82,10 +82,16 @@ p, span, .large-font {
 .white-link, .white-link:hover, .white-link:link {
   color: white;
 }
+
+iframe {
+  width: 100%;
+  height: 1000px;
+  border: 0;
+}
   
-  @media screen and (max-width: 991px) {
-    /* columns that have collapsed after resizing */
-    .collapsed-col-sm {
-      padding-top: 2em;
+@media screen and (max-width: 991px) {
+  /* columns that have collapsed after resizing */
+  .collapsed-col-sm {
+    padding-top: 2em;
   }
 }
