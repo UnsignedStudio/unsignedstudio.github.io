@@ -50,7 +50,7 @@
     margin-top: 2.5em;
   }
         
-  @media screen and (max-height: 500px) {
+  @media screen and (max-height: 550px) {
     #footer {
       position: relative;
     }
