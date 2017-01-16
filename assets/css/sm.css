@@ -71,8 +71,16 @@
     height: 500px;
   }
   
-  .grow { transition: all .2s ease-in-out; }
-  .grow:hover { transform: scale(1.1) }
+  .grow-holder {
+    overflow: hidden;
+  }
+  
+  .grow {
+    transition: all .4s ease-in-out;
+  }
+  .grow:hover {
+    transform: scale(1.2);
+  }
   
   .parallax img {
     position: absolute;
