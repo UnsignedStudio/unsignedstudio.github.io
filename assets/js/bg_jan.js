@@ -5,7 +5,7 @@ var gResolution = 128;
 var grid = [];
 
 function setup() {
-  var _ctx = createCanvas(windowWidth, 1000);
+  var _ctx = createCanvas(windowWidth, windowHeight);
   _ctx.parent('canvas-parent');
 
   //Background Colour

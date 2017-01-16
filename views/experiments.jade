@@ -5,9 +5,15 @@ block links
   li: a(href='about.html') About
 block content
   .row.full-width
-    iframe(src= 'exp1.html')
-    iframe(src= 'exp2.html')
-    iframe(src= 'exp3.html')
+    .scroll-snap
+      iframe(src= 'exp1.html')
+    .scroll-snap
+      iframe(src= 'exp2.html')
+    .scroll-snap
+      iframe(src= 'exp3.html')
   .row
     .col-xs-12
       include footer
+block scripts
+  script(src= 'js/jquery.scrollify.js')
+  script(src= 'js/scrollify.js')

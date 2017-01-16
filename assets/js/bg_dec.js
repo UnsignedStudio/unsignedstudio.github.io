@@ -7,7 +7,7 @@ var ppp = null;
 
 //Setup
 function setup() {
-  var _cnv = createCanvas(windowWidth, 1000);
+  var _cnv = createCanvas(windowWidth, windowHeight);
   _cnv.parent('canvas-parent');
   
   xVal = random(windowWidth);
@@ -121,7 +121,7 @@ function mousePressed() {
 function mouseReleased() { mDown = false; }
 function windowResized() {
   background("#040e15");
-  resizeCanvas(windowWidth, 1000);
+  resizeCanvas(windowWidth, windowHeight);
   ppp.reset();
 }
 

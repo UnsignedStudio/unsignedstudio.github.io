@@ -176,7 +176,7 @@ function drawMarkPoints() {
 			fill(0,0,0)
 			ellipse(_vec.x, _vec.y, 10, 10);
 		}
-	}	
+	}
 }
 
 function handleTime() { 
