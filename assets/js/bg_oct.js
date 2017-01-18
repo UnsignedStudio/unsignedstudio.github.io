@@ -10,9 +10,8 @@ var oct = function(p) {
   var hasRun = false;
 
   p.setup = function() {
-    var _cnv_oct = p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth, p.windowHeight);
     p.strokeWeight(1);
-    //stroke(255, 255, 255, 10);
     p.background("#040e15");
     p.smooth();
     for(var i = 0; i < lineCount; i++) {
@@ -61,8 +60,8 @@ var oct = function(p) {
     this.Yv = 0;
     this.pX = 0;
     this.pY = 0;
-
   }
+  
   lnObj.prototype.draw = function () {
 
       if(!p.mouseIsPressed) {
@@ -74,13 +73,13 @@ var oct = function(p) {
       this.Yv += drag * (mY - this.Y) * this.w;
       this.X += this.Xv;
       this.Y += this.Yv;
-      //stroke(255,255,255,2);
       p.line(this.X, this.Y, this.pX, this.pY);
 
       this.pX = this.X;
       this.pY = this.Y;
 
   }
+  
   p.windowResized = function() {
     p.background("#040e15");
     p.resizeCanvas(p.windowWidth, p.windowHeight);

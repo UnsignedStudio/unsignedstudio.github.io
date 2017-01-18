@@ -6,7 +6,7 @@ var jan = function(p) {
   var grid = [];
 
   p.setup = function() {
-    var _ctx = p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth, p.windowHeight);
 
     //Background Colour
     p.background(p.color(uColours.orange));

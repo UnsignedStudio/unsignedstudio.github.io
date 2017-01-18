@@ -4,13 +4,10 @@ block links
   li: a.active(href='experiments.html') Experiments
   li: a(href='about.html') About
 block content
-  .row.full-width
-    .col-xs-12.scroll-snap.canvas-parent#oct
-  .row.full-width
-    .col-xs-12.scroll-snap.canvas-parent#dec
-  .row.full-width
-    .col-xs-12.scroll-snap.canvas-parent#jan
-  .row
+  .scroll-snap.canvas-parent#oct
+  .scroll-snap.canvas-parent#dec
+  .scroll-snap.canvas-parent#jan
+  .row#experiments-footer
     .col-xs-12
       include footer
 block scripts

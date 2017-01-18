@@ -8,7 +8,7 @@ var dec = function(p) {
 
   //Setup
   p.setup = function() {
-    var _cnv_dec = p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth, p.windowHeight);
     xVal = p.random(p.windowWidth);
     yVal = p.random(p.windowHeight);
     ppp = new particleSys();
