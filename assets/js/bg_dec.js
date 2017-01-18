@@ -124,6 +124,7 @@ var dec = function(p) {
   p.windowResized = function() {
     p.background("#040e15");
     p.resizeCanvas(p.windowWidth, p.windowHeight);
+    $('#dec').height(p.windowHeight);
     ppp.reset();
   }
 }

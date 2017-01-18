@@ -84,6 +84,7 @@ var oct = function(p) {
   p.windowResized = function() {
     p.background("#040e15");
     p.resizeCanvas(p.windowWidth, p.windowHeight);
+    $('#oct').height(p.windowHeight);
   }
 }
 

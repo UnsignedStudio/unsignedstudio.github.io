@@ -17,5 +17,4 @@ $(function() {
     afterResize:function() {},
     afterRender:function() {}
   });
-  console.log('scrollify');
 });
