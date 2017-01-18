@@ -21,7 +21,9 @@ var oct = function(p) {
   }
 
   p.draw = function() {
-
+    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
+      return;
+    
     if(p.mouseIsPressed) {
       p.background("#040e15");
       mX += 0.3 * (p.mouseX - mX);

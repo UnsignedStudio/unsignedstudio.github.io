@@ -1,11 +1,11 @@
 $(function() {
-  var tempp5 = new p5();
-  var height = tempp5.windowHeight;
+  var temp = new p5();
+  var height = temp.windowHeight;
   $('#oct').height(height);
   $('#dec').height(height);
   $('#jan').height(height);
   
-  tempp5.draw = function() {
+  temp.draw = function() {
     remove();
   }
 });

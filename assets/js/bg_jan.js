@@ -24,7 +24,9 @@ var jan = function(p) {
   }
 
   p.draw = function() {
-
+    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
+      return;
+    
     var nMult = 96;
     var newOrange = p.color(255, 198, 0, 15);
     p.background(newOrange);

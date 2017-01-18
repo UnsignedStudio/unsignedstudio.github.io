@@ -98,6 +98,9 @@ var dec = function(p) {
 
   //P5 Stuff
   p.draw = function() {
+    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
+      return;
+    
     p.noStroke();
     //ll("#040e15");
     p.fill(4,14,21,15);
