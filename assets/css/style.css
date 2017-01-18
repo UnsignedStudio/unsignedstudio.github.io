@@ -59,11 +59,10 @@ p, span, .large-font {
   text-align: center;
 }
 
-#canvas-parent {
+.canvas-parent {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 600px;
 }
 
 #footer {
