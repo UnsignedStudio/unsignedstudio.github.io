@@ -1,4 +1,4 @@
-$(window).ready(function() {
+$(window).ready(setTimeout(function() {
   $.scrollify({
     section : ".scroll-snap",
     sectionName : "section-name",
@@ -17,4 +17,4 @@ $(window).ready(function() {
     afterResize:function() {},
     afterRender:function() {}
   });
-});
+}, 200));
