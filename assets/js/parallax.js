@@ -1,5 +1,6 @@
 var parallaxElements = $('.parallax-img');
 var parallaxQuantity = parallaxElements.length;
+var scale = 0.9;
 
 $(window).on('scroll', function ()
 {
@@ -12,17 +13,19 @@ $(window).on('resize', function ()
 });
 
 function parallax() {
-  window.requestAnimationFrame(function ()
+  for (var i = 0; i < parallaxQuantity; i++)
   {
-    for (var i = 0; i < parallaxQuantity; i++)
-    {
-      var currentElement = parallaxElements.eq(i);
-      var height = currentElement.height();
-      var scrolled = height * -0.4 + $(window).scrollTop() * 0.3 + 'px';
-
-      currentElement.css({
-        'margin-top': scrolled
-      });
-    }
-  });
+    var currentElement = parallaxElements.eq(i);
+    var parallax = currentElement.parent();
+    var height = currentElement.height();
+    var topOfParallax = parallax.offset().top;
+    var windowBottom = $(window).scrollTop() + $(window).height();
+    var pct = (windowBottom - topOfParallax) / ($(window).height() + parallax.height()) * scale;
+    var initialOffset = parallax.height() - height;
+    var margin = initialOffset * (1 - pct);
+    
+    currentElement.css({
+      'margin-top': margin + "px"
+    });
+  }
 }
