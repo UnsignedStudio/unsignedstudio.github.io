@@ -1,5 +1,4 @@
 $(window).ready(function(){
-  setProjectNameHeight();
   setTimeout(function() {
     $.scrollify({
       section : ".scroll-snap",
@@ -19,6 +18,7 @@ $(window).ready(function(){
       afterResize:function() {},
       afterRender:function() {}
     });
+    setProjectNameHeight();
   }, 100)
 });
 
