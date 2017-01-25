@@ -1,4 +1,4 @@
-$(function() {
+$(window).ready(function() {
   $.scrollify({
     section : ".scroll-snap",
     sectionName : "section-name",
