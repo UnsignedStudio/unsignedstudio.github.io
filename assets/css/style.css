@@ -48,6 +48,10 @@ p, span, .large-font {
   padding-top: 0;
 }
 
+.project {
+  position: absolute;
+}
+
 /* left padding for right-side columns in case studies */
 @media (min-width: 992px) {
   .extra-padding {

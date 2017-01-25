@@ -18,29 +18,9 @@
   .img-holder {
     position: relative;
   }
-
-  .img-holder h1, .img-holder p {
-    position: absolute;
-    left: 65px;
-  }
-
-  .img-holder h1 {
-    bottom: 200px;
-  }
-
-  .img-holder p {
-    bottom: 150px;
-  }
   
-  /* small screen */
-  @media screen and (max-width: 991px) {
-    .img-holder h1 {
-      bottom: 140px;
-    }
-
-    .img-holder p {
-      bottom: 85px;
-    }
+  .project {
+    left: 5em;
   }
   
   /* case study 'focus' */
