@@ -7,10 +7,8 @@
   }
 
   .img-holder img {
-    position: absolute;
     z-index: -1;
     width: 1000px;
-    height: inherit;
     margin-left: -250px;
     margin-right: -250px;
   }
