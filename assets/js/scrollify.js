@@ -1,30 +1,26 @@
-$(window).ready(function(){
+window.addEventListener('load', function() {
   setProjectNameHeight();
-  setTimeout(function() {
-    $.scrollify({
-      section : ".scroll-snap",
-      sectionName : "section-name",
-      interstitialSection : "",
-      easing: "easeOutExpo",
-      scrollSpeed: 1100,
-      offset : -20,
-      scrollbars: true,
-      standardScrollElements: "",
-      setHeights: false,
-      overflowScroll: false,
-      updateHash: true,
-      touchScroll:true,
-      before:function() {},
-      after:function() {},
-      afterResize:function() {},
-      afterRender:function() {}
-    });
-  }, 200)
-});
+  $.scrollify({
+    section : ".scroll-snap",
+    sectionName : "section-name",
+    interstitialSection : "",
+    easing: "easeOutExpo",
+    scrollSpeed: 1100,
+    offset : -20,
+    scrollbars: true,
+    standardScrollElements: "",
+    setHeights: false,
+    overflowScroll: false,
+    updateHash: true,
+    touchScroll:true,
+    before:function() {},
+    after:function() {},
+    afterResize:function() {},
+    afterRender:function() {}
+  });
+})
 
-window.onresize = function(event) {
-  setProjectNameHeight();
-}
+window.addEventListener('resize', setProjectNameHeight);
 
 function setProjectNameHeight() {
   var offset = "7em";
