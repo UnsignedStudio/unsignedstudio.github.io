@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
     afterResize:function() {},
     afterRender:function() {}
   });
-})
+});
 
 window.addEventListener('resize', setProjectNameHeight);
 
