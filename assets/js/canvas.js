@@ -12,13 +12,21 @@ function dot()
   this.vY = random(minSpeed, maxSpeed);
 }
 
+function aLine()
+{
+  var y;
+  var fade = 0;
+}
+
 var numberOfDots;
+var lines = [];
 var widthPercent = 0.3;
 var dots = [];
 var minSpeed = 0.1;
 var maxSpeed = 2;
 var maxDistance = 70;
 var img;
+var started = false;
 
 function preload()
 {
@@ -30,10 +38,12 @@ function setup()
   maxDistance *= maxDistance;
   numberOfDots = windowWidth * widthPercent;
   createCanvas(windowWidth, windowHeight);
-  fill(0, 0, 0);
+  fill("black");
   
-  for (var i = 0; i < numberOfDots; i++)
-    dots[i] = new dot();
+  for (var i = 0; i < 50; i++)
+    lines[i] = new aLine();
+  
+  started = true;
 }
 
 function draw()
@@ -43,35 +53,13 @@ function draw()
   fill("black");
   strokeWeight(1);
   stroke("black");
-  for (var i = 0; i < numberOfDots; i++)
-  {
-    dots[i].x += dots[i].vX;
-    dots[i].y += dots[i].vY;
-    
-    // Wrap around
-    if (dots[i].x > windowWidth)
-      dots[i].x = 0;
-    
-    if (dots[i].x < 0)
-      dots[i].x = windowWidth;
-    
-    if (dots[i].y > windowHeight)
-      dots[i].y = 0;
-    
-    if (dots[i].y < 0)
-      dots[i].y = windowHeight;
-    
-    ellipse(dots[i].x, dots[i].y, 2);
-    
-    for (var j = 0; j < numberOfDots; j++)
-    {
-      if (i == j)
-        continue;
-      
-      var distance = sq(dots[j].x - dots[i].x) + sq(dots[j].y - dots[i].y);
-      if (distance < maxDistance)
-          line(dots[i].x, dots[i].y, dots[j].x, dots[j].y);
-    }
+
+  for (var i = 0; i < 50; i++) {
+    stroke(0, 0, 0, lines[i].fade);
+    lines[i].y = mouseY + random(-100, 100);
+    line(0, lines[i].y, windowWidth, lines[i].y);
+    var aa = random(0, 5);
+    lines[i].fade -= aa;
   }
   
   // cutout image
@@ -88,12 +76,20 @@ function draw()
   rect(0.9 * windowWidth, 0, 0.1 * windowWidth, windowHeight);
 }
 
+function mouseMoved() {
+  if (!started)
+    return;
+  
+  for (var i = 0; i < 50; i++)
+    lines[i].fade = 100;
+}
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  numberOfDots = windowWidth * widthPercent;
-  for (var i = 0; i < numberOfDots; i++)
-  {
-    dots[i].x = random(0, windowWidth);
-    dots[i].y = random(0, windowHeight);
-  }
+  //numberOfDots = windowWidth * widthPercent;
+  //for (var i = 0; i < numberOfDots; i++)
+  //{
+    //dots[i].x = random(0, windowWidth);
+    //dots[i].y = random(0, windowHeight);
+  //}
 }
