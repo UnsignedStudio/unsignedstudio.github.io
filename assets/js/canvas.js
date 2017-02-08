@@ -1,21 +1,13 @@
-function dot()
-{
-  this.x = random(0, windowWidth);
-  this.y = random(0, windowHeight);
-  this.vX = random(minSpeed, maxSpeed);
-  
-  if (random() > 0.5)
-    this.vX = -this.vX;
-  if (random() > 0.5)
-    this.vY = -this.vY;
-  
-  this.vY = random(minSpeed, maxSpeed);
-}
-
 function aLine()
 {
   var y;
   var fade = 0;
+}
+
+function circ()
+{
+  var radius;
+  var colour;
 }
 
 var numberOfDots;
@@ -27,6 +19,8 @@ var maxSpeed = 2;
 var maxDistance = 70;
 var img;
 var started = false;
+var circs = [];
+var delay = 0;
 
 function preload()
 {
@@ -39,27 +33,33 @@ function setup()
   numberOfDots = windowWidth * widthPercent;
   createCanvas(windowWidth, windowHeight);
   fill("black");
-  
-  for (var i = 0; i < 50; i++)
-    lines[i] = new aLine();
-  
+    
   started = true;
 }
 
 function draw()
 {
   background("white");
-  
-  fill("black");
   strokeWeight(1);
   stroke("black");
 
-  for (var i = 0; i < 50; i++) {
-    stroke(0, 0, 0, lines[i].fade);
-    lines[i].y = mouseY + random(-100, 100);
-    line(0, lines[i].y, windowWidth, lines[i].y);
-    var aa = random(0, 5);
-    lines[i].fade -= aa;
+  if (delay == 0)
+  {
+    var newCircle = new circ();
+    newCircle.radius = 0;
+    newCircle.colour = color(random(0, 255), random(0, 255), random(0, 255));
+    circs.push(newCircle);
+    delay = 4;
+  }
+  delay -= 1;
+  
+  for (var i = 0; i < circs.length; i++) {
+    fill(circs[i].colour);
+    circs[i].radius += 6;
+    ellipse(windowWidth / 2, windowHeight / 2, circs[i].radius);
+    
+    if (circs[i].radius > 1800)
+      circs.splice(i, 1);
   }
   
   // cutout image
@@ -79,17 +79,8 @@ function draw()
 function mouseMoved() {
   if (!started)
     return;
-  
-  for (var i = 0; i < 50; i++)
-    lines[i].fade = 100;
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  //numberOfDots = windowWidth * widthPercent;
-  //for (var i = 0; i < numberOfDots; i++)
-  //{
-    //dots[i].x = random(0, windowWidth);
-    //dots[i].y = random(0, windowHeight);
-  //}
 }
