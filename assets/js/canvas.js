@@ -1,86 +1,52 @@
-function aLine()
-{
-  var y;
-  var fade = 0;
-}
-
-function circ()
-{
-  var radius;
-  var colour;
-}
-
-var numberOfDots;
-var lines = [];
-var widthPercent = 0.3;
-var dots = [];
-var minSpeed = 0.1;
-var maxSpeed = 2;
-var maxDistance = 70;
-var img;
-var started = false;
-var circs = [];
-var delay = 0;
+var colour = "black";
+var sounds = [];
 
 function preload()
 {
   img = loadImage("../images/cutout.png");
+  for (var i = 0; i < 10; i++)
+    {
+      console.log("sounds/tone" + (i + 1) + ".ogg");
+      sounds[i] = loadSound("sounds/tone" + (i + 1) + ".ogg");
+    }
 }
 
 function setup()
 {
-  maxDistance *= maxDistance;
-  numberOfDots = windowWidth * widthPercent;
   createCanvas(windowWidth, windowHeight);
-  fill("black");
-    
-  started = true;
 }
 
 function draw()
 {
-  background("white");
-  strokeWeight(1);
-  stroke("black");
-
-  if (delay == 0)
-  {
-    var newCircle = new circ();
-    newCircle.radius = 0;
-    newCircle.colour = color(random(0, 255), random(0, 255), random(0, 255));
-    circs.push(newCircle);
-    delay = 4;
-  }
-  delay -= 1;
-  
-  for (var i = 0; i < circs.length; i++) {
-    fill(circs[i].colour);
-    circs[i].radius += 6;
-    ellipse(windowWidth / 2, windowHeight / 2, circs[i].radius);
-    
-    if (circs[i].radius > 1800)
-      circs.splice(i, 1);
-  }
+  background(colour);
   
   // cutout image
   var w = windowWidth * 0.8;
-  var h = windowHeight * 0.8;
+  var h = w * (9 / 16);
   image(img, windowWidth * 0.5 - w * 0.5, windowHeight * 0.5 - h * 0.5, w, h);
+  var borderHeight = (1 - h / windowHeight) * 0.5 * windowHeight + 2;
   
   // borders
   fill("white");
   noStroke();
-  rect(0, 0, windowWidth, 0.1 * windowHeight);
-  rect(0, 0.9 * windowHeight, windowWidth, 0.1 * windowHeight);
-  rect(0, 0, 0.1 * windowWidth, windowHeight);
-  rect(0.9 * windowWidth, 0, 0.1 * windowWidth, windowHeight);
+  // Top
+  rect(0, 0, windowWidth, borderHeight);
+  // Bottom
+  rect(0, windowHeight - borderHeight, windowWidth, borderHeight);
+  // Left
+  rect(0, 0, 0.11 * windowWidth, windowHeight);
+  // Right
+  rect(0.89 * windowWidth, 0, 0.11 * windowWidth, windowHeight);
 }
 
-function mouseMoved() {
-  if (!started)
-    return;
+function mouseClicked()
+{
+  colour = color(random(0, 200), random(0, 200), random(0, 200));
+  var index = parseInt(random(0, 10));
+  sounds[index].play();
 }
 
-function windowResized() {
+function windowResized()
+{
   resizeCanvas(windowWidth, windowHeight);
 }
