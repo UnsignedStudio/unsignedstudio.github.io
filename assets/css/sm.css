@@ -72,10 +72,4 @@
     visibility: hidden;
     display: none;
   }
-  
-  @media screen and (max-height: 790px) {
-    #footer {
-      position: relative;
-    }
-  }
 }

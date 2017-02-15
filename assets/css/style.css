@@ -96,3 +96,61 @@ p, span, .large-font {
     padding-top: 2em;
   }
 }
+
+/* Experiments image grid */
+#experiments-holder {
+  width: 95%;
+  margin: auto;
+}
+
+#experiments-holder img {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 1400px) {
+  #experiments-holder img {
+    width: calc(16.66% - 4.16px);
+  }
+  
+  #experiments-holder img:nth-of-type(6n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1399px) {
+  #experiments-holder img {
+    width: calc(20% - 4px);
+  }
+  
+  /*#experiments-holder *:nth-child(5n) {
+    margin-right: 0;
+  }*/
+}
+
+@media screen and (min-width: 768px) and (max-width: 999px) {
+  #experiments-holder img {
+    width: calc(25% - 3.75px);
+  }
+  
+  #experiments-holder img:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #experiments-holder img {
+    width: calc(50% - 2.5px);
+  }
+  
+  #experiments-holder img:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-height: 790px) {
+  #footer {
+    position: relative;
+  }
+}

@@ -1,22 +1,27 @@
 extends layout
 block links
-  li: a(href='projects.html') Projects
-  li: a.active(href='experiments.html') Experiments
-  li: a(href='about.html') About
+  li: a(href= 'projects.html') Projects
+  li: a.active(href= 'experiments.html') Experiments
+  li: a(href= 'about.html') About
 block content
-  .scroll-snap.canvas-parent#oct
-  .scroll-snap.canvas-parent#dec
-  .scroll-snap.canvas-parent#jan
+  #experiments-holder
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
+    img.grid(src= 'images/marine/MT_Amer.jpg')
   .row#experiments-footer
     .col-xs-12
       include footer
 block scripts
-  script(src= 'js/experiments.js')
   script(src= 'js/p5.min.js')
   script(src= 'js/p5.dom.min.js')
-  script(src= 'js/bg_oct.js')
-  script(src= 'js/bg_dec.js')
-  script(src= 'js/bg_jan.js')
-  script(src= 'js/jquery.scrollify.min.js')
-  script(src= 'js/scrollify.js')
-  
+  script(src= 'js/experiments.js')
