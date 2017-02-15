@@ -4,6 +4,7 @@ block links
   li: a(href='experiments.html') Experiments
   li: a(href='about.html') About
 block content
+  - var files = [ '/images' ];
   .row
     .col-sm-8
       video(autoplay='', muted='', loop='', width='100%')
@@ -25,10 +26,10 @@ block content
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.
   .row.full-width.parallax-row
     .parallax
-      img.parallax-img(src='images/blockchain/parallax2.jpg', alt='Project Image')
+      img.parallax-img(src='images/blockchain/parallax.jpg', alt='Project Image')
   .row#alt-parallax
     .col-xs-12
-      img(src='images/blockchain/parallax2.jpg', width="100%" alt='Project Image')
+      img(src='images/blockchain/alt-parallax.png', width="100%" alt='Project Image')
   .row
     .col-sm-8
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id accumsan nunc, et suscipit lorem. Morbi sagittis dictum lectus, non lobortis massa cursus at. Quisque lacus nulla, posuere sit amet elementum nec, mollis at ex. Nunc eu diam massa.

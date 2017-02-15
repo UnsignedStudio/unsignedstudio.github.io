@@ -3,6 +3,7 @@ rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
+fl           = require 'node-filelist'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', 'templates/*', '**/footer.jade', '**/_*', '.gitignore', 'ship.*conf', 'views']
@@ -11,6 +12,9 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl')
   ]
+
+  locals:
+    fl: fl
 
   stylus:
     use: [axis(), rupture(), autoprefixer()]
