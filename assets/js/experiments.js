@@ -1,26 +1,56 @@
 var gaps = [];
 
 $(document).ready(function() {
-  imageGrid();
+  links();
+  resizeGrid();
 });
 
 $(window).resize(function() {
-  imageGrid();
+  resizeGrid();
 });
 
-function imageGrid() {
-  resizeGrid();
+function links() {
+  var gridElements = $("#experiments-holder").children();
+  gridElements.click(function(e) {
+    if (e.currentTarget.getAttribute("data-lg-image") != null) {
+      var url  = "url(" + e.currentTarget.getAttribute("data-lg-image") + ")";
+      $("#popup-holder").css({
+        'background-image': url
+      });
+    }
+    else if (e.currentTarget.getAttribute("data-lg-script") != null) {
+      $.getScript(e.currentTarget.getAttribute("data-lg-script"));
+    }
+            
+    $("#popup").css({
+      'display': 'block'
+    });
+  });
+  
+  //close button
+  $("#popup img").click(function() {
+    $("#popup").css({
+      'display': 'none'
+    });
+    p5obj.remove();
+  });
 }
 
-function resizeGrid(numOfImages) {
+function resizeGrid() {
   var numOfImages = $(".grid").length;
   
   // Calculate grid size
   var gridSize;
   if (window.innerWidth < 768) {
     gridSize = 2;
+    $("#popup").css({
+      'position': 'fixed'
+    });
   }
   else {
+    $("#popup").css({
+      'position': 'absolute'
+    });
     var area = (window.innerHeight - 160) * window.innerWidth;
     var imageSize = Math.ceil(Math.sqrt(area / numOfImages));
     gridSize = Math.ceil(window.innerWidth / imageSize);
@@ -31,12 +61,11 @@ function resizeGrid(numOfImages) {
   var numToMove = numOfImages % gridSize == 0 ? 0 : gridSize - numOfImages % gridSize;
   
   // Reset images
-  for (var i = 0; i < numOfImages; i++) {
+  for (var i = 0; i < numOfImages; i++)
     $(".grid").eq(i).css({
       'margin-right': '5px',
       'width': calc
     });
-  }
   
   // Remove old gaps
   for (var i = 0; i < gaps.length; i++)
@@ -66,7 +95,12 @@ function resizeGrid(numOfImages) {
   // Remove right margin from far-right items
   var gridElements = $("#experiments-holder").children();
   for (var i = gridSize - 1; i < gridElements.length; i += gridSize)
-    gridElements.eq(i).css({
-      'margin-right': '0'
-    });
+    if (gridElements.eq(i).children().length > 0)
+      gridElements.eq(i).children().css({
+        'margin-right': '0'
+      });
+    else
+      gridElements.eq(i).css({
+        'margin-right': '0'
+      });
 }

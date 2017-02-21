@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).load(function() {
   setProjectNameHeight();
   $.scrollify({
     section : ".scroll-snap",

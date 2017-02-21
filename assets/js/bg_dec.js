@@ -5,12 +5,16 @@ var dec = function(p) {
   var yVal = 0;
   var mDown = false;
   var ppp = null;
+  var myWidth;
+  var myHeight;
 
   //Setup
   p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
-    xVal = p.random(p.windowWidth);
-    yVal = p.random(p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.createCanvas(myWidth, myHeight);
+    xVal = p.random(myWidth);
+    yVal = p.random(myHeight);
     ppp = new particleSys();
     p.strokeWeight(1);
     p.background(4,14,21);
@@ -33,8 +37,8 @@ var dec = function(p) {
   //Particle
   function particleObj() {
     this.position = new uVec();
-    this.position.x = p.random(p.windowWidth);
-    this.position.y = p.random(p.windowHeight);
+    this.position.x = p.random(myWidth);
+    this.position.y = p.random(myHeight);
     this.velocity = new uVec();
   }
   particleObj.prototype.update = function () {
@@ -42,10 +46,10 @@ var dec = function(p) {
       this.velocity.y = 45 * ( p.noise( yVal * 1000 + this.position.x / 100 ) - 0.5);
       this.position.add(this.velocity);
 
-      if(this.position.x < 0) this.position.x += p.windowWidth;
-      if(this.position.x > p.windowWidth) this.position.x -= p.windowWidth;
-      if(this.position.y < 0) this.position.y += p.windowHeight;
-      if(this.position.y > p.windowHeight) this.position.y -= p.windowHeight;
+      if(this.position.x < 0) this.position.x += myWidth;
+      if(this.position.x > myWidth) this.position.x -= myWidth;
+      if(this.position.y < 0) this.position.y += myHeight;
+      if(this.position.y > myHeight) this.position.y -= myHeight;
   }
   particleObj.prototype.render = function() {
     if (mDown) {
@@ -91,20 +95,17 @@ var dec = function(p) {
   }
   particleSys.prototype.reset = function () {
     for (var i = 0; i < NUM_PARTICLES; i++) {
-      this.particles[i].position.x = p.random(p.windowWidth);
-      this.particles[i].position.y = p.random(p.windowHeight);
+      this.particles[i].position.x = p.random(myWidth);
+      this.particles[i].position.y = p.random(myHeight);
     }
   }
 
   //P5 Stuff
   p.draw = function() {
-    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
-      return;
-    
     p.noStroke();
     //ll("#040e15");
     p.fill(4,14,21,15);
-    p.rect(0,0,p.windowWidth, p.windowHeight);
+    p.rect(0,0,myWidth, myHeight);
     ppp.update();
     ppp.render();
   }
@@ -123,10 +124,12 @@ var dec = function(p) {
   p.mouseReleased = function() { mDown = false; }
   p.windowResized = function() {
     p.background("#040e15");
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
-    $('#dec').height(p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.resizeCanvas(myWidth, myHeight);
+    $('#dec').height(myHeight);
     ppp.reset();
   }
 }
 
-var decp5 = new p5(dec, 'dec');
+var p5obj = new p5(dec, 'popup-holder');
