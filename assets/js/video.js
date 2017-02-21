@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
   // Get media - with autoplay disabled (audio or video)
-  var media = $('video').not("[autoplay='autoplay']");
+  var media = $('video.video-scroll');
   var tolerancePixel = 80;
 
   function checkMedia()

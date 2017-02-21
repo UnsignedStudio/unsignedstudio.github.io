@@ -43,4 +43,9 @@
     visibility: hidden;
     display: none;
   }
+  
+  /* columns that have collapsed after resizing (links) */
+  .link:nth-child(n + 4) {
+    padding-top: 2em;
+  }
 }
