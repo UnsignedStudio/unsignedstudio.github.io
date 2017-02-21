@@ -10,12 +10,8 @@ block content
     - var json = JSON.parse(fs.readFileSync('assets/content/' + S(item).slugify().s + '/text.json'));
   - function insertMedia(filename, grow, video) {
       if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
-        if (grow == true)
-          video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
-            source(src= url + '/' + filename + '.mp4')
-        else
-          video(autoplay='', muted='', loop='', width='100%')
-            source(src= url + '/' + filename + '.mp4')
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
+          source(src= url + '/' + filename + '.mp4')
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
         - var fullname = glob.sync([fileUrl + '/' + filename + '.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
           img(class= grow == true ? 'grow' : '', src= url + '/' + fullname, width= '100%', alt= 'Project Image')

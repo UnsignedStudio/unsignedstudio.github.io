@@ -5,14 +5,18 @@ block links
   li: a(href='about.html') About
 block content
   each project in records.projects
-    if (fs.existsSync('assets/content/' + S(project).slugify().s + '/text.json'))
-      - var json = JSON.parse(fs.readFileSync('assets/content/' + S(project).slugify().s + '/text.json'));
+    - var url = S(project).slugify().s
+    if (fs.existsSync('assets/content/' + url + '/text.json'))
+      - var json = JSON.parse(fs.readFileSync('assets/content/' + url + '/text.json'));
       .scroll-snap(data-section-name= project)
         .img-holder
           .project
-            h1: a.white-link(href= S(project).slugify().s + '.html')= project
+            h1: a.white-link(href= url + '.html')= project
             p!= json.year + '<br />' + json.caption
-          a(href= S(project).slugify().s + '.html'): img(src= 'content/' + S(project).slugify().s + '/hero.png', alt= project, width='100%')
+          a(href= url + '.html')
+            if (glob.sync(['assets/content/' + url + '/hero.+(png|jpg)']).length > 0)
+              - var fullname = glob.sync(['assets/content/' + url + '/hero.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
+                img(src= 'content/' + url + '/' + fullname, width= '100%', alt= 'Project Image')
 block scripts
   script(src= 'js/jquery.scrollify.min.js')
   script(src= 'js/scrollify.js')
