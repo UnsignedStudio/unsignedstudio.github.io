@@ -5,15 +5,18 @@ block links
   li: a(href= 'about.html') About
 block content
   #experiments-holder
-    - for (var i = 0; i < 36; i++)
-      img.grid(src= 'images/marine/MT_Amer.jpg', data-lg-image= 'images/marine/MT_World.jpg')
-    img.grid(src= 'images/experiments/lines.jpg', data-lg-script= 'js/bg_dec.js')
+    each experiment in glob.sync('assets/content/experiments/*')
+      if (glob.sync(experiment + '/thumbnail.+(png|jpg)').length > 0 && glob.sync(experiment + '/experiment.+(png|jpg|js|mp4)').length > 0)
+        - var expName = experiment.replace(/^.*[\\\/]/, '')
+        - var thumbName = glob.sync(experiment + '/thumbnail.+(png|jpg)')[0].replace(/^.*[\\\/]/, '')
+        - var expFile = glob.sync(experiment + '/experiment.+(png|jpg|js|mp4)')[0].replace(/^.*[\\\/]/, '')
+        img.grid(src= 'content/experiments/' + expName + '/' + thumbName, data-path= 'content/experiments/' + expName + '/' + expFile)
   .row#experiments-footer
     .col-xs-12
       include footer
   #popup
     #popup-holder
-    p Hello World
+    p#caption
     img(src ='images/cross.png', width='30px')
 block scripts
   script(src= 'js/p5.min.js')

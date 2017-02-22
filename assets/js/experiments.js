@@ -12,15 +12,7 @@ $(window).resize(function() {
 function links() {
   var gridElements = $("#experiments-holder").children();
   gridElements.click(function(e) {
-    if (e.currentTarget.getAttribute("data-lg-image") != null) {
-      var url  = "url(" + e.currentTarget.getAttribute("data-lg-image") + ")";
-      $("#popup-holder").css({
-        'background-image': url
-      });
-    }
-    else if (e.currentTarget.getAttribute("data-lg-script") != null) {
-      $.getScript(e.currentTarget.getAttribute("data-lg-script"));
-    }
+    loadExperiment(e);
             
     $("#popup").css({
       'display': 'block'
@@ -32,8 +24,42 @@ function links() {
     $("#popup").css({
       'display': 'none'
     });
-    p5obj.remove();
+    $("#popup-holder").css({
+        'background-image': ''
+      });
+    if (typeof p5obj !== 'undefined' && p5obj != null) {
+      p5obj.remove();
+      p5obj = null;
+    }
+    
+    $("#caption").html('');
+    $("#popup-holder").children().remove();
   });
+}
+
+function loadExperiment(e) {
+  var expFile = e.currentTarget.getAttribute("data-path");
+  var fileType = expFile.split(".")[1];
+  var folder = expFile.split('/');
+  folder = folder[folder.length - 2]
+    
+  $.get('content/experiments/' + folder + '/caption.txt', function(data){
+    $("#caption").html(data);
+  });
+    
+  if (fileType == "png" || fileType == "jpg") {
+    expFile = "url(" + expFile + ")";
+    $("#popup-holder").css({
+      'background-image': expFile
+    });
+  }
+  else if (fileType == "mp4") {
+    $("#popup-holder").append('<video autoplay="" muted="", loop="", width="100%" />')
+    $("#popup-holder").children().append('<source src="content/experiments/' + folder + '/experiment.mp4" />');
+  }
+  else if (fileType == "js") {
+    $.getScript(expFile);
+  }
 }
 
 function resizeGrid() {
