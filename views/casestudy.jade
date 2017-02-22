@@ -11,11 +11,14 @@ block content
   else
     - console.log('JSON file not found in ' + item.url)
   - function insertMedia(filename, grow, video) {
-      if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
+      if (json[filename])
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
+          source(src= json[filename])
+      else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
         video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
           source(src= url + '/' + filename + '.mp4')
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
-        - var fullname = glob.sync([fileUrl + '/' + filename + '.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
+        - var fullname = glob.sync([fileUrl + '/' + filename + '.+(png|jpg)'])[0].match('[^\/]+$')[0];
           img(class= grow == true ? 'grow' : '', src= url + '/' + fullname, width= '100%', alt= 'Project Image')
   - }
   .row
@@ -24,7 +27,7 @@ block content
     .col-sm-4.extra-padding.collapsed-col
       p= item.name
       if (json && json.description)
-        p= json.description
+        p!= marked(json.description)
       hr
       if (json && json.client)
         p= 'Client: ' + json.client
@@ -49,7 +52,7 @@ block content
         video.parallax-img(autoplay='', muted='', loop='', width='100%')
           source(src= url + '/' + 'parallax.mp4')
       else if (glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)']).length > 0)
-        - var fullname = glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
+        - var fullname = glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)'])[0].match('[^\/]+$')[0];
         img.parallax-img(src= url + '/' + fullname, width= '100%', alt= 'Project Image')
   .row#alt-parallax
     .col-xs-12

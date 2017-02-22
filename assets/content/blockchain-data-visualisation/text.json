@@ -1,12 +1,13 @@
 {
 	"year": "2017",
 	"caption": "block.chain.town",
-	"description": "Block Chain Town, is a reimagining of the technology, in order to simplify it and make it simple to understand for the general public. The app uses real-world bitcoin data, showing how transactions are created by bitcoin users and their path through the network, each step is explained along the way, enabling users to explore the network.",
+	"description": "Block Chain Town, is a reimagining of the technology, in order to simplify it and make it simple to understand for the general public. \n\r The app uses real-world bitcoin data, showing how transactions are created by bitcoin users and their path through the network, each step is explained along the way, enabling users to explore the network.",
 	"client": "Unsigned Studio",
 	"direction": "Dave Mackenzie",
 	"production": "",
 	"design": "Su-yiin Lai",
 	"sound": "",
 	"focus": "Blockchain?",
-	"body": "Block Chain Town is set to launch later this year. Availble on iOS and Android devices and in the browser at block.chain.town."
+	"body": "Block Chain Town is set to launch later this year. Availble on iOS and Android devices and in the browser at block.chain.town.",
+	"hero": "https://s3-ap-southeast-2.amazonaws.com/video.unsignedstudio.io/blockchain-data-visualisation/hero.mp4"
 }

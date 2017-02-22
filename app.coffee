@@ -4,9 +4,9 @@ autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 records      = require 'roots-records'
-S            = require 'string'
 fs           = require 'fs'
 glob         = require 'glob-all'
+marked       = require 'marked'
 
 module.exports =
   ignores: ['readme.md', 'text.json', '**/layout.*', 'views/casestudy*.*', '**/footer.jade', '**/_*', '.gitignore', 'ship.*conf', 'views']
@@ -29,9 +29,9 @@ module.exports =
   ]
 
   locals:
-    S: S
     fs: fs
     glob: glob
+    marked: marked
 
   stylus:
     use: [axis(), rupture(), autoprefixer()]
