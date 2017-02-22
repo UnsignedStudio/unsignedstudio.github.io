@@ -17,8 +17,11 @@ module.exports =
     records(
       projects:
         data: [
-          { 'name': 'Blockchain',     'url': 'blockchain' },
-          { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visualisation' }
+            { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visualisation' },
+            { 'name': 'Melbourne Quarter Digital Context Model',     'url': 'melbourne-quarter-digital-context-model' },
+            { 'name': 'Squint/Opera By The Numbers', 'url': 'squint-opera-data-viz' },
+            { 'name': 'Block.Chain.Town',     'url': 'blockchain-data-visualisation' },
+            { 'name': 'Melbourne Quarter Projection Wall',     'url': 'melbourne-quarter-projection-wall' }
         ]
         template: "views/casestudy.jade"
         out: (item) -> item.url
