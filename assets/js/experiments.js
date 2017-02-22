@@ -53,9 +53,11 @@ function loadExperiment(e) {
       'background-image': expFile
     });
   }
-  else if (fileType == "mp4") {
-    $("#popup-holder").append('<video autoplay="" muted="", loop="", width="100%" />')
-    $("#popup-holder").children().append('<source src="content/experiments/' + folder + '/experiment.mp4" />');
+  else if (fileType == "txt") {
+    $("#popup-holder").append('<video autoplay="" muted="", loop="", width="100%" />');
+    $.get('content/experiments/' + folder + '/experiment.txt', function(data){
+      $("#popup-holder").children().append('<source src="' + data + '" />');
+    });
   }
   else if (fileType == "js") {
     $.getScript(expFile);
