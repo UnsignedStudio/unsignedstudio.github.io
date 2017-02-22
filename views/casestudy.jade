@@ -40,7 +40,7 @@ block content
     .col-sm-4.bottom-align-text.extra-padding
       h2 Focus
       if (json.focus)
-      p= json.focus
+        p= json.focus
   .row.full-width
     .parallax
       if (glob.sync(fileUrl + '/' + 'parallax.mp4').length > 0)
@@ -51,7 +51,10 @@ block content
         img.parallax-img(src= url + '/' + fullname, width= '100%', alt= 'Project Image')
   .row#alt-parallax
     .col-xs-12
-      - insertMedia('alt-parallax')
+      if (glob.sync([fileUrl + '/' + 'alt-parallax.+(png|jpg|mp4)']).length > 0)
+        - insertMedia('alt-parallax')
+      else
+        - insertMedia('parallax')
   .row
     .col-sm-8
       if (json.body)
@@ -68,7 +71,7 @@ block content
         - insertMedia('small3', true)
     .col-sm-3.col-xs-6.collapsed-col
       .grow-holder
-        - insertMedia('small3', true)
+        - insertMedia('small4', true)
   .row
     .col-sm-4
       .grow-holder

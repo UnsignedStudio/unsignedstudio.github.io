@@ -27,20 +27,20 @@ records(
 Each project contains a number of images and a text.json file to define various text items. Any piece of content can be either an image or a video. Videos must be in.mp4 format and images must be in either .png or .jpg format. If 2 are supplied, a video overrides an image.
 
 #### Files
-| Filename      | Use           |
-| ------------- |---------------|
-| hero          | Displayed on front-page and top of project page (only image on front-page |
-| hero2         | Displayed 2nd on project page |
-| parallax      | Parallax |
-| alt-parallax  | Item that displays on mobile view instead of parallax |
-| small1        | 4 small items displayed in a row |
-| small2        | 4 small items displayed in a row |
-| small3        | 4 small items displayed in a row |
-| small4        | 4 small items displayed in a row |
-| med1          | 3 medium items displayed in a row |
-| med2          | 3 medium items displayed in a row |
-| med3          | 3 medium items displayed in a row |
-| text.json     | JSON file that defines text |
+| Filename      | Use                                                                        |
+| ------------- |----------------------------------------------------------------------------|
+| hero          | Displayed on front-page and top of project page (only image on front-page) |
+| hero2         | Displayed 2nd on project page                                              |
+| parallax      | Parallax                                                                   |
+| alt-parallax  | Item that overrides parallax on mobile view                                |
+| small1        | 4 small items displayed in a row                                           |
+| small2        | 4 small items displayed in a row                                           |
+| small3        | 4 small items displayed in a row                                           |
+| small4        | 4 small items displayed in a row                                           |
+| med1          | 3 medium items displayed in a row                                          |
+| med2          | 3 medium items displayed in a row                                          |
+| med3          | 3 medium items displayed in a row                                          |
+| text.json     | JSON file that defines text                                                |
 
 #### text.json
 ```
@@ -73,8 +73,17 @@ assets
       ...
 ```
 
-## Compiling
+### Content
+Each experiments folder contains 3 items: a thumbnail, a caption text file and the experiment itself
 
+### Files
+| Filename      | Use                                                         |
+| ------------- |-------------------------------------------------------------|
+| thumbnail     | Low-res image file                                          |
+| caption.txt   | Gives a description of the experiment                       |
+| experiment    | Experiment in image (.png, .jpg), video (.mp4) or JS format |
+
+## Compiling
 - make sure [node.js](http://nodejs.org) and [roots](http://roots.cx) are installed
 - clone this repo down and `cd` into the folder
 - run `npm install`
