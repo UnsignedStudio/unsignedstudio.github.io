@@ -6,11 +6,15 @@ var oct = function(p) {
   var lines = [];
   var mX = 0;
   var mY = 0;
+  var myWidth;
+  var myHeight;
 
   var hasRun = false;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.createCanvas(myWidth, myHeight);
     p.strokeWeight(1);
     p.background("#040e15");
     p.smooth();
@@ -20,7 +24,7 @@ var oct = function(p) {
   }
 
   p.draw = function() {
-    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
+    if (p.mouseY < 0 || p.mouseY > myHeight)
       return;
     
     if(p.mouseIsPressed) {
@@ -30,8 +34,8 @@ var oct = function(p) {
     }
     if (!hasRun) {
       p.background("#040e15");
-      mX += 0.3 * (p.windowWidth/2 - mX);
-      mY += 0.3 * (p.windowHeight/2 - mY);
+      mX += 0.3 * (myWidth/2 - mX);
+      mY += 0.3 * (myHeight/2 - mY);
       hasRun = true;
     }
     mX += 0.3 * (p.mouseX - mX);
@@ -52,8 +56,8 @@ var oct = function(p) {
   }
 
   function lnObj() {
-    this.X = p.random(p.windowWidth / 2);
-    this.Y = p.random(p.windowHeight / 2);
+    this.X = p.random(myWidth / 2);
+    this.Y = p.random(myHeight / 2);
     this.w = p.random(1 / threshhold, threshhold);
 
     this.Xv = 0;
@@ -82,9 +86,11 @@ var oct = function(p) {
   
   p.windowResized = function() {
     p.background("#040e15");
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
-    $('#oct').height(p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.resizeCanvas(myWidth, myHeight);
+    $('#oct').height(myHeight);
   }
 }
 
-var octp5 = new p5(oct, 'oct');
+var p5obj = new p5(oct, 'popup-holder');

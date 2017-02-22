@@ -131,6 +131,11 @@ p, span, .large-font {
   top: 2.5%;
 }
 
+#popup-holder video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 #popup p {
   position: absolute;
   left: 2.8%;

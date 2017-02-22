@@ -4,9 +4,13 @@ var jan = function(p) {
   var mMoved = false;
   var gResolution = 128;
   var grid = [];
+  var myWidth;
+  var myHeight;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.createCanvas(myWidth, myHeight);
 
     //Background Colour
     p.background(p.color(uColours.orange));
@@ -24,9 +28,6 @@ var jan = function(p) {
   }
 
   p.draw = function() {
-    if (p.mouseY < 0 || p.mouseY > p.windowHeight)
-      return;
-    
     var nMult = 96;
     var newOrange = p.color(255, 198, 0, 15);
     p.background(newOrange);
@@ -45,7 +46,7 @@ var jan = function(p) {
     }
 
 
-    p.scale(p.windowWidth/gResolution, p.windowHeight/gResolution);
+    p.scale(myWidth/gResolution, myHeight/gResolution);
     p.translate(0.5,0.5);
     p.strokeWeight(0.02);
 
@@ -91,9 +92,10 @@ var jan = function(p) {
   p.mouseMoved = function() { mMoved = true; }
 
   p.windowResized = function() {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
-    $('#jan').height(p.windowHeight);
+    myWidth = $("#popup-holder").width();
+    myHeight = $("#popup-holder").height()
+    p.resizeCanvas(myWidth, myHeight);
   }
 }
 
-var janp5 = new p5(jan, 'jan');
+var pgobj = new p5(jan, 'popup-holder');
