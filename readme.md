@@ -14,14 +14,18 @@ assets
 ```
 
 ### Including
-To include a new folder, open app.coffee and add a new string under data:
+To include a new folder, open app.coffee and add a new object under data with strings 'name' and 'url':
 ```
 records(
   projects:
-    data: [ 'Blockchain', 'Marine Traffic', 'New Project Here' ]
+    data: [
+      { 'name': 'Blockchain',     'url': 'blockchain' },
+      { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visulisation' },
+      { 'name': 'New Project',    'url': 'new-project' }
+    ]
 ```
 
-**IMPORTANT:** The folder name **must** be a URL-friendly version of the display name given above (lower case and using dashes in place of spaces). Eg. 'Marine Traffic' -> 'marine-traffic'
+**IMPORTANT:** The url **must** be a URL-friendly name and the same name as the folder
 
 ### Content
 Each project contains a number of images and a text.json file to define various text items. Any piece of content can be either an image or a video. Videos must be in.mp4 format and images must be in either .png or .jpg format. If 2 are supplied, a video overrides an image.

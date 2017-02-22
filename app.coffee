@@ -16,7 +16,10 @@ module.exports =
     css_pipeline(files: 'assets/css/*.styl'),
     records(
       projects:
-        data: [ 'Blockchain', 'Marine Traffic' ]
+        data: [
+          { 'name': 'Blockchain',     'url': 'blockchain' },
+          { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visulisation' }
+        ]
         template: "views/casestudy.jade"
         out: (item) -> "#{S(item).slugify().s}"
     )
