@@ -18,10 +18,10 @@ module.exports =
       projects:
         data: [
           { 'name': 'Blockchain',     'url': 'blockchain' },
-          { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visulisation' }
+          { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visualisation' }
         ]
         template: "views/casestudy.jade"
-        out: (item) -> "#{S(item).slugify().s}"
+        out: (item) -> item.url
     )
   ]
 

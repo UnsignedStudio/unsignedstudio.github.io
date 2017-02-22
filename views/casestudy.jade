@@ -4,10 +4,12 @@ block links
   li: a(href='experiments.html') Experiments
   li: a(href='about.html') About
 block content
-  - var url = 'content/' + S(item).slugify().s;
+  - var url = 'content/' + item.url;
   - var fileUrl = 'assets/' + url;
-  if (fs.existsSync('assets/content/' + S(item).slugify().s + '/text.json'))
-    - var json = JSON.parse(fs.readFileSync('assets/content/' + S(item).slugify().s + '/text.json'));
+  if (fs.existsSync('assets/content/' + item.url + '/text.json'))
+    - var json = JSON.parse(fs.readFileSync('assets/content/' + item.url + '/text.json'));
+  else
+    - console.log('JSON file not found in ' + item.url)
   - function insertMedia(filename, grow, video) {
       if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
         video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
@@ -20,26 +22,26 @@ block content
     .col-sm-8
       - insertMedia('hero')
     .col-sm-4.extra-padding.collapsed-col
-      p= item
-      if (json.description)
+      p= item.name
+      if (json && json.description)
         p= json.description
       hr
-      if (json.client)
+      if (json && json.client)
         p= 'Client: ' + json.client
-      if (json.direction)
+      if (json && json.direction)
         p= 'Direction: ' + json.direction
-      if (json.production)
+      if (json && json.production)
         p= 'Production :' + json.production
-      if (json.design)
+      if (json && json.design)
         p= 'Design: ' + json.design
-      if (json.sound)
+      if (json && json.sound)
         p= 'Sound: ' + json.sound
   .row.relative
     .col-sm-8
       - insertMedia('hero2')
     .col-sm-4.bottom-align-text.extra-padding
       h2 Focus
-      if (json.focus)
+      if (json && json.focus)
         p= json.focus
   .row.full-width
     .parallax
@@ -57,7 +59,7 @@ block content
         - insertMedia('parallax')
   .row
     .col-sm-8
-      if (json.body)
+      if (json && json.body)
         p= json.body
   .row
     .col-sm-3.col-xs-6
@@ -86,9 +88,9 @@ block content
     each project in records.projects
       .col-sm-2.col-xs-4.centre.link
         if (project == item)
-          a.white-link.large-font(href= '#')= project
+          a.white-link.large-font(href= '#')= project.name
         else
-          a.white-link.large-font(href= S(project).slugify().s + '.html')= project
+          a.white-link.large-font(href= project.url + '.html')= project.name
   .row
     .col-xs-12
       include footer

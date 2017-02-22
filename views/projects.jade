@@ -5,18 +5,17 @@ block links
   li: a(href='about.html') About
 block content
   each project in records.projects
-    - var url = S(project).slugify().s
-    if (fs.existsSync('assets/content/' + url + '/text.json'))
-      - var json = JSON.parse(fs.readFileSync('assets/content/' + url + '/text.json'));
-      .scroll-snap(data-section-name= project)
+    if (fs.existsSync('assets/content/' + project.url + '/text.json'))
+      - var json = JSON.parse(fs.readFileSync('assets/content/' + project.url + '/text.json'));
+      .scroll-snap(data-section-name= project.url)
         .img-holder
           .project
-            h1: a.white-link(href= url + '.html')= project
+            h1: a.white-link(href= project.url + '.html')= project.name
             p!= json.year + '<br />' + json.caption
-          a(href= url + '.html')
-            if (glob.sync(['assets/content/' + url + '/hero.+(png|jpg)']).length > 0)
-              - var fullname = glob.sync(['assets/content/' + url + '/hero.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
-                img(src= 'content/' + url + '/' + fullname, width= '100%', alt= 'Project Image')
+          a(href= project.url + '.html')
+            if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
+              - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].replace(/^.*[\\\/]/, '')
+                img(src= 'content/' + project.url + '/' + fullname, width= '100%', alt= project.name + ' Image')
 block scripts
   script(src= 'js/jquery.scrollify.min.js')
   script(src= 'js/scrollify.js')
