@@ -7,7 +7,9 @@
   "production": "",
   "design": "Su-yiin Lai",
   "sound": "",
-  "focus": "Blockchain?",
-  "body": "Block Chain Town is set to launch later this year. Availble on iOS and Android devices and in the browser at block.chain.town.",
-  "hero": "https://s3-ap-southeast-2.amazonaws.com/video.unsignedstudio.io/blockchain-data-visualisation/hero.mp4"
+  "tag": "LAUNCH",
+  "focus": "Block Chain Town is set to launch later this year. Availble on iOS and Android devices and in the browser at block.chain.town.",
+  "body": "Blockchain?",
+  "hero": "https://s3-ap-southeast-2.amazonaws.com/video.unsignedstudio.io/blockchain-data-visualisation/hero.mp4",
+  "med2_caption": "Block.chain.town factory interior"
 }

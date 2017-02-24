@@ -13,8 +13,25 @@
     margin-right: -250px;
   }
   
+  .cl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  h2 {
+    font-size: 20px
+  }
+  
+  p, span {
+    font-size: 12px;
+  }
+  
   .project {
     left: 2em;
+  }
+  
+  .row {
+    margin-bottom: 2em;
   }
   
   /* columns that have collapsed after resizing */
@@ -43,6 +60,24 @@
     visibility: hidden;
     display: none;
     margin: 0;
+  }
+  
+  .rel {
+    position: relative;
+  }
+  
+  .left-caption {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .right-caption {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
   }
   
   .left-padding {

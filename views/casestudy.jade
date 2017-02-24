@@ -12,11 +12,11 @@ block content
     - console.log('JSON file not found in ' + item.url)
   - function insertMedia(filename, grow, video) {
       if (json[filename])
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= video == true ? false : '', muted='', loop='', width='100%')
           source(src= json[filename])
         - return true
       else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= video == true ? false : '', muted='', loop='', width='100%')
           source(src= url + '/' + filename + '.mp4')
         - return true
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
@@ -27,10 +27,10 @@ block content
       - return false
   - }
   .row
-    .col-xs-12
+    .col-xs-12.cl
       - insertMedia('hero')
   .row
-    .col-sm-5.col-sm-push-7
+    .col-sm-5.col-sm-push-7.cl
       p= item.name
       if (json && json.year)
         p= json.year
@@ -47,10 +47,10 @@ block content
         p= 'Design: ' + json.design
       if (json && json.sound)
         p= 'Sound: ' + json.sound
-    .col-sm-7.col-sm-pull-5.collapsed-col
+    .col-sm-7.col-sm-pull-5.collapsed-col.cl
       - insertMedia('hero2')
   .row
-    .col-xs-12
+    .col-xs-12.cl
       if (json && json.body)
         p= json.body
   .row.full-width.parallax-row
@@ -62,43 +62,43 @@ block content
         - var fullname = glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)'])[0].match('[^\/]+$')[0];
         img.parallax-img(src= url + '/' + fullname, width= '100%', alt= 'Project Image')
   .row#alt-parallax
-    .col-xs-12
+    .col-xs-12.cl
       if (glob.sync([fileUrl + '/' + 'alt-parallax.+(png|jpg|mp4)']).length > 0)
         - insertMedia('alt-parallax')
       else
         - insertMedia('parallax')
   .row
-    .col-sm-2.col-sm-offset-2
+    .col-sm-2.col-sm-offset-2.cl
       if (json && json.tag)
         h2#focus= json.tag
       else
         h2#focus FOCUS
-    .col-sm-8
+    .col-sm-8.cl
       if (json && json.focus)
         p= json.focus
   .row
-    .col-sm-4
-      .row.no-extra
-        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
             - insertMedia('med1', true, true)
-        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med1_caption)
             p= json.med1_caption
-    .col-sm-4.collapsed-col
-      .row.no-extra
-        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
             - insertMedia('med2', true, true)
-        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med2_caption)
             p= json.med2_caption
-    .col-sm-4.collapsed-col
-      .row.no-extra
-        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
             - insertMedia('med3', true, true)
-        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med3_caption)
             p= json.med3_caption
   - var heroNumber = 3
@@ -112,28 +112,28 @@ block content
       - break
   - }
   .row
-    .col-sm-4
-      .row.no-extra
-        .col-xs-6.col-sm-12.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.no-extra.med.right-padding
           .grow-holder
             - insertMedia('med4', true, true)
-        .col-xs-6.col-sm-12.no-extra.left-padding
+        .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med4_caption)
             p= json.med4_caption
-    .col-sm-4.collapsed-col
-      .row.no-extra
-        .col-xs-6.col-sm-12.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.no-extra.med.right-padding
           .grow-holder
             - insertMedia('med5', true, true)
-        .col-xs-6.col-sm-12.no-extra.left-padding
+        .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med5_caption)
             p= json.med5_caption
-    .col-sm-4.collapsed-col
-      .row.no-extra
-        .col-xs-6.col-sm-12.no-extra.med
+    .col-sm-4.cl
+      .row.no-extra.rel
+        .col-xs-6.col-sm-12.no-extra.med.right-padding
           .grow-holder
             - insertMedia('med6', true, true)
-        .col-xs-6.col-sm-12.no-extra.left-padding
+        .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med6_caption)
             p= json.med6_caption
   .row
