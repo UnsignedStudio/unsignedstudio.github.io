@@ -96,14 +96,14 @@
   
   #left-arrow {
     position: absolute;
-    left: 28%;
+    left: 20%;
     top: 0;
   }
   
   #right-arrow {
     position: absolute;
-    right: 28%;
-    bottom: 0;
+    right: 20%;
+    top: 0;
   }
   
   #project {
@@ -112,7 +112,8 @@
   }
   
   #project:before {
-    top: 46px;
+    top: 41px;
+    width: 53px;
   }
   
   /* columns that have collapsed after resizing (links) */
