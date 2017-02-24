@@ -76,7 +76,7 @@ block content
     .col-sm-8.cl
       if (json && json.focus)
         p= json.focus
-  .row
+  .row.rm-bottom-margin
     .col-sm-4.cl
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
@@ -105,7 +105,7 @@ block content
   - while (true) {
     if (json['hero' + heroNumber] || glob.sync([fileUrl + '/hero' + heroNumber + '.+(png|jpg)']).length > 0)
       .row
-        .col-xs-12
+        .col-xs-12.cl
           - insertMedia('hero' + heroNumber)
           - heroNumber += 1
     else
