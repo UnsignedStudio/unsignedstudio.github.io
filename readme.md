@@ -34,17 +34,17 @@ Each project contains a number of images and a text.json file to define various 
 | Filename      | Use                                                                        |
 | ------------- |----------------------------------------------------------------------------|
 | hero          | Displayed on front-page and top of project page (only image on front-page) |
-| hero2         | Displayed 2nd on project page                                              |
+| hero2         | Displayed below hero alongside project details                             |
 | parallax      | Parallax                                                                   |
 | alt-parallax  | Item that overrides parallax on mobile view                                |
-| small1        | 4 small items displayed in a row                                           |
-| small2        | 4 small items displayed in a row                                           |
-| small3        | 4 small items displayed in a row                                           |
-| small4        | 4 small items displayed in a row                                           |
-| med1          | 3 medium items displayed in a row                                          |
-| med2          | 3 medium items displayed in a row                                          |
-| med3          | 3 medium items displayed in a row                                          |
-| text.json     | JSON file that defines text                                                |
+| med1          | 3 medium items displayed in a row (1)                                      |
+| med2          | 3 medium items displayed in a row (1)                                      |
+| med3          | 3 medium items displayed in a row (1)                                      |
+| hero[3+]      | Optional full-size hero images                                             |
+| med4          | 3 medium items displayed in a row (2)                                      |
+| med5          | 3 medium items displayed in a row (2)                                      |
+| med6          | 3 medium items displayed in a row (2)                                      |
+| text.json     | JSON file that defines text and video urls                                 |
 
 #### text.json
 ```
@@ -57,8 +57,15 @@ Each project contains a number of images and a text.json file to define various 
   "production": "",
   "design": "",
   "sound": "",
+  "body": "",
+  "tag": "",
   "focus": "",
-  "body": ""
+  "med1_caption": "",
+  "med2_caption": "",
+  "med3_caption": "",
+  "med4_caption": "",
+  "med5_caption": "",
+  "med6_caption": ""
 }
 ```
 Caption is displayed on the front-page while description is displayed on the project page. the body section appears under the parallax.

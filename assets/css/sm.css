@@ -23,16 +23,9 @@
     left: 5em;
   }
   
-  /* case study 'focus' */
-  .relative {
-    position: relative;
-  }
-  
-  /* case study 'focus' */
-  .bottom-align-text {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  #focus {
+    margin: 0;
+    text-align: right;
   }
   
   /* about page */
@@ -53,6 +46,10 @@
   
   .grow-holder {
     overflow: hidden;
+  }
+  
+  .med {
+    margin-bottom: 1em;
   }
   
   .grow {

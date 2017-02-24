@@ -8,7 +8,7 @@ body {
 }
 
 p, span, .large-font {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .container-fluid {
@@ -42,6 +42,11 @@ p, span, .large-font {
 .full-width {
   margin-left: 0;
   margin-right: 0;
+}
+
+.no-extra {
+  margin: 0;
+  padding: 0;
 }
 
 #navbar-logo {
@@ -84,6 +89,16 @@ p, span, .large-font {
 /* navbar links */
 .white-link, .white-link:hover, .white-link:link {
   color: white;
+}
+
+#project:before {
+  content: ' ';
+  position: absolute;
+  top: 18px;
+  width: 61px;
+  height: 2px;
+  background-color: #DCB128;
+  opacity: 1
 }
 
 #experiments-footer {

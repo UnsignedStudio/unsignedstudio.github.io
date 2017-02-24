@@ -14,18 +14,26 @@ block content
       if (json[filename])
         video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
           source(src= json[filename])
+        - return true
       else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
         video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay='', muted='', loop='', width='100%')
           source(src= url + '/' + filename + '.mp4')
+        - return true
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
         - var fullname = glob.sync([fileUrl + '/' + filename + '.+(png|jpg)'])[0].match('[^\/]+$')[0];
           img(class= grow == true ? 'grow' : '', src= url + '/' + fullname, width= '100%', alt= 'Project Image')
+        - return true
+          
+      - return false
   - }
   .row
-    .col-sm-8
+    .col-xs-12
       - insertMedia('hero')
-    .col-sm-4.extra-padding.collapsed-col
+  .row
+    .col-sm-5.col-sm-push-7
       p= item.name
+      if (json && json.year)
+        p= json.year
       if (json && json.description)
         p!= marked(json.description)
       hr
@@ -39,14 +47,13 @@ block content
         p= 'Design: ' + json.design
       if (json && json.sound)
         p= 'Sound: ' + json.sound
-  .row.relative
-    .col-sm-8
+    .col-sm-7.col-sm-pull-5.collapsed-col
       - insertMedia('hero2')
-    .col-sm-4.bottom-align-text.extra-padding
-      h2 Focus
-      if (json && json.focus)
-        p= json.focus
-  .row.full-width
+  .row
+    .col-xs-12
+      if (json && json.body)
+        p= json.body
+  .row.full-width.parallax-row
     .parallax
       if (glob.sync(fileUrl + '/' + 'parallax.mp4').length > 0)
         video.parallax-img(autoplay='', muted='', loop='', width='100%')
@@ -61,39 +68,94 @@ block content
       else
         - insertMedia('parallax')
   .row
+    .col-sm-2.col-sm-offset-2
+      if (json && json.tag)
+        h2#focus= json.tag
+      else
+        h2#focus FOCUS
     .col-sm-8
-      if (json && json.body)
-        p= json.body
-  .row
-    .col-sm-3.col-xs-6
-      .grow-holder
-        - insertMedia('small1', true)
-    .col-sm-3.col-xs-6
-      .grow-holder
-        - insertMedia('small2', true)
-    .col-sm-3.col-xs-6.collapsed-col
-      .grow-holder
-        - insertMedia('small3', true)
-    .col-sm-3.col-xs-6.collapsed-col
-      .grow-holder
-        - insertMedia('small4', true)
+      if (json && json.focus)
+        p= json.focus
   .row
     .col-sm-4
-      .grow-holder
-        - insertMedia('med1', true, true)
+      .row.no-extra
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+          .grow-holder
+            - insertMedia('med1', true, true)
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+          if (json && json.med1_caption)
+            p= json.med1_caption
     .col-sm-4.collapsed-col
-      .grow-holder
-        - insertMedia('med2', true, true)
+      .row.no-extra
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+          .grow-holder
+            - insertMedia('med2', true, true)
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+          if (json && json.med2_caption)
+            p= json.med2_caption
     .col-sm-4.collapsed-col
-      .grow-holder
-        - insertMedia('med3', true, true)
+      .row.no-extra
+        .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med
+          .grow-holder
+            - insertMedia('med3', true, true)
+        .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding
+          if (json && json.med3_caption)
+            p= json.med3_caption
+  - var heroNumber = 3
+  - while (true) {
+    if (json['hero' + heroNumber] || glob.sync([fileUrl + '/hero' + heroNumber + '.+(png|jpg)']).length > 0)
+      .row
+        .col-xs-12
+          - insertMedia('hero' + heroNumber)
+          - heroNumber += 1
+    else
+      - break
+  - }
   .row
-    each project in records.projects
-      .col-sm-2.col-xs-4.centre.link
-        if (project == item)
-          a.white-link.large-font(href= '#')= project.name
-        else
-          a.white-link.large-font(href= project.url + '.html')= project.name
+    .col-sm-4
+      .row.no-extra
+        .col-xs-6.col-sm-12.no-extra.med
+          .grow-holder
+            - insertMedia('med4', true, true)
+        .col-xs-6.col-sm-12.no-extra.left-padding
+          if (json && json.med4_caption)
+            p= json.med4_caption
+    .col-sm-4.collapsed-col
+      .row.no-extra
+        .col-xs-6.col-sm-12.no-extra.med
+          .grow-holder
+            - insertMedia('med5', true, true)
+        .col-xs-6.col-sm-12.no-extra.left-padding
+          if (json && json.med5_caption)
+            p= json.med5_caption
+    .col-sm-4.collapsed-col
+      .row.no-extra
+        .col-xs-6.col-sm-12.no-extra.med
+          .grow-holder
+            - insertMedia('med6', true, true)
+        .col-xs-6.col-sm-12.no-extra.left-padding
+          if (json && json.med6_caption)
+            p= json.med6_caption
+  .row
+    - projectNumber
+    - for (var i = 0 ; i < records.projects.length; i++)
+      if (records.projects[i] == item)
+        - projectNumber = i;
+        - break
+    .col-sm-1.col-xs-2
+      if (projectNumber > 0)
+        a(href= records.projects[projectNumber + - 1].url + '.html'): img(src= 'images/arrow_left.png', width= '30')
+    .col-sm-3.col-xs-10
+      if (projectNumber > 0)
+        p.centre.left-text: a.white-link(href= records.projects[projectNumber - 1].url + '.html')= records.projects[projectNumber - 1].name
+    .col-sm-4.col-xs-12
+      p#project.centre PROJECTS
+    .col-sm-3.col-xs-10
+      if (projectNumber < records.projects.length - 1)
+        p.centre.right-text: a.white-link(href= records.projects[projectNumber + 1].url + '.html')= records.projects[projectNumber + 1].name
+    .col-sm-1.col-xs-2
+      if (projectNumber < records.projects.length - 1)
+        a(href= records.projects[projectNumber + 1].url + '.html'): img(src= 'images/arrow_right.png', width= '30')
   .row
     .col-xs-12
       include footer
