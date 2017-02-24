@@ -142,20 +142,16 @@ block content
       if (records.projects[i] == item)
         - projectNumber = i;
         - break
-    .col-sm-1.col-xs-2
+    .col-sm-4
       if (projectNumber > 0)
-        a(href= records.projects[projectNumber + - 1].url + '.html'): img(src= 'images/arrow_left.png', width= '30')
-    .col-sm-3.col-xs-10
-      if (projectNumber > 0)
-        p.centre.left-text: a.white-link(href= records.projects[projectNumber - 1].url + '.html')= records.projects[projectNumber - 1].name
+        a#left-arrow(href= records.projects[projectNumber + - 1].url + '.html'): img(src= 'images/arrow_left.png', width= '30')
+        p.centre.project-block: a.white-link(href= records.projects[projectNumber - 1].url + '.html')= records.projects[projectNumber - 1].name
     .col-sm-4.col-xs-12
       p#project.centre PROJECTS
-    .col-sm-3.col-xs-10
+    .col-sm-4
       if (projectNumber < records.projects.length - 1)
-        p.centre.right-text: a.white-link(href= records.projects[projectNumber + 1].url + '.html')= records.projects[projectNumber + 1].name
-    .col-sm-1.col-xs-2
-      if (projectNumber < records.projects.length - 1)
-        a(href= records.projects[projectNumber + 1].url + '.html'): img(src= 'images/arrow_right.png', width= '30')
+        p.centre.project-block: a.white-link(href= records.projects[projectNumber + 1].url + '.html')= records.projects[projectNumber + 1].name
+        a#right-arrow(href= records.projects[projectNumber + 1].url + '.html'): img(src= 'images/arrow_right.png', width= '30')
   .row
     .col-xs-12
       include footer

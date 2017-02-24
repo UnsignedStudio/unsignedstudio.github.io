@@ -53,16 +53,27 @@
     padding-right: 10px;
   }
   
-  .left-text {
-    text-align: left;
+  .project-block {
+    display: block;
+    width: 30%;
+    margin: auto;
   }
   
-  .right-text {
-    text-align: right;
+  #left-arrow {
+    position: absolute;
+    left: 28%;
+    top: 0;
+  }
+  
+  #right-arrow {
+    position: absolute;
+    right: 28%;
+    bottom: 0;
   }
   
   #project {
     padding: 2em 0;
+    margin: 0;
   }
   
   #project:before {
