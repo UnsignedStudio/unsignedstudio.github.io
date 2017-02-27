@@ -1,12 +1,23 @@
 {
-  "year": "2017",
-  "caption": "Marine Traffic Global Visualisation",
-  "description": "Unsigned Studio worked with Marine Traffic AIS to visualise their global shipping data set. Sampling over 15 million data points. We created custom software to process and manage the data and ultimately produce a film showcasing their data in a way it had not been realised before.",
-  "client": "Marine Traffic AIS",
-  "direction": "Dave Mackenzie",
-  "production": "",
-  "design": "Su-yiin ",
-  "sound": "Kane Ikin",
-  "focus": "Using our custom software we delivered film and high-res print media showcasing the size, complexity and accuracy of Marine Traffic AIS data.",
-  "body": "After receiving raw data drops, we ran them through a custom application which performed some initial preprocessing. We then ingested the data into our backend. Now that the data could be handled efficiently, we wrote a series scripts which talked to our backend, analysed and compiled the data into code our rendering software used to create the animation"
+    "year": "2017",
+    "caption": "MQ Projection Wall",
+    "description": "Unsigned Studio was engaged by Squint/Opera to create a custom hardware and software solution for a multi-projector installation. \n\rBringing together brand assets, films and 360 imagery we created a unique experience. The completed system could be enjoyed during events and had real utility when meetings were taking place. \n\rThe four modes included, a branding showcase bringing together imagery and film, a slower ambient mode, a controllable 360 view-line mode and cinema mode. ",
+    "client": "Squint/Opera",
+    "direction": "",
+    "production": "",
+    "design": "",
+    "sound": "",
+    "tag":"HARDWARE",
+    "focus": "Using our custom software we delivered film and high-res print media showcasing the size, complexity and accuracy of Marine Traffic AIS data.",
+    "body": "Each of the modes could be toggled between and controlled by a custom dial we built. Manufactured from the CNC milled aluminium, 3d printed internals and open source Arduino microcontroller. ",
+    "med1_caption":"",
+    "med2_caption":"",
+    "med3_caption":"",
+    
+    "med4_caption":"Dial Concept Sketches",
+    "med5_caption":"Dial prototype schematic",
+    "med6_caption":"Dial Arduino Code"
+
+    
 }
+

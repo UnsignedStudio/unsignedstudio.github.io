@@ -103,7 +103,7 @@ block content
             p= json.med3_caption
   - var heroNumber = 3
   - while (true) {
-    if (json['hero' + heroNumber] || glob.sync([fileUrl + '/hero' + heroNumber + '.+(png|jpg)']).length > 0)
+    if (json['hero' + heroNumber] || glob.sync([fileUrl + '/hero' + heroNumber + '.+(mp4|png|jpg)']).length > 0)
       .row
         .col-xs-12.cl
           - insertMedia('hero' + heroNumber)
