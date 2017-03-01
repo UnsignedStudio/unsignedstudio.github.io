@@ -1,18 +1,5 @@
 /* mobile */
 @media screen and (max-width: 768px) {
-  .img-holder {
-    position: relative;
-    overflow: hidden;
-    height: 600px;
-  }
-
-  .img-holder img {
-    z-index: -1;
-    width: 1000px;
-    margin-left: -250px;
-    margin-right: -250px;
-  }
-  
   .cl {
     padding-left: 0;
     padding-right: 0;
@@ -28,6 +15,10 @@
   
   .project {
     left: 2em;
+  }
+
+  .project h1 {
+    font-size: 20px;
   }
   
   .row {

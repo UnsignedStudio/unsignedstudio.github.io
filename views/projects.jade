@@ -12,10 +12,9 @@ block content
           .project
             h1: a.white-link(href= project.url + '.html')= project.name
             p!= json.year + '<br />' + json.caption
-          a(href= project.url + '.html')
-            if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
-              - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
-                img(src= 'content/' + project.url + '/' + fullname, width= '100%', alt= project.name + ' Image')
+          if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
+            - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
+            a(href= project.url + '.html', style= 'background-image: url("content/' + project.url + '/' + fullname + '")')
 block scripts
   script(src= 'js/jquery.scrollify.min.js')
   script(src= 'js/scrollify.js')

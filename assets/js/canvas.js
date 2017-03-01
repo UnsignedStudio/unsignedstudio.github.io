@@ -5,15 +5,16 @@ function preload()
 {
   img = loadImage("../images/cutout.png");
   for (var i = 0; i < 10; i++)
-    {
-      console.log("sounds/tone" + (i + 1) + ".ogg");
-      sounds[i] = loadSound("sounds/tone" + (i + 1) + ".ogg");
-    }
+    sounds[i] = loadSound("sounds/tone" + (i + 1) + ".ogg");
 }
 
 function setup()
 {
-  createCanvas(windowWidth, windowHeight);
+  var canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('#canvas-holder');
+  $('#canvas-holder').css({
+    'overflow': 'hidden'
+  });
 }
 
 function draw()

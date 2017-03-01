@@ -6,7 +6,7 @@ $(window).load(function() {
     interstitialSection : "",
     easing: "easeOutExpo",
     scrollSpeed: 1100,
-    offset : -20,
+    offset: 0,
     scrollbars: true,
     standardScrollElements: "",
     setHeights: false,
