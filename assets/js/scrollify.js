@@ -12,7 +12,7 @@ $(window).load(function() {
     setHeights: false,
     overflowScroll: false,
     updateHash: true,
-    touchScroll:true,
+    touchScroll: false,
     before:function() {},
     after:function() {},
     afterResize:function() {},
