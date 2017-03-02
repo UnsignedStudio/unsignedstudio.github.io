@@ -19,6 +19,7 @@ body {
   padding-right: 0;
 }
 
+
 #nav-container {
   padding-left: 2em;
   padding-right: 3em;
@@ -142,6 +143,7 @@ body {
 #experiments-holder {
   width: 95%;
   margin: auto;
+  margin-top: 50px;
 }
 
 #experiments-holder img {
@@ -169,11 +171,7 @@ body {
   right: 2.5%;
   bottom: 4em;
   top: 2.5%;
-}
-
-#popup-holder video {
-  max-width: 100%;
-  max-height: 100%;
+  overflow: hidden;
 }
 
 #popup p {

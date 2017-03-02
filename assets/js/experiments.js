@@ -1,4 +1,5 @@
 var gaps = [];
+var videoAspect = 0;
 
 $(document).ready(function() {
   links();
@@ -7,6 +8,8 @@ $(document).ready(function() {
 
 $(window).resize(function() {
   resizeGrid();
+  if (videoAspect != 0)
+    resizeVideo();
 });
 
 function links() {
@@ -32,6 +35,7 @@ function links() {
       p5obj = null;
     }
     
+    videoAspect = 0;
     $("#caption").html('');
     $("#popup-holder").children().remove();
   });
@@ -44,23 +48,56 @@ function loadExperiment(e) {
   folder = folder[folder.length - 2]
     
   $.get('content/experiments/' + folder + '/caption.txt', function(data){
+    // Caption
     $("#caption").html(data);
   });
     
   if (fileType == "png" || fileType == "jpg") {
+    // Image
     expFile = "url(" + expFile + ")";
     $("#popup-holder").css({
       'background-image': expFile
     });
   }
   else if (fileType == "txt") {
+    // Video
+    videoAspect = 0;
     $("#popup-holder").append('<video autoplay="" muted="", loop="", width="100%" />');
+    
     $.get('content/experiments/' + folder + '/experiment.txt', function(data){
       $("#popup-holder").children().append('<source src="' + data + '" />');
     });
+    
+    $("#popup-holder").children().get(0).addEventListener("loadedmetadata", function () {
+      videoAspect = this.videoWidth / this.videoHeight;
+      resizeVideo();
+    });
   }
   else if (fileType == "js") {
+    // JavaScript
     $.getScript(expFile);
+  }
+}
+
+function resizeVideo() {
+  var divAspect = $("#popup-holder").width() / $("#popup-holder").height();
+  var video = $("#popup-holder").children().eq(0);
+  if (videoAspect > divAspect) {
+    console.log(divAspect);
+    video.height($("#popup-holder").height());
+    video.width(video.height() * videoAspect);
+    translate = 'translateX(' + (video.width() - $("#popup-holder").width()) * -0.5 + 'px)';
+    video.css({
+      'transform': translate
+    });
+  }
+  else {
+    video.width($("#popup-holder").width());
+    video.height(video.width() * divAspect);
+    translate = 'translateY(' + (video.height() - $("#popup-holder").height()) * -0.5 + 'px)';
+    video.css({
+      'transform': translate
+    });
   }
 }
 
