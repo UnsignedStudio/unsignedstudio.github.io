@@ -11,7 +11,13 @@ assets
     project2
     project3
     ...
+  images
+    meta-image.[png|jpg]
+    twitter-image.[png|jpg]
 ```
+
+**meta-image:** Image used to display when the site is linked from Facebook and Google+
+**twitter-image:** Image used to display when the site is linked from Twitter
 
 ### Including
 To include a new folder, open app.coffee and add a new object under data with strings 'name' and 'url':
@@ -33,6 +39,8 @@ Each project contains a number of images and a text.json file to define various 
 #### Files
 | Filename      | Use                                                                        |
 | ------------- |----------------------------------------------------------------------------|
+| meta-image    | Image used to display when the site is linked from facebook and google+    |
+| twitter-image | Image used to display when the site is linked from twitter                 |
 | hero          | Displayed on front-page and top of project page (only image on front-page) |
 | hero2         | Displayed below hero alongside project details                             |
 | parallax      | Parallax                                                                   |
