@@ -12,6 +12,7 @@ body {
   background-color: #0C1217;
   color: white;
   font-family: 'Anonymous Pro', monospace;
+  margin-top: 50px;
 }
 
 .container-fluid {
@@ -143,7 +144,6 @@ body {
 #experiments-holder {
   width: 95%;
   margin: auto;
-  margin-top: 50px;
 }
 
 #experiments-holder img {
@@ -189,6 +189,11 @@ body {
 
 #popup img:hover {
   transform: scale(1.2);
+}
+
+.legal h1 {
+  font-size: 14px;
+  color: #ffc600;
 }
 
 @media screen and (max-height: 790px) {
