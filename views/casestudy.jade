@@ -1,7 +1,7 @@
 extends layout
 block links
   li: a.active(href='projects.html') Projects
-  li: a(href='experiments.html') Experiments
+  //li: a(href='experiments.html') Experiments
   li: a(href='about.html') About
 block content
   - var url = 'content/' + item.url;
@@ -10,13 +10,13 @@ block content
     - var json = JSON.parse(fs.readFileSync('assets/content/' + item.url + '/text.json'));
   else
     - console.log('JSON file not found in ' + item.url)
-  - function insertMedia(filename, grow, video) {
+  - function insertMedia(filename, grow, scrollPlay) {
       if (json[filename])
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= video == true ? false : '', muted='', loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%', controls= json[filename + '_controls'] == true ? '' : false)
           source(src= json[filename])
         - return true
       else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= video == true ? false : '', muted='', loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%')
           source(src= url + '/' + filename + '.mp4')
         - return true
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
@@ -103,10 +103,12 @@ block content
             p= json.med3_caption
   - var heroNumber = 3
   - while (true) {
-    if (json['hero' + heroNumber] || glob.sync([fileUrl + '/hero' + heroNumber + '.+(mp4|png|jpg)']).length > 0)
+    if ((json && json['hero' + heroNumber]) || glob.sync([fileUrl + '/hero' + heroNumber + '.+(mp4|png|jpg)']).length > 0)
       .row
         .col-xs-12.cl
           - insertMedia('hero' + heroNumber)
+          if (json && json['hero' + heroNumber + '_caption'])
+            p.hero-caption= json['hero' + heroNumber + '_caption']
           - heroNumber += 1
     else
       - break

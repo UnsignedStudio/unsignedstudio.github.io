@@ -78,6 +78,16 @@ Each project contains a number of images and a text.json file to define various 
 ```
 Caption is displayed on the front-page while description is displayed on the project page. the body section appears under the parallax.
 
+hero images 3+ can also have captions:
+```
+    "hero3_caption": "This caption will appear below the 3rd hero image/video"
+```
+
+Finally, videos can be forced to show controls:
+```
+    "hero2_controls": true
+```
+
 A skeleton text.json file can also be found in the root directory
 
 ## Experiments
