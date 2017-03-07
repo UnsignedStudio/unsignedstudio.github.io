@@ -10,10 +10,10 @@
   "body": "After receiving raw data drops, we ran them through a custom application which performed some initial preprocessing. We then ingested the data into our backend. Now that the data could be handled efficiently, we wrote a series scripts which talked to our backend, analysed and compiled the data into code our rendering software used to create the animation",
   "tag": "FOCUS",
   "focus": "Using our custom software we delivered film and high-res print media showcasing the size, complexity and accuracy of Marine Traffic AIS data.",
-  "med1_caption": "Captions for images can go here",
-  "med2_caption": "Captions for images can go here",
-  "med3_caption": "Captions for images can go here",
-  "med4_caption": "Captions for images can go here",
-  "med5_caption": "Captions for images can go here",
-  "med6_caption": "Captions for images can go here"
+  "med1_caption": "Early development render of the Port of L.A.",
+  "med2_caption": "Early development render of Singapore region.",
+  "med3_caption": "Early development render of the globe.",
+  "med4_caption": "Data processing code.",
+  "med5_caption": "First import of the data.",
+  "med6_caption": "Frist test render of the raw data."
 }
