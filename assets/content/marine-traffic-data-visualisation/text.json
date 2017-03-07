@@ -8,12 +8,20 @@
   "design": "Su-yiin",
   "sound": "Kane Ikin",
   "body": "After receiving raw data drops, we ran them through a custom application which performed some initial preprocessing. We then ingested the data into our backend. Now that the data could be handled efficiently, we wrote a series scripts which talked to our backend, analysed and compiled the data into code our rendering software used to create the animation",
-  "tag": "FOCUS",
-  "focus": "Using our custom software we delivered film and high-res print media showcasing the size, complexity and accuracy of Marine Traffic AIS data.",
+  "tag": "DATA",
+  "focus": "We brought together ~15 million data points to create imagery on this page.",
+  
+  "hero2":"https://video.unsignedstudio.io/marine-traffic-data/hero2.mp4",
+  "hero3":"https://video.unsignedstudio.io/marine-traffic-data/hero3.mp4",
+  "med1":"https://video.unsignedstudio.io/marine-traffic-data/med1.mp4",
+  "med2":"https://video.unsignedstudio.io/marine-traffic-data/med2.mp4",
+  "med3":"https://video.unsignedstudio.io/marine-traffic-data/med3.mp4",
+
   "med1_caption": "Early development render of the Port of L.A.",
   "med2_caption": "Early development render of Singapore region.",
   "med3_caption": "Early development render of the globe.",
   "med4_caption": "Data processing code.",
   "med5_caption": "First import of the data.",
-  "med6_caption": "Frist test render of the raw data."
+  "med6_caption": "Frist test render of the raw data.",
+  "hero5_caption": "Marine Traffice in and around Australia."
 }
