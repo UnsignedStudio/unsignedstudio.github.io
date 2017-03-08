@@ -12,11 +12,11 @@ block content
     - console.log('JSON file not found in ' + item.url)
   - function insertMedia(filename, grow, scrollPlay) {
       if (json[filename])
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%', controls= json[filename + '_controls'] == true ? '' : false)
+        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%', controls= json[filename + '_controls'] == true ? '' : false)
           source(src= json[filename])
         - return true
       else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
-        video(class= grow == true ? 'grow' : '', class= video == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true ? false : '', muted='', loop='', width='100%')
           source(src= url + '/' + filename + '.mp4')
         - return true
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
