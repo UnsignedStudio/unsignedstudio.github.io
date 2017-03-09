@@ -11,5 +11,6 @@
   "body": "After receiving raw data drops, we ran them through a custom application which performed some initial preprocessing. We then ingested the data into our backend. Now that the data could be handled efficiently, we wrote a series scripts which talked to our backend, analysed and compiled the data into code our rendering software used to create the animation"
 
 
+    
 }
 
