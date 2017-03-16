@@ -1,8 +1,29 @@
+//extends layout
+//block content
+  //#canvas-holder
+//block scripts
+  //script(src= 'js/p5.min.js')
+  //script(src= 'js/p5.sound.js')
+  //script(src= 'js/p5.dom.min.js')
+  //script(src= 'js/canvas.js')
+
 extends layout
+block links
+  li: a.active(href='projects.html') Projects
+  //li: a(href='experiments.html') Experiments
+  li: a(href='about.html') About
 block content
-  #canvas-holder
+  each project in records.projects
+    if (fs.existsSync('assets/content/' + project.url + '/text.json'))
+      - var json = JSON.parse(fs.readFileSync('assets/content/' + project.url + '/text.json'));
+      .scroll-snap(data-section-name= project.url)
+        .img-holder
+          .project
+            h1: a.white-link(href= project.url + '.html')= project.name
+            p!= json.year + '<br />' + json.caption
+          if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
+            - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
+            a(href= project.url + '.html', style= 'background-image: url("content/' + project.url + '/' + fullname + '")')
 block scripts
-  script(src= 'js/p5.min.js')
-  script(src= 'js/p5.sound.js')
-  script(src= 'js/p5.dom.min.js')
-  script(src= 'js/canvas.js')
+  script(src= 'js/jquery.scrollify.min.js')
+  script(src= 'js/scrollify.js')
