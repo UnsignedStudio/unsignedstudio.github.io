@@ -49,7 +49,6 @@ segment.prototype.draw = function() {
     noFill();
     
     if (this.position > 1) {
-        
         var startVec = normalisePoint(this.start.x, this.start.y);
         var endVec = normalisePoint(this.end.x, this.end.y);
         
@@ -57,7 +56,6 @@ segment.prototype.draw = function() {
         vertex(startVec.x, startVec.y);
         vertex(endVec.x, endVec.y);
         endShape();
-        
     }else {
         
         var npS = normalisePoint(this.start.x, this.start.y);
@@ -68,19 +66,18 @@ segment.prototype.draw = function() {
 
         this.currentEnd.x = (cx * this.position) + npS.x;
         this.currentEnd.y = (cy * this.position) + npS.y;
-
-        //var startVec = normalisePoint(this.start.x, this.start.y);
-        //var endVec = normalisePoint(this.currentEnd.x, this.currentEnd.y);
-        //endVec = normalisePoint(this.end.x,this.end.y);
-
+        //this.currentEnd.y += _mOffset;
+        
         beginShape();
         vertex(npS.x, npS.y);
         vertex(this.currentEnd.x, this.currentEnd.y);
         endShape();
-        this.position = this.easeOutCubic(this.position);
+        fill(200,200,220);
+        ellipse(this.currentEnd.x, this.currentEnd.y, 4);
+        
+        //this.position = this.easeOutCubic(this.position);
+        this.position += this.position * 0.055;
     }
-    //this.position += this.mult;
-    
 }
 
 function convertLinesToSegements() {
@@ -91,7 +88,7 @@ function convertLinesToSegements() {
             var startSeg = _markLines[l][i];
             if (i+1 < _markLines[l].length) {
                 var endSeg = _markLines[l][i+1];
-                var ss = new segment(startSeg, endSeg, (random() * 5));
+                var ss = new segment(startSeg, endSeg, 1 + (random() * 3));
                 _segs.push(ss);        
             }
         }
@@ -114,9 +111,6 @@ function setup() {
 	_d = (_d - _sT)/1000;
     
     convertLinesToSegements();
-    
-    
-	//smooth();
 }
 
 function normalisePoint(x, y) {
@@ -147,7 +141,7 @@ function normalisePoint(x, y) {
 	return createVector(_x, _y, 0);
 }
 
-
+/*
 function drawMarkLines() {
 	strokeWeight(1);
 	stroke(10,10,10);
@@ -180,6 +174,7 @@ function drawMarkPoints() {
 		}
 	}	
 }
+*/
 
 function draw() {
 	_d = (new Date()).getTime();
@@ -197,4 +192,10 @@ function draw() {
     }
 }
 
+var _mOffset = 0;
+function mouseWheel(event) {
+    _mOffset = event.delta;  
+    console.log(_mOffset);
+    return false;
+}
 function windowResized() { resizeCanvas(windowWidth, windowHeight);	}
