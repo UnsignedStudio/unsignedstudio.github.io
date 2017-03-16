@@ -1,0 +1,26 @@
+{
+    "year": "2017",
+    "caption": "Melbourne Quarter Projection Wall",
+    "description": "Unsigned Studio was engaged by Squint/Opera to create a custom hardware and software solution for a multi-projector installation. \n\rBringing together brand assets, films and 360 imagery we created a unique experience. The completed system could be enjoyed during events and has real utility when used in a meeting setting.",
+    "client": "Squint/Opera",
+    "direction": "Dave Mackenzie",
+    "production": "",
+    "design": "Björn Rüst",
+    "sound": "",
+    
+    "tag":"PROJECTION",
+    "focus": "The four modes included, a branding showcase bringing together imagery and film, a slower ambient mode, a controllable 360 view-line mode and cinema mode.",
+    "body": "Each of the modes could be toggled between and controlled by a custom dial we built. Manufactured from the CNC milled aluminium, 3d printed internals and open source Arduino microcontroller. ",
+    "hero3":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero3.mp4",
+    "hero4":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero4.mp4",
+    "hero5":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero5.mp4",
+    "med1_caption":"Branding Mode. Videos and still imagery rotate around the wall.",
+    "med2_caption":"Ambient Mode. Static videos slowly shifting colour. ",
+    "med3_caption":"Viewline Mode. Full 360 degree view-lines. The heading can be controlled by the dial.",
+    
+    "med4_caption":"Dial Concept Sketches",
+    "med5_caption":"Dial prototype schematic",
+    "med6_caption":"Dial Arduino Code"   
+}
+
+

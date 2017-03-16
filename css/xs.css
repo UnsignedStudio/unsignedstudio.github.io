@@ -1,0 +1,118 @@
+/* mobile */
+@media screen and (max-width: 768px) {
+  .cl {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  h2 {
+    font-size: 20px
+  }
+  
+  p, span {
+    font-size: 12px;
+  }
+  
+  .project {
+    left: 2em;
+  }
+
+  .project h1 {
+    font-size: 20px;
+  }
+  
+  .row {
+    margin-bottom: 2em;
+  }
+  
+  /* columns that have collapsed after resizing */
+  .collapsed-col {
+    padding-top: 2em;
+  }
+  
+  /* about page */
+  #heading {
+    font-size: 16px;
+    margin-top: 4em;
+  }
+  
+  #address {
+    margin-top: 2.5em;
+  }
+        
+  @media screen and (max-height: 550px) {
+    #footer {
+      position: relative;
+    }
+  }
+  
+  .parallax,
+  .parallax-row {
+    visibility: hidden;
+    display: none;
+    margin: 0;
+  }
+  
+  .rel {
+    position: relative;
+  }
+  
+  .left-caption {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .right-caption {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  
+  .left-padding {
+    padding-left: 10px;
+  }
+  
+  .right-padding {
+    padding-right: 10px;
+  }
+  
+  .project-block {
+    display: block;
+    width: 30%;
+    margin: auto;
+  }
+  
+  .rm-bottom-margin {
+    margin-bottom: 0;
+  }
+  
+  #left-arrow {
+    position: absolute;
+    left: 20%;
+    top: 0;
+  }
+  
+  #right-arrow {
+    position: absolute;
+    right: 20%;
+    top: 0;
+  }
+  
+  #project {
+    padding: 2em 0;
+    margin: 0;
+  }
+  
+  #project:before {
+    top: 41px;
+    width: 53px;
+  }
+  
+  /* columns that have collapsed after resizing (links) */
+  .link:nth-child(n + 4) {
+    padding-top: 2em;
+  }
+}

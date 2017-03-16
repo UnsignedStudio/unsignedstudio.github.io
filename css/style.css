@@ -1,0 +1,207 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
+
+html,
+body,
+.container-fluid,
+.scroll-snap,
+.img-holder {
+  height: 100%;
+}
+
+body {
+  background-color: #0C1217;
+  color: white;
+  font-family: 'Anonymous Pro', monospace;
+  margin-top: 50px;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+#nav-container {
+  padding-left: 2em;
+  padding-right: 3em;
+}
+
+.nav, .navbar {
+  background-color: #0C1217;
+  border: none;
+}
+
+.navbar-inverse .navbar-header a,
+.navbar-inverse .navbar-nav li a {
+  color: white;
+}
+
+.img-holder > a {
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.img-holder {
+  position: relative;
+}
+
+.row {
+  margin-bottom: 6em;
+  margin-left: 3%;
+  margin-right: 3%;
+  background-color: #0C1217;
+}
+
+/* full width images that fill entire screen */
+.full-width {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.no-extra {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-logo {
+  padding-top: 0;
+}
+
+.project {
+  position: absolute;
+  z-index: 10;
+}
+
+.project p,
+.project h1 {
+  text-shadow: 1px 1px black;
+}
+
+/* left padding for right-side columns in case studies */
+@media (min-width: 992px) {
+  .extra-padding {
+    padding-left: 4%;
+  }
+}
+
+.centre {
+  text-align: center;
+}
+
+.hero-caption {
+  margin-top: 0.6em;
+}
+
+.canvas-parent {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 1em;
+  right: 0;
+  left: 0;
+}
+
+/* about page */
+#heading {
+  font-weight: bold;
+}
+
+/* navbar links */
+.white-link, .white-link:hover, .white-link:link {
+  color: white;
+}
+
+#project:before {
+  content: ' ';
+  position: absolute;
+  top: 18px;
+  width: 61px;
+  height: 2px;
+  background-color: #DCB128;
+  opacity: 1
+}
+
+#experiments-footer {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+  
+@media screen and (max-width: 991px) {
+  /* columns that have collapsed after resizing */
+  .collapsed-col-sm {
+    padding-top: 2em;
+  }
+}
+
+/* Experiments image grid */
+#experiments-holder {
+  width: 95%;
+  margin: auto;
+}
+
+#experiments-holder img {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+#popup {
+  position: absolute;
+  background-color: #0C1217;
+  display: none;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#popup-holder {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 2.5%;
+  right: 2.5%;
+  bottom: 4em;
+  top: 2.5%;
+  overflow: hidden;
+}
+
+#popup p {
+  position: absolute;
+  left: 2.8%;
+  bottom: 0.5em;
+}
+
+#popup img {
+  position: absolute;
+  top: 2.5em;
+  right: calc(2.5% + 1em);
+  transition: all 0.1s ease-in-out
+}
+
+#popup img:hover {
+  transform: scale(1.2);
+}
+
+.legal h1 {
+  font-size: 14px;
+  color: #ffc600;
+}
+
+@media screen and (max-height: 790px) {
+  #footer {
+    position: relative;
+  }
+}

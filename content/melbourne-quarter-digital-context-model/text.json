@@ -1,0 +1,21 @@
+{
+  "year": "2016",
+  "caption": "Melbourne Quarter Digital Context Model",
+  "description": "To present a future development site in its Melbourne CBD setting we developed a digital context model.\n\nA scale model of Melbourne’s ground plane formed the physical base for multiple and interactive layers of site and context information. The complete installation included precision CNC machined acrylic models, solid clear 3d printed models, large commercial displays, custom hardware, new display software and an iPad application for control and user input.",
+  "client": "Squint/Opera",
+  "direction": "",
+  "production": "",
+  "design": "",
+  "sound": "",
+  "focus": "We created three rendering modes to display location based information. Lines, points, and areas. These rendering modes enabled us to display a wide variety of data. Each mode is animated when swapping between collections of locations or calling out specific locations.",
+  "body": "",
+  "hero4_caption":"The solid arcrylic enables light to be transported through the models.",
+  "hero5_caption":"The iPad application in action",
+  "hero6_caption":"A quick look at the animated rendering modes.",
+  "med4_caption":"Close up view the model, the displays are in idle mode.",
+  "med5_caption":"Close up view of the CNC machines arcrylic models.",
+  "med6_caption":"The digital context model in place.",
+  "hero3":"https://video.unsignedstudio.io/melbourne-quarter-digital-context-model/hero3.mp4",
+  "hero6":"https://video.unsignedstudio.io/melbourne-quarter-digital-context-model/hero6.mp4"
+}
+
