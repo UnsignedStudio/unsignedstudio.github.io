@@ -124,7 +124,7 @@ var alphaMult = -1;
 function loadProjects() {
     var offsetMult = _mOffset / height;
     if ((offsetMult) < -0.23) {
-        window.location.href = "projects.html";
+        window.location.href = "/projects.html";
     }
     if (offsetMult < 0 && offsetMult > -0.25) { alphaMult = 1 + (offsetMult / 0.25); }
     else{ alphaMult = -1; }
