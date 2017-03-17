@@ -12,11 +12,11 @@ block content
     - console.log('JSON file not found in ' + item.url)
   - function insertMedia(filename, grow, scrollPlay) {
       if (json[filename])
-        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true || json[filename + '_controls'] ? false : '', muted= json[filename + '_controls'] == true ? false: '', controls= json[filename + '_controls'] == true ? '' : false, loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true || json[filename + '_controls'] ? false : '', muted= json[filename + '_controls'] == true ? false: '', controls= json[filename + '_controls'] == true ? '' : false, loop='', playsinline='', width='100%')
           source(src= json[filename])
         - return true
       else if (glob.sync(fileUrl + '/' + filename + '.mp4').length > 0)
-        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true || json[filename + '_controls'] ? false : '', muted= json[filename + '_controls'] == true ? false : '', controls= json[filename + '_controls'] == true ? '' : false, loop='', width='100%')
+        video(class= grow == true ? 'grow' : '', class= scrollPlay == true ? 'video-scroll' : '', autoplay= scrollPlay == true || json[filename + '_controls'] ? false : '', muted= json[filename + '_controls'] == true ? false : '', controls= json[filename + '_controls'] == true ? '' : false, loop='', playsinline='', width='100%')
           source(src= url + '/' + filename + '.mp4')
         - return true
       else if (glob.sync([fileUrl + '/' + filename + '.+(png|jpg)']).length > 0)
