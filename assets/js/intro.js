@@ -178,7 +178,7 @@ function draw() {
 var _mOffset = 0;
 var _oldMOffset = 0;
 function mouseWheel(event) {
-    if (markStillAnimating() == false) { if (event.delta > 0) { _mOffset -= 10; } else { _mOffset += 10; } }
+    if (markStillAnimating() == false) { if (event.delta > 0) { _mOffset -= 25; } else { _mOffset += 25; } }
     return false;
 }
 function windowResized() { resizeCanvas(windowWidth, windowHeight);	}
