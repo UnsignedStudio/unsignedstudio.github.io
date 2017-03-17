@@ -32,6 +32,9 @@ segment.prototype.distance = function (v1,v2) {
     return Math.sqrt( Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
 }
 segment.prototype.draw = function() {
+    if (alphaMult == 2)
+      return;
+  
     if (this.startTime > _d) {  return; }
     if (this.hidden) { return; }
     strokeWeight(1);
@@ -82,7 +85,7 @@ function convertLinesToSegements() {
             if (i+1 < _markLines[l].length) {
                 var endSeg = _markLines[l][i+1];
                 var ss = new segment(startSeg, endSeg, 0.75 + (random() * 2));
-                _segs.push(ss);        
+                _segs.push(ss);
             }
         }
     }
@@ -122,13 +125,17 @@ function markStillAnimating() {
 }
 var alphaMult = -1;
 function loadProjects() {
+    if (alphaMult == 2)
+      return;
+  
     var offsetMult = _mOffset / height;
     if ((offsetMult) < -0.23) {
         window.location.href = "/projects.html";
+        alphaMult = 2;
+        return;
     }
     if (offsetMult < 0 && offsetMult > -0.25) { alphaMult = 1 + (offsetMult / 0.25); }
     else{ alphaMult = -1; }
-    //if (alphaMult == 0) { window.location.href = "casestudy.html"; }
 }
 
 //P5
