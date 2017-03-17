@@ -1,127 +1,93 @@
 //Front Edge of Z
-var _L1 = [{"x":0.0, "y":0.791333},{"x":0.217352, "y":0.791333},{"x":0.217352, "y":0.690988},{"x":0.386685, "y":0.690988},{"x":0.217352, "y":0.389953},{"x":0.217352, "y":0.289608},{"x":0.217352, "y":0.0},{"x":0.217352, "y":0.289608}];
-
+var _L1 = [{"x":0.217352, "y":0.791333},{"x":0.217352, "y":0.690988},{"x":0.386685, "y":0.690988},{"x":0.217352, "y":0.389953},{"x":0.217352, "y":0.289608},{"x":0.217352, "y":0.0}];
 //Back Edge of Z
 var _L2 = [{"x":0.217352, "y":0.289608},{"x":0.443129, "y":0.289608},{"x":0.443129, "y":0.389953},{"x":0.273796, "y":0.389953},{"x":0.443129, "y":0.690988},{"x":0.499573, "y":0.590643},{"x":0.443129, "y":0.490298},{"x":0.443129, "y":0.389953},{"x":0.556017, "y":0.590643},{"x":0.443129, "y":0.791333},{"x":0.0, "y":0.791333}];
-
 //Front Edge of 0
-var _L3 = [{"x":1.0, "y":0.289608},{"x":0.443129, "y":0.289608},{"x":0.443129, "y":0.189262},{"x":0.556017, "y":0.189262},{"x":0.556017, "y":0.791333},{"x":0.781794, "y":0.791333},{"x":0.781794, "y":1.0}];
-
+var _L3 = [{"x":1.0, "y":0.289608},{"x":0.443129, "y":0.289608},{"x":0.443129, "y":0.189262},{"x":0.556017, "y":0.189262},{"x":0.556017, "y":0.791333},{"x":0.781794, "y":0.791333}];
 //Back Edge of 0
 var _L4 = [{"x":1.0, "y":0.289608},{"x":0.781794, "y":0.289608},{"x":0.781794, "y":1.0}];
-
 //Top Triangle on 0
 var _L5 = [{"x":0.612461, "y":0.490298},{"x":0.725349, "y":0.690988},{"x":0.612461, "y":0.690988},{"x":0.612461, "y":0.490298}]; 
-
 //Bottom Triangle on 0 
 var _L6 = [{"x":0.612461, "y":0.389953},{"x":0.725349, "y":0.389953},{"x":0.725349, "y":0.590643},{"x":0.612461, "y":0.389953}]; 
-
 //Line arr
 var _markLines = [_L1, _L2, _L3, _L4, _L5, _L6];
-var _longestLine = 12;
-var _lineHandlers = [_markLines.length];
 
-//Line Handler
-//Looks after rendering lines and stuff 
-function lineHandlder(pointArray) {
-	this.pArray = pointArray;
-	this.currentPosition = createVector(0,0,0);
-	this.totalLength = 0;
-	
-	//Calc total line length
-	for (var i = 1; i < this.pArray.length; i++) { this.totalLength += this.distance(this.pArray[i-1], this.pArray[i]); }
-	console.log(this.totalLength);
-
-	this.lastPoint = 0;
-	this.nextPoint = 1;
-	this.currentPosition = createVector(this.pArray[this.nextPoint - 1].x, this.pArray[this.nextPoint - 1].y);
-	this.lastPosition = this.currentPosition;
-	//Calc anim time 
-	this.normalisedAnimTime = _animTime * (this.totalLength / _longestLine);
-	console.log(this.normalisedAnimTime);
-
-	this.delayTime = 0;
+//Segemnts
+var _segs = [];
+var _segSpeed = 0.0000000001;
+function segment(p1, p2, st) {
+    this.start = p1;
+    this.end = p2;
+    this.currentEnd = {"x":0,"y":0};
+    this.position = 0.01;
+    this.hidden = false;
+    this.drawPoints = true;
+    this.startTime = st;
 }
-lineHandlder.prototype.distance = function(v1, v2) { return sqrt(((v1.x - v1.x)^2) + ((v1.y - v2.y)^2)); }
-lineHandlder.prototype.distanceToPoint = function(ele1) {
-	var calcDist = 0;
-	if (ele1 == 1) {
-		calcDist = this.distance(this.pArray[0], this.pArray[1]);
-	}else{
-		for (var i = 1; i < ele1; i++) {
-			calcDist += this.distance(this.pArray[i - 1], this.pArray[i]);
-		}	
-	}
-	return calcDist;
+segment.prototype.length = function () {
+    return Math.sqrt( Math.pow(this.end.x - this.start.x, 2) + Math.pow(this.end.y - this.start.y, 2));
 }
-lineHandlder.prototype.updateAnimation = function() {
-	var targetDistance = this.totalLength * _d;
-	
-	//Cap max target dist.
-	if (targetDistance > this.totalLength) { targetDistance = this.totalLength; }
-
-
-	if (this.nextPoint < this.pArray.length) {
-		var distToNextPoint = this.distanceToPoint(this.nextPoint);
-		console.log("Distance Opts: " + targetDistance + " distToNextPoint: " + distToNextPoint + " Total Dist: " + this.totalLength);
-		if (distToNextPoint > targetDistance) {
-		//if (targetDistance < distToNextPoint) {
-			//Do Nothing?
-			console.log("am i getting here??? nextPoint: " + this.nextPoint + " Last Point: " + this.lastPoint)
-
-		}else{
-			this.lastPoint = this.nextPoint;
-			this.nextPoint += 1;
-		}
-
-
-		
-		//Calc Pos
-		if (this.nextPoint < this.pArray.length) {
-			var distToLast = this.distanceToPoint(this.lastPoint);
-			var distToNext = this.distanceToPoint(this.nextPoint);
-			var normalTargetDist = targetDistance - distToLast;
-			distToNext = distToNext - distToLast;
-			normalTargetDist = normalTargetDist / distToNext;
-
-			console.log(normalTargetDist);
-			
-			var newVect = createVector(0,0,0);
-			newVect.x = ((this.pArray[this.nextPoint].x - this.pArray[this.lastPoint].x) * normalTargetDist) +  this.pArray[this.lastPoint].x;
-			newVect.y = ((this.pArray[this.nextPoint].y - this.pArray[this.lastPoint].y) * normalTargetDist) +  this.pArray[this.lastPoint].y;
-
-			this.lastPosition = this.currentPosition;
-			this.currentPosition = newVect;
-
-		}else{
-			this.currentPosition = this.pArray[this.pArray.length];
-		}
-	}
+segment.prototype.distance = function (v1,v2) {
+    return Math.sqrt( Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2));
 }
-lineHandlder.prototype.render = function() {
-	fill(255,0,0);
-	//var _renderPoint = normalisePoint(this.currentPosition.x, this.currentPosition.y);
-	//ellipse(_renderPoint.x, _renderPoint.y, 20, 20);
+segment.prototype.draw = function() {
+    if (this.startTime > _d) {  return; }
+    if (this.hidden) { return; }
+    strokeWeight(1);
+    if (alphaMult != -1) {
+        stroke(200*alphaMult, 200*alphaMult, 220*alphaMult);
+    }else{
+        stroke(200,200,220);
+    }
+    
+    noFill();
+    
+    if (this.position > 1) {
+        var startVec = normalisePoint(this.start.x, this.start.y);
+        var endVec = normalisePoint(this.end.x, this.end.y);
+        
+        if (startVec.y != 0 && startVec.y != height) { startVec.y += _mOffset; }
+        if (endVec.y != 0 && endVec.y != height) { endVec.y += _mOffset; }
+        
+        beginShape();
+        vertex(startVec.x, startVec.y);
+        vertex(endVec.x, endVec.y);
+        endShape();
+    }else {
+        
+        var npS = normalisePoint(this.start.x, this.start.y);
+        var npE = normalisePoint(this.end.x, this.end.y);
+        
+        var cx = (npE.x - npS.x);
+        var cy = (npE.y - npS.y);
+
+        this.currentEnd.x = (cx * this.position) + npS.x;
+        this.currentEnd.y = (cy * this.position) + npS.y;
+        
+        beginShape();
+        vertex(npS.x, npS.y);
+        vertex(this.currentEnd.x, this.currentEnd.y);
+        endShape();
+        fill(200,200,220);
+        ellipse(this.currentEnd.x, this.currentEnd.y, 4);
+        
+        this.position += this.position * 0.055;
+    }
 }
-
-
-//Timing
-var _d = new Date();
-var _animTime = 10;
-var _sT = (new Date()).getTime(); //Start Time
-
-function setup() {
-	//Canvas Setup
-	var _cnv = createCanvas(windowWidth, windowHeight);
-	_cnv.parent('intro-parent');
-	_cnv.position(0,0);
-	
-	//Intial Drawing States
-	smooth();
-
-	for (var i = 0; i < _markLines.length; i++) {  _lineHandlers[i] = new lineHandlder(_markLines[i]); }
+function convertLinesToSegements() {
+    for (var l = 0; l < _markLines.length; l++) {
+        for (var i = 0; i < _markLines[l].length; i++) {
+            var startSeg = _markLines[l][i];
+            if (i+1 < _markLines[l].length) {
+                var endSeg = _markLines[l][i+1];
+                var ss = new segment(startSeg, endSeg, 0.75 + (random() * 2));
+                _segs.push(ss);        
+            }
+        }
+    }
 }
-
+//Screen Space Projection
 function normalisePoint(x, y) {
 	//Normalize
 	var _x = x * 1920
@@ -149,56 +115,63 @@ function normalisePoint(x, y) {
 	//Return Vector
 	return createVector(_x, _y, 0);
 }
-
-function drawMarkLines() {
-	strokeWeight(1);
-	stroke(10,10,10);
-	noFill();
-
-	for (var i = 0; i < _markLines.length; i++) {
-		var _ln = _markLines[i];
-		beginShape();
-		for (var l = 0; l < _ln.length; l++) {
-			var _pt = _ln[l];
-			var _vec = normalisePoint(_pt.x, _pt.y);
-			vertex(_vec.x, _vec.y);
-		}
-		endShape();
-	}
+//Misc FNs
+function markStillAnimating() {
+    for (var s = 0; s < _segs.length; s++) { if (_segs[s].position < 1) { return true; } }
+    return false;
+}
+var alphaMult = -1;
+function loadProjects() {
+    var offsetMult = _mOffset / height;
+    if ((offsetMult) < -0.23) {
+        window.location.href = "projects.html";
+    }
+    if (offsetMult < 0 && offsetMult > -0.25) { alphaMult = 1 + (offsetMult / 0.25); }
+    else{ alphaMult = -1; }
+    //if (alphaMult == 0) { window.location.href = "casestudy.html"; }
 }
 
-function drawMarkPoints() {
-	for (var i = 0; i < _markLines.length; i++) {
-		var _ln = _markLines[i];
-		for (var l = 0; l < _ln.length; l++) {
-			var _pt = _ln[l];
-			var _vec = normalisePoint(_pt.x, _pt.y);
-			fill(0,0,0)
-			ellipse(_vec.x, _vec.y, 10, 10);
-		}
-	}
-}
+//P5
+var _cnv;
+var _d = new Date();
+var _animTime = 10;
+var _sT = (new Date()).getTime();
+var _timeTillClear = -1;
 
-function handleTime() { 
-	_d = (new Date()).getTime(); 
+function setup() {
+	var _cnv = createCanvas(windowWidth, windowHeight);
+	_cnv.parent('canvas-holder');
+	_cnv.position(0,0);
+    
+    d = (new Date()).getTime();
 	_d = (_d - _sT)/1000;
-	_d = _d / _animTime; 
+    background(12,18,23,255);
+    convertLinesToSegements();
 }
-
 function draw() {
-	handleTime();
-
-	clear();
-	background(124, 123, 122);
+	_d = (new Date()).getTime();
+	_d = (_d - _sT)/1000;
 	
-	drawMarkLines();
-	drawMarkPoints();
-
-	for (var i = 0; i < _lineHandlers.length; i++) {
-		_lineHandlers[i].updateAnimation();
-		_lineHandlers[i].render();
-	}
+    if (markStillAnimating() == false) {
+        if (_timeTillClear != -1) {
+            if (_d > _timeTillClear) {
+                background(12,18,23);
+                _timeTillClear = -1;
+            }
+        }else{ background(12,18,23, 120); }
+    }else{ background(12,18,23, 40);}
+    for (var s = 0; s < _segs.length; s++) { _segs[s].draw(); }
+    
+    if (_oldMOffset != _mOffset) { _timeTillClear = _d + 0.15; }
+    _oldMOffset = _mOffset;
+    
+    loadProjects();
 }
 
+var _mOffset = 0;
+var _oldMOffset = 0;
+function mouseWheel(event) {
+    if (markStillAnimating() == false) { if (event.delta > 0) { _mOffset -= 10; } else { _mOffset += 10; } }
+    return false;
+}
 function windowResized() { resizeCanvas(windowWidth, windowHeight);	}
-

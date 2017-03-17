@@ -49,13 +49,16 @@ html(lang='en')
     link(href='css/xs.css', rel='stylesheet')
     link(href='css/sm.css', rel='stylesheet')
     link(rel='icon', type='image/png', href='images/favicon.ico')
+    - if (filename.match('index'))
+      style.
+        body {overflow: hidden;}
     // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
       script(src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
       script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     title Unsigned Studio | Melbourne Based | Creative Technology, Data Visualization, VR, AR, Visual Experiences, Activations and Installations
-
+    
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container-fluid#nav-container
@@ -66,9 +69,9 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a#navbar-logo.navbar-brand(href='projects.html')
+          a#navbar-logo.navbar-brand(href='index.html')
             img(src='images/logo_white.png', alt='Unsigned Studio Logo', width='50')
-          a.navbar-brand(href='projects.html') Unsigned Studio
+          a.navbar-brand(href='index.html') Unsigned Studio
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
