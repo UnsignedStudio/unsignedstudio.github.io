@@ -1,8 +1,60 @@
 extends layout
+block links
+  li: a.active(href='projects.html') Projects
+  li: a(href='about.html') About
 block content
-  #canvas-holder
+  - function insertProject(project) {
+    if (fs.existsSync('assets/content/' + project.url + '/text.json'))
+      - var json = JSON.parse(fs.readFileSync('assets/content/' + project.url + '/text.json'));
+      .scroll-snap(data-section-name= project.url)
+        .img-holder
+          .project
+            h1: a.white-link(href= project.url + '.html')= project.name
+            p!= json.year + '<br />' + json.caption
+            p.more: a.white-link.more-box(href= project.url + '.html') MORE
+          if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
+            - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
+            a(href= project.url + '.html', style= 'background-image: url("content/' + project.url + '/' + fullname + '")')
+  - }
+  .scroll-snap(data-section-name= "landing")
+    .row.narrow.full-height
+      .col-sm-6.right-col.col-sm-push-6.full-height
+        img(src= "images/website_diagrams-01.png" width= "100%")
+      .col-sm-6.col-sm-pull-6.full-height
+        .box
+          p(class= "landing-bold") We are creative technologists.
+          hr
+          p(class= "landing") We create #[span(class="highlight") Human experiences] that communicate, inform and engage.
+  - insertProject(records.key_projects[0])
+  .scroll-snap(data-section-name= "devices")
+    .row.narrow.full-height
+      .col-sm-6.right-col.col-sm-push-6.full-height
+        img(src= "images/website_diagrams-02.png" width= "100%")
+      .col-sm-6.col-sm-pull-6.full-height
+        .box.box2
+          p(class= "landing-bold") We design and build solutions for the #[span(class="highlight") physical] world, for use on #[span(class="highlight") devices] and for the #[span(class="highlight") web].
+  - insertProject(records.key_projects[1])
+  .scroll-snap(data-section-name= "collaboration")
+    .row.narrow.full-height
+      .col-sm-6.right-col.col-sm-push-6.full-height
+        img(src= "images/website_diagrams-03.png" width= "100%")
+      .col-sm-6.col-sm-pull-6.full-height
+        .box.box3
+          p(class= "landing-bold") We execute and enhance #[span(class="highlight") your] ideas.
+          hr
+          p(class= "landing") We #[span(class="highlight") collaborate] with brand builders, marketers and companies to build new products, apps and services.
+  - insertProject(records.key_projects[2])
+  .scroll-snap(data-section-name= "experimentation")
+    .row.narrow.full-height
+      .col-sm-6.right-col.col-sm-push-6.full-height
+        img(src= "images/website_diagrams-04.png" width= "100%")
+      .col-sm-6.col-sm-pull-6.full-height
+        .box.box2
+          p(class= "landing-bold") Our internal experimentation is a key driver of our commercial projects.
+          hr
+          p(class= "landing") Our approach keeps us in front of the curve, constantly evaluating #[span(class="highlight") emerging trends] and research. Through our collaborative networks, we bring the bleeding edge into the commercial world.
+  - insertProject(records.key_projects[3])
 block scripts
-  script(src= 'js/p5.min.js')
-  script(src= 'js/p5.sound.js')
-  script(src= 'js/p5.dom.min.js')
-  script(src= 'js/intro.js')
+  script(src= 'js/jquery.scrollify.min.js')
+  script(src= 'js/scrollify.js')
+  

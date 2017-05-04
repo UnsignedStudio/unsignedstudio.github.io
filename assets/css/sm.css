@@ -15,6 +15,65 @@
     opacity: 1
   }
   
+  .full-height {
+    height: 100%;
+  }
+  
+  .box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 480px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .box2 {
+    max-width: 460px;
+  }
+  
+  .box hr {
+    border-top: 2px solid #eee;
+  }
+  
+  .box p:nth-child(3) {
+    width: 400px;
+  }
+  
+  .box3 p:nth-child(3) {
+    width: 440px;
+  }
+  
+  .landing-bold {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  
+  .landing {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+  .highlight {
+    font-size: 24px;
+    background-color: #20262B;
+  }
+  
+  .narrow img {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 50%;
+    max-width: 650px;
+    transform: translate(0, -50%);
+  }
+  
+  .narrow {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
   p, span {
     font-size: 14px;
   }

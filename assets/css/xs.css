@@ -1,5 +1,22 @@
 /* mobile */
 @media screen and (max-width: 768px) {
+  html,
+  body {
+    position: relative;
+    min-width: 300px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    .navbar-brand {
+      padding: 15px 8px;
+    }
+    
+    #nav-container {
+      padding-left: 1.4em;
+      padding-right: 1.5em;
+    }
+  }
+  
   .cl {
     padding-left: 0;
     padding-right: 0;
@@ -23,6 +40,32 @@
   
   .row {
     margin-bottom: 2em;
+  }
+  
+  .right-col {
+    margin-top: 70px;
+  }
+  
+  .landing-bold, .landing-bold .highlight {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .landing, .landing .highlight {
+    font-size: 16px;
+  }
+  
+  .highlight {
+    background-color: #20262B;
+  }
+  
+  .row.narrow {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .box {
+    margin-top: 20px;
   }
   
   /* columns that have collapsed after resizing */

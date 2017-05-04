@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:100,400,700);
 
 html,
 body,
@@ -32,7 +32,6 @@ body {
   padding-right: 0;
 }
 
-
 #nav-container {
   padding-left: 2em;
   padding-right: 3em;
@@ -46,6 +45,15 @@ body {
 .navbar-inverse .navbar-header a,
 .navbar-inverse .navbar-nav li a {
   color: white;
+}
+
+.more {
+  margin-top: 20px;
+}
+
+.more-box {
+  padding: 6px 14px;
+  border: 1px solid white;
 }
 
 .img-holder > a {
