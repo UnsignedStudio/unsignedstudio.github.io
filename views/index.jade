@@ -1,6 +1,6 @@
 extends layout
 block links
-  li: a.active(href='projects.html') Projects
+  li: a(href='projects.html') Projects
   li: a(href='about.html') About
 block content
   - function insertProject(project) {
@@ -57,4 +57,3 @@ block content
 block scripts
   script(src= 'js/jquery.scrollify.min.js')
   script(src= 'js/scrollify.js')
-  
