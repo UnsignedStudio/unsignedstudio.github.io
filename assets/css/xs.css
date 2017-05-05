@@ -30,6 +30,31 @@
     font-size: 12px;
   }
   
+  .leftcol,
+  .rightcol {
+    position: relative;
+    height: calc(50%);
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .rightcol {
+    margin-top: 60px;
+  }
+  
+  .backimg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: -50px;
+    max-width: 600px;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
   .project {
     left: 2em;
   }
@@ -53,10 +78,6 @@
   
   .landing, .landing .highlight {
     font-size: 16px;
-  }
-  
-  .highlight {
-    background-color: #20262B;
   }
   
   .row.narrow {

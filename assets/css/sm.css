@@ -19,6 +19,48 @@
     height: 100%;
   }
   
+  .scroll-snap {
+    min-height: 500px;
+  }
+  
+  .leftcol,
+  .rightcol {
+    width: calc(50% - 30px);
+    height: 100%;
+    float: left;
+    position: relative;
+    margin: 0 15px;
+  }
+  
+  .leftcol {
+    left: 50%;
+  }
+  
+  .rightcol {
+    left: -50%;
+  }
+  
+  .backimg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .newbox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 480px;
+    transform: translate(-50%, -50%);
+  }
+  
   .box {
     position: absolute;
     left: 50%;
@@ -57,7 +99,6 @@
   
   .highlight {
     font-size: 24px;
-    background-color: #20262B;
   }
   
   .narrow img {

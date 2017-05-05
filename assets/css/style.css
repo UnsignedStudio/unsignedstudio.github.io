@@ -8,6 +8,10 @@ body,
   height: 100%;
 }
 
+.scroll-snap {
+  position: relative;
+}
+
 /* Remove download button */
 video::-webkit-media-controls-fullscreen-button {
    margin-right: -32px;
@@ -45,6 +49,11 @@ body {
 .navbar-inverse .navbar-header a,
 .navbar-inverse .navbar-nav li a {
   color: white;
+}
+
+.highlight {
+  background-color: #20262B;
+  padding: 4px;
 }
 
 .more {
