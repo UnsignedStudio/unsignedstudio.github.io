@@ -55,6 +55,33 @@
     background-size: contain;
   }
   
+  .endbox {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .ending-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .ending-footer address {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .ending-footer p {
+    text-align: center;
+  }
+  
+  .stacked-col {
+    margin-bottom: 30px;
+  }
+  
   .project {
     left: 2em;
   }

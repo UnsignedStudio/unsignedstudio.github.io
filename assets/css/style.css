@@ -65,7 +65,8 @@ body {
   border: 1px solid white;
 }
 
-.img-holder > a {
+.img-holder > a,
+#end {
   display: block;
   position: absolute;
   background-size: cover;
@@ -75,6 +76,16 @@ body {
   height: 100%;
   min-width: 100%;
   min-height: 100%;
+}
+
+.blackout {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
 }
 
 .img-holder {
