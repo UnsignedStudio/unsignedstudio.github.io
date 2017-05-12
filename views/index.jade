@@ -9,13 +9,20 @@ block content
       .scroll-snap(data-section-name= project.url)
         .img-holder
           .project
-            h1: a.white-link(href= project.url + '.html')= project.name
-            p!= json.year + '<br />' + json.caption
-            p.more: a.white-link.more-box(href= project.url + '.html') MORE
+            h1: a.landing-bold.highlight.white-link(href= project.url + '.html')= project.name
+            p: span.highlight!= json.year
           if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
             - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
             a(href= project.url + '.html', style= 'background-image: url("content/' + project.url + '/' + fullname + '")')
   - }
+  .scroll-snap(data-section-name= "start")
+    .leftcol
+      .backimg(style= 'background-image: url(images/logo_white.png)')
+    .rightcol
+      .newbox
+        p(class= "landing-bold") We are a technology-first creative studio.
+        hr
+        p(class= "landing") We design and build solutions for the physical world, for use on devices and for the web.
   .scroll-snap(data-section-name= "landing")
     .leftcol
       .backimg(style= 'background-image: url(images/website_diagrams-01.png)')
@@ -54,7 +61,7 @@ block content
     .img-holder#end(style= 'background-image: url(images/landing_end.jpg)')
       .blackout
       .endbox
-        p: a.white-link.more-box(href="projects.html") MORE PROJECTS
+        p: a.white-link.highlight.more-padding(href="projects.html") MORE PROJECTS
     .ending-footer
       .col-sm-4.stacked-col
         address

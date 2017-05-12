@@ -49,20 +49,21 @@ body {
 .navbar-inverse .navbar-header a,
 .navbar-inverse .navbar-nav li a {
   color: white;
+  font-size: 14px;
 }
 
 .highlight {
   background-color: #20262B;
-  padding: 4px;
+  box-shadow: 5px 0 0 #20262B, -5px 0 0 #20262B;
+  padding: 5px;
 }
 
 .more {
   margin-top: 20px;
 }
 
-.more-box {
-  padding: 6px 14px;
-  border: 1px solid white;
+.more-padding {
+  padding: 12px;
 }
 
 .img-holder > a,
@@ -136,7 +137,7 @@ body {
 }
 
 .hero-caption {
-  margin-top: 0.6em;
+  margin-top: 30px;
 }
 
 .canvas-parent {

@@ -1,8 +1,8 @@
 extends layout
 block links
-  li: a.active(href='projects.html') Projects
+  li: a.active(href='projects.html') PROJECTS
   //li: a(href='experiments.html') Experiments
-  li: a(href='about.html') About
+  li: a(href='about.html') ABOUT
 block content
   - var url = 'content/' + item.url;
   - var fileUrl = 'assets/' + url;
@@ -37,16 +37,17 @@ block content
       if (json && json.description)
         p!= marked(json.description)
       hr
-      if (json && json.client)
-        p= 'Client: ' + json.client
-      if (json && json.direction)
-        p= 'Direction: ' + json.direction
-      if (json && json.production)
-        p= 'Production :' + json.production
-      if (json && json.design)
-        p= 'Design: ' + json.design
-      if (json && json.sound)
-        p= 'Sound: ' + json.sound
+      if (json)
+        if (json.client)
+          p= 'Client: ' + json.client
+        if (json.direction)
+          p= 'Direction: ' + json.direction
+        if (json.production)
+          p= 'Production:' + json.production
+        if (json.design)
+          p= 'Design: ' + json.design
+        if (json.sound)
+          p= 'Sound: ' + json.sound
     .col-sm-7.col-sm-pull-5.collapsed-col.cl
       - insertMedia('hero2')
   .row
@@ -61,21 +62,23 @@ block content
       else if (glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)']).length > 0)
         - var fullname = glob.sync([fileUrl + '/' + 'parallax.+(png|jpg)'])[0].match('[^\/]+$')[0];
         img.parallax-img(src= url + '/' + fullname, width= '100%', alt= 'Project Image')
+      .tag
+        if (json && json.tag)
+          h2#focus
+            span.highlight= json.tag
+        else
+          h2#focus
+            span.highlight FOCUS
+        if (json && json.focus)
+          #focus-text
+            p
+              span.highlight= json.focus
   .row#alt-parallax
     .col-xs-12.cl
       if (glob.sync([fileUrl + '/' + 'alt-parallax.+(png|jpg|mp4)']).length > 0)
         - insertMedia('alt-parallax')
       else
         - insertMedia('parallax')
-  .row
-    .col-sm-2.col-sm-offset-2.cl
-      if (json && json.tag)
-        h2#focus= json.tag
-      else
-        h2#focus FOCUS
-    .col-sm-8.cl
-      if (json && json.focus)
-        p= json.focus
   .row.rm-bottom-margin
     .col-sm-4.cl
       .row.no-extra.rel
@@ -84,7 +87,8 @@ block content
             - insertMedia('med1', true, true)
         .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med1_caption)
-            p= json.med1_caption
+            p.centre
+              span.highlight= json.med1_caption
     .col-sm-4.cl
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
@@ -92,7 +96,8 @@ block content
             - insertMedia('med2', true, true)
         .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med2_caption)
-            p= json.med2_caption
+            p.centre
+              span.highlight= json.med2_caption
     .col-sm-4.cl
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
@@ -100,7 +105,8 @@ block content
             - insertMedia('med3', true, true)
         .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
           if (json && json.med3_caption)
-            p= json.med3_caption
+            p.centre
+              span.highlight= json.med3_caption
   - var heroNumber = 3
   - while (true) {
     if ((json && json['hero' + heroNumber]) || glob.sync([fileUrl + '/hero' + heroNumber + '.+(mp4|png|jpg)']).length > 0)
@@ -108,7 +114,8 @@ block content
         .col-xs-12.cl
           - insertMedia('hero' + heroNumber)
           if (json && json['hero' + heroNumber + '_caption'])
-            p.hero-caption= json['hero' + heroNumber + '_caption']
+            p.hero-caption.centre
+              span.highlight= json['hero' + heroNumber + '_caption']
           - heroNumber += 1
     else
       - break
@@ -121,7 +128,8 @@ block content
             - insertMedia('med4', true, true)
         .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med4_caption)
-            p= json.med4_caption
+            p.centre
+              span.highlight= json.med4_caption
     .col-sm-4.cl
       .row.no-extra.rel
         .col-xs-6.col-sm-12.no-extra.med.right-padding
@@ -129,7 +137,8 @@ block content
             - insertMedia('med5', true, true)
         .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med5_caption)
-            p= json.med5_caption
+            p.centre
+              span.highlight= json.med5_caption
     .col-sm-4.cl
       .row.no-extra.rel
         .col-xs-6.col-sm-12.no-extra.med.right-padding
@@ -137,7 +146,8 @@ block content
             - insertMedia('med6', true, true)
         .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
           if (json && json.med6_caption)
-            p= json.med6_caption
+            p.centre
+              span.highlight= json.med6_caption
   .row
     - projectNumber
     - for (var i = 0 ; i < records.projects.length; i++)
