@@ -120,6 +120,11 @@ body {
   z-index: 10;
 }
 
+.landing-project {
+  position: absolute;
+  z-index: 10;
+}
+
 .project p,
 .project h1 {
   text-shadow: 1px 1px black;

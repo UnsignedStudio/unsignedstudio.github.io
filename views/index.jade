@@ -8,7 +8,7 @@ block content
       - var json = JSON.parse(fs.readFileSync('assets/content/' + project.url + '/text.json'));
       .scroll-snap(data-section-name= project.url)
         .img-holder
-          .project
+          .landing-project
             h1: a.landing-bold.highlight.white-link(href= project.url + '.html')= project.name
             p: span.highlight!= json.year
           if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)

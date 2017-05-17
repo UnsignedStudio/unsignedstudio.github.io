@@ -84,10 +84,16 @@
   
   .project {
     left: 2em;
+    bottom: 4em;
   }
 
   .project h1 {
     font-size: 20px;
+  }
+    
+  .landing-project {
+    left: 15px;
+    bottom: 4em;
   }
   
   .row {

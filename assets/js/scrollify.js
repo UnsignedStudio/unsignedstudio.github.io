@@ -1,5 +1,5 @@
 $(window).load(function() {
-  setProjectNameHeight();
+  //setProjectNameHeight();
   $.scrollify({
     section : ".scroll-snap",
     sectionName : "section-name",
@@ -20,9 +20,9 @@ $(window).load(function() {
   });
 });
 
-window.addEventListener('resize', setProjectNameHeight);
+//window.addEventListener('resize', setProjectNameHeight);
 
-function setProjectNameHeight() {
+/*function setProjectNameHeight() {
   var offset = "7em";
   if ($(window).width() < 768)
     offset = "4em";
@@ -43,4 +43,4 @@ function setProjectNameHeight() {
       'bottom': bottom
     });
   }
-}
+}*/

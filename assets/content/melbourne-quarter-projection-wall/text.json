@@ -9,8 +9,8 @@
     "sound": "",
     
     "tag":"PROJECTION",
-    "focus": "The four modes included, a branding showcase bringing together imagery and film, a slower ambient mode, a controllable 360 view-line mode and cinema mode.",
-    "body": "Each of the modes could be toggled between and controlled by a custom dial we built. Manufactured from the CNC milled aluminium, 3d printed internals and open source Arduino microcontroller. ",
+    "focus": "The four modes included: a branding showcase bringing together imagery and film, a slower ambient mode, a controllable 360 view-line mode and cinema mode.",
+    "body": "Each of the modes could be toggled between and controlled by a custom dial we built. Manufactured from the CNC milled aluminium, 3d printed internals and an open source Arduino microcontroller.",
     "hero3":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero3.mp4",
     "hero4":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero4.mp4",
     "hero5":"https://video.unsignedstudio.io/melbourne-quarter-projection-wall/hero5.mp4",
@@ -20,7 +20,7 @@
     
     "med4_caption":"Dial Concept Sketches",
     "med5_caption":"Dial prototype schematic",
-    "med6_caption":"Dial Arduino Code"   
+    "med6_caption":"Dial Arduino Code"
 }
 
 
