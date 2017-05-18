@@ -138,13 +138,41 @@
   }
   
   /* about page */
-  #address {
-    margin-top: 9em;
+  .outer {
+    display: table;
+    width: 100%;
+    height: calc(100% - 120px);
   }
   
-  #heading {
-    margin-top: 14em;
-    font-size: 20px;
+  .middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+    
+  #about-heading {
+    margin-top: 30px;
+    font-size: 36px;
+  }
+  
+  #about-caption {
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  
+  #map {
+    height: 590px;
+  }
+  
+  #address {
+    position: absolute;
+    bottom: 30px;
+    left: 45px;
+    background-color: #0C1217;
+    padding: 15px;
+  }
+  
+  .about-input {
+    margin-top: 40px;
   }
   
   .parallax {

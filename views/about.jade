@@ -1,24 +1,33 @@
 extends layout
 block links
-  li: a(href='projects.html') PROJECTS
+  li: a(href='projects.html') Projects
   //li: a(href='experiments.html') Experiments
-  li: a.active(href='about.html') ABOUT
+  li: a.active(href='about.html') About
 block content
-  .row
-    .col-xs-12
-      h1#heading
-        | We are a technology-first creative studio.
-        br
-        | We design and build solutions for the physical world, for use on devices and for the web
-      address#address
-        | Unsigned Studio Pty Ltd
-        br
-        | 11 46-50 Regent St
-        br
-        | Richmond VIC 3121
-      p (03) 8560 1604
-      p: a.white-link(href='mailto:info@unsignedstudio.io') info@unsignedstudio.io
-      p: a.white-link(href='legal.html') Legal
-  .row
-    .col-xs-12#footer
-      include footer
+  .outer
+    .middle
+      .row#about-row
+        .col-sm-4
+          h1#about-heading Unsigned
+          h1#about-caption We are a technology-first creative studio.
+          form()
+            p.about-input: input(type="text" placeholder="Name" name="name" id="name")
+            p.about-input: input(type="text" placeholder="Email" name="email" id="email")
+            p.about-input: textarea(rows="8" cols="40" placeholder="Message" name="message" id="message")
+            p.about-input: input#submit(type="button" value="Submit")
+          p#thanks Thank you for contacting Unsigned Studio.
+        .col-sm-7.col-sm-offset-1#map-holder
+          #map
+          #address
+            | Unsigned Studio Pty Ltd
+            br
+            | 11 46-50 Regent St
+            br
+            | Richmond VIC 3121
+            br
+            | (03) 8560 1604
+  #footer
+    include footer
+block scripts
+  script(src="js/about.js")
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUZmjKFfrfkzq5RhKbtf15buyZqCI-U-Q&callback=myMap")

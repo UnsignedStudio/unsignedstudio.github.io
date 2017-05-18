@@ -128,13 +128,22 @@
   }
   
   /* about page */
-  #heading {
-    font-size: 16px;
-    margin-top: 4em;
+  #about-heading {
+    font-size: 20px;
+  }
+  
+  #about-caption {
+    font-size: 14px;
+  }
+  
+  #map {
+    margin-top: 30px;
+    width: 100%;
+    height: 50vh;
   }
   
   #address {
-    margin-top: 2.5em;
+    margin-top: 30px;
   }
         
   @media screen and (max-height: 550px) {

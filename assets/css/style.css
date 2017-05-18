@@ -151,16 +151,23 @@ body {
   width: 100%;
 }
 
-#footer {
-  position: absolute;
-  bottom: 1em;
-  right: 0;
-  left: 0;
+/* about page */
+input,
+textarea {
+  background-color: #20262B;
+  border: 0;
+  padding: 8px;
+  width: 100%;
 }
 
-/* about page */
-#heading {
-  font-weight: bold;
+input[type="button"] {
+  padding: 10px 20px;
+  max-width: 120px;
+}
+
+#thanks {
+  display: none;
+  margin-top: 30px;
 }
 
 /* navbar links */
@@ -244,10 +251,4 @@ body {
 .legal h1 {
   font-size: 14px;
   color: #ffc600;
-}
-
-@media screen and (max-height: 790px) {
-  #footer {
-    position: relative;
-  }
 }
