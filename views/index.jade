@@ -20,9 +20,13 @@ block content
       .backimg(style= 'background-image: url(images/logo_white.png)')
     .rightcol
       .newbox
-        p(class= "landing-bold") We are a technology-first creative studio.
+        p(class= "landing-bold") Unsigned is a technology-first creative studio.
         hr
         p(class= "landing") We design and build solutions for the physical world, for use on devices and for the web.
+  .scroll-snap(data-section-name= "reel")
+    .reel
+      video(controls="" width="100%" poster="images/reel_thumbnail.jpg")
+        source(src="https://video.unsignedstudio.io/05-17-Unsigned_Reel_60s_Web.mp4")
   .scroll-snap(data-section-name= "landing")
     .leftcol
       .backimg(style= 'background-image: url(images/website_diagrams-01.png)')
@@ -30,15 +34,8 @@ block content
       .newbox
         p(class= "landing-bold") We are creative technologists.
         hr
-        p(class= "landing") We create #[span(class="highlight") Human experiences] that communicate, inform and engage.
+        p(class= "landing") We combine art, design and code to create #[span(class="highlight") human experiences] that communicate, inform and engage.
   - insertProject(records.key_projects[0])
-  .scroll-snap(data-section-name= "devices")
-    .leftcol
-      .backimg(style= 'background-image: url(images/website_diagrams-02.png)')
-    .rightcol
-      .newbox
-        p(class= "landing-bold") We design and build solutions for the #[span(class="highlight") physical] world, for use on #[span(class="highlight") devices] and for the #[span(class="highlight") web].
-  - insertProject(records.key_projects[1])
   .scroll-snap(data-section-name= "collaboration")
     .leftcol
       .backimg(style= 'background-image: url(images/website_diagrams-03.png)')
@@ -47,16 +44,24 @@ block content
         p(class= "landing-bold") We execute and enhance #[span(class="highlight") your] ideas.
         hr
         p(class= "landing") We #[span(class="highlight") collaborate] with brand builders, marketers and companies to build new products, apps and services.
+  - insertProject(records.key_projects[1])
+  .scroll-snap(data-section-name= "devices")
+    .leftcol
+      .backimg(style= 'background-image: url(images/website_diagrams-02.png)')
+    .rightcol
+      .newbox
+        p(class= "landing-bold") Our solutions are realised as apps, installations and experiences
+        hr
+        p(class= "landing") Delivered to mobile and tablet (iOS, Android), #[span(class="highlight") custom built] installations and in the browser.
   - insertProject(records.key_projects[2])
   .scroll-snap(data-section-name= "experimentation")
     .leftcol
       .backimg(style= 'background-image: url(images/website_diagrams-04.png)')
     .rightcol
       .newbox
-        p(class= "landing-bold") Our internal experimentation is a key driver of our commercial projects.
+        p(class= "landing-bold") Internal experimentation drives our work.
         hr
         p(class= "landing") Our approach keeps us in front of the curve, constantly evaluating #[span(class="highlight") emerging trends] and research.
-  //- insertProject(records.key_projects[3])
   .scroll-snap(data-section-name= "contact")
     .img-holder#end(style= 'background-image: url(images/landing_end.jpg)')
       .blackout
@@ -67,7 +72,7 @@ block content
         address
           | Unsigned Studio Pty Ltd
           br
-          | 11 46-50 Regent St
+          | 56 Regent St
           br
           | Richmond VIC 3121
       .col-sm-4.col-sm-push-4.stacked-col
@@ -80,3 +85,4 @@ block content
 block scripts
   script(src= 'js/jquery.scrollify.min.js')
   script(src= 'js/scrollify.js')
+  script(src= 'js/iframefix.js')
