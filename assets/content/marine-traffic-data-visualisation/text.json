@@ -15,6 +15,7 @@
 	"hero2_controls": false,
 	"hero3":"https://video.unsignedstudio.io/marine-traffic-data/hero3.mp4",
 	"hero3_controls": true,
+    "hero3_thumbnail": "thumb.jpg",
 	"hero3_caption": "Film",
 	"hero5_caption": "Marine Traffic in and around Australia.",
 	"hero6_caption": "Port of Los Angeles close up.",

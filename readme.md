@@ -17,6 +17,7 @@ assets
 ```
 
 **meta-image:** Image used to display when the site is linked from Facebook and Google+
+
 **twitter-image:** Image used to display when the site is linked from Twitter
 
 ### Including
@@ -81,6 +82,11 @@ Caption is displayed on the front-page while description is displayed on the pro
 hero images 3+ can also have captions:
 ```
     "hero3_caption": "This caption will appear below the 3rd hero image/video"
+```
+
+videos can have a thumbnail specified:
+```
+    "hero2_thumbnail": "thumbname.png"
 ```
 
 Finally, videos can be forced to show controls:
