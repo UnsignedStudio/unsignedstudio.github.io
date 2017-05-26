@@ -9,9 +9,9 @@ block content
       - var json = JSON.parse(fs.readFileSync('assets/content/' + project.url + '/text.json'));
       .scroll-snap(data-section-name= project.url)
         .img-holder
-          .project
-            h1: a.white-link(href= project.url + '.html')= project.name
-            p!= json.year + '<br />' + json.caption
+          .landing-project
+            h1: a.landing-bold.highlight.white-link(href= project.url + '.html')= project.name
+            p: span.highlight!= json.year
           if (glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)']).length > 0)
             - var fullname = glob.sync(['assets/content/' + project.url + '/hero.+(png|jpg)'])[0].match('[^\/]+$')[0];
             a(href= project.url + '.html', style= 'background-image: url("content/' + project.url + '/' + fullname + '")')
