@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro:100,400,700);
 
 html,
 body,
@@ -6,6 +6,22 @@ body,
 .scroll-snap,
 .img-holder {
   height: 100%;
+}
+
+.scroll-snap {
+  position: relative;
+}
+
+/* Remove download button */
+video::-webkit-media-controls-fullscreen-button {
+   margin-right: -32px;
+   z-index: 10;
+   position: relative;
+   background: #fafafa;
+   background-image: url(../images/fullscreen.png);
+   background-size: 50%;
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
 }
 
 body {
@@ -20,7 +36,6 @@ body {
   padding-right: 0;
 }
 
-
 #nav-container {
   padding-left: 2em;
   padding-right: 3em;
@@ -34,9 +49,38 @@ body {
 .navbar-inverse .navbar-header a,
 .navbar-inverse .navbar-nav li a {
   color: white;
+  font-size: 14px;
 }
 
-.img-holder > a {
+.highlight {
+  background-color: #20262B;
+  box-shadow: 5px 0 0 #20262B, -5px 0 0 #20262B;
+  padding: 5px;
+}
+
+.more {
+  margin-top: 20px;
+}
+
+.more-padding {
+  padding: 12px;
+}
+
+.reel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 90%;
+  max-width: 1500px;
+  transform: translate(-50%, -50%);
+}
+
+.reel video {
+ 
+}
+
+.img-holder > a,
+#end {
   display: block;
   position: absolute;
   background-size: cover;
@@ -46,6 +90,16 @@ body {
   height: 100%;
   min-width: 100%;
   min-height: 100%;
+}
+
+.blackout {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.5;
 }
 
 .img-holder {
@@ -79,6 +133,11 @@ body {
   z-index: 10;
 }
 
+.landing-project {
+  position: absolute;
+  z-index: 10;
+}
+
 .project p,
 .project h1 {
   text-shadow: 1px 1px black;
@@ -96,7 +155,7 @@ body {
 }
 
 .hero-caption {
-  margin-top: 0.6em;
+  margin-top: 30px;
 }
 
 .canvas-parent {
@@ -105,16 +164,24 @@ body {
   width: 100%;
 }
 
-#footer {
-  position: absolute;
-  bottom: 1em;
-  right: 0;
-  left: 0;
+/* about page */
+input,
+textarea {
+  background-color: #20262B;
+  border: 0;
+  padding: 8px;
+  width: 100%;
+  resize: none;
 }
 
-/* about page */
-#heading {
-  font-weight: bold;
+input[type="button"] {
+  padding: 10px 20px;
+  max-width: 120px;
+}
+
+#thanks {
+  display: none;
+  margin-top: 30px;
 }
 
 /* navbar links */
@@ -198,10 +265,4 @@ body {
 .legal h1 {
   font-size: 14px;
   color: #ffc600;
-}
-
-@media screen and (max-height: 790px) {
-  #footer {
-    position: relative;
-  }
 }

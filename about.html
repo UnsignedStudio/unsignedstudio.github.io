@@ -40,7 +40,7 @@
       <div id="nav-container" class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display-->
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a id="navbar-logo" href="projects.html" class="navbar-brand"><img src="images/logo_white.png" alt="Unsigned Studio Logo" width="50"></a><a href="projects.html" class="navbar-brand">Unsigned Studio</a>
+          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand">Unsigned</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
@@ -53,25 +53,43 @@
       </div>
     </nav>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1 id="heading">We are a technology-first creative studio.<br>We design and build solutions for the physical world, for use on devices and for the web</h1>
-          <address id="address">Unsigned Studio Pty Ltd<br>11 46-50 Regent St<br>Richmond VIC 3121</address>
-          <p>(03) 8560 1604</p>
-          <p><a href="mailto:info@unsignedstudio.io" class="white-link">info@unsignedstudio.io</a></p>
-          <p><a href="legal.html" class="white-link">Legal</a></p>
+      <div class="outer">
+        <div class="middle">
+          <div id="about-row" class="row">
+            <div class="col-sm-4">
+              <h1 id="about-heading">Unsigned</h1>
+              <h1 id="about-caption">We'd love to work on your project. Please get in touch with us.</h1>
+              <form>
+                <p class="about-input">
+                  <input type="text" placeholder="Name" name="name" id="name">
+                </p>
+                <p class="about-input">
+                  <input type="text" placeholder="Email" name="email" id="email">
+                </p>
+                <p class="about-input">
+                  <textarea rows="8" cols="40" placeholder="Message" name="message" id="message"></textarea>
+                </p>
+                <p class="about-input">
+                  <input id="submit" type="button" value="Submit">
+                </p>
+              </form>
+              <p id="thanks">Thank you for contacting us. We'll get back to you shortly.</p>
+            </div>
+            <div id="map-holder" class="col-sm-7 col-sm-offset-1">
+              <div id="map"></div>
+              <div id="address">Unsigned Studio Pty Ltd<br>56 Regent St<br>Richmond VIC 3121<br>(03) 8560 1604</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div id="footer" class="col-xs-12">
-          <p class="centre"><a href="https://vimeo.com/unsignedstudio"><img src="images/vimeo.png" width="20"></a><span> </span><a href="https://www.instagram.com/unsignedstudio/"><img src="images/instagram.png" width="20"></a><span> </span><a href="https://www.facebook.com/unsignedstudiomelb/"><img src="images/facebook.png" width="20"></a><span> </span><a href="https://twitter.com/unsigned_studio"><img src="images/twitter.png" width="20"></a><span> </span></p>
-          <p class="centre">All works © Unsigned Studio 2017</p>
-        </div>
+      <div id="footer">
+        <p class="centre"><a href="https://vimeo.com/unsignedstudio"><img src="images/vimeo.png" width="20"></a><span> </span><a href="https://www.instagram.com/unsignedstudio/"><img src="images/instagram.png" width="20"></a><span> </span><a href="https://www.facebook.com/unsignedstudiomelb/"><img src="images/facebook.png" width="20"></a><span> </span><a href="https://twitter.com/unsigned_studio"><img src="images/twitter.png" width="20"></a><span> </span></p>
+        <p class="centre">All works © Unsigned Studio 2017</p>
       </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
     <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed-->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/about.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUZmjKFfrfkzq5RhKbtf15buyZqCI-U-Q&amp;callback=myMap"></script>
   </body>
 </html>

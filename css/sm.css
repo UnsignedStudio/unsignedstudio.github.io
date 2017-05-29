@@ -15,33 +15,178 @@
     opacity: 1
   }
   
+  .full-height {
+    height: 100%;
+  }
+  
+  .scroll-snap {
+    min-height: 500px;
+  }
+  
+  .leftcol,
+  .rightcol {
+    width: calc(50% - 30px);
+    height: 100%;
+    float: left;
+    position: relative;
+    margin: 0 15px;
+  }
+  
+  .leftcol {
+    left: 50%;
+  }
+  
+  .rightcol {
+    left: -50%;
+  }
+  
+  .backimg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .newbox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 480px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    max-width: 480px;
+    transform: translate(-50%, -50%);
+  }
+  
+  .landing-bold,
+  .landing-bold span{
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  
+  .landing,
+  .landing span {
+    font-size: 24px;
+    font-weight: 400;
+  }
+    
+  .endbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .ending-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+  }
+  
+  .ending-footer address,
+  .ending-footer .footer-box{
+    float: left;
+    margin-bottom: 0;
+  }
+  
+  .right {
+    text-align: right;
+  }
+
   p, span {
     font-size: 14px;
   }
   
   .project {
     left: 5em;
+    bottom: 7em;
+  }
+  
+  .landing-project {
+    left: calc(25% - 225px);
+    bottom: 7em;
   }
   
   #focus {
-    margin: 0;
-    text-align: right;
+    margin: auto;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+  
+  #focus-text {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+  }
+  
+  #focus span {
+    font-size: 26px;
   }
   
   /* about page */
-  #address {
-    margin-top: 9em;
+  .outer {
+    display: table;
+    width: 100%;
+    height: calc(100% - 120px);
   }
   
-  #heading {
-    margin-top: 14em;
-    font-size: 20px;
+  .middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+    
+  #about-heading {
+    margin-top: 30px;
+    font-size: 36px;
+  }
+  
+  #about-caption {
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  
+  #map {
+    height: 590px;
+  }
+  
+  #address {
+    position: absolute;
+    bottom: 30px;
+    left: 45px;
+    background-color: #0C1217;
+    padding: 15px;
+  }
+  
+  .about-input {
+    margin-top: 40px;
   }
   
   .parallax {
     position: relative;
     overflow: hidden;
     height: 500px;
+  }
+  
+  .tag {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
   .grow-holder {
@@ -70,16 +215,23 @@
     display: none;
   }
   
+  .project-block {
+    width: 150px;
+    margin: auto;
+  }
+  
   #left-arrow {
     position: absolute;
     left: -20px;
-    top: -5px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
   #right-arrow {
     position: absolute;
     right: -20px;
-    top: -5px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
   /* columns that have collapsed after resizing (links) */

@@ -62,7 +62,7 @@ function loadExperiment(e) {
   else if (fileType == "txt") {
     // Video
     videoAspect = 0;
-    $("#popup-holder").append('<video autoplay="" muted="", loop="", width="100%" />');
+    $("#popup-holder").append('<video autoplay="", muted="", playsinline="", loop="", width="100%" />');
     
     $.get('content/experiments/' + folder + '/experiment.txt', function(data){
       $("#popup-holder").children().append('<source src="' + data + '" />');
