@@ -71,8 +71,7 @@ block content
             span.highlight FOCUS
         if (json && json.focus)
           #focus-text
-            p
-              span.highlight= json.focus
+            p: span.highlight= json.focus
   .row#alt-parallax
     .col-xs-12.cl
       if (glob.sync([fileUrl + '/' + 'alt-parallax.+(png|jpg|mp4)']).length > 0)
@@ -80,7 +79,7 @@ block content
       else
         - insertMedia('parallax')
   .row.rm-bottom-margin
-    .col-sm-4.cl
+    div.cl(class= (json && json.four_column == true) ? "col-sm-3" : "col-sm-4")
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
@@ -89,7 +88,7 @@ block content
           if (json && json.med1_caption)
             p.centre
               span.highlight= json.med1_caption
-    .col-sm-4.cl
+    div.cl(class= (json && json.four_column == true) ? "col-sm-3" : "col-sm-4")
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
@@ -98,7 +97,7 @@ block content
           if (json && json.med2_caption)
             p.centre
               span.highlight= json.med2_caption
-    .col-sm-4.cl
+    div.cl(class= (json && json.four_column == true) ? "col-sm-3" : "col-sm-4")
       .row.no-extra.rel
         .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
           .grow-holder
@@ -107,6 +106,16 @@ block content
           if (json && json.med3_caption)
             p.centre
               span.highlight= json.med3_caption
+    if (json && json.four_column == true)
+      .col-sm-3.cl
+        .row.no-extra.rel
+          .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
+            .grow-holder
+              - insertMedia('med4', true, true)
+          .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
+            if (json && json.med4_caption)
+              p.centre
+                span.highlight= json.med4_caption
   - var heroNumber = 3
   - while (true) {
     if ((json && json['hero' + heroNumber]) || glob.sync([fileUrl + '/hero' + heroNumber + '.+(mp4|png|jpg)']).length > 0)
@@ -121,16 +130,17 @@ block content
       - break
   - }
   .row
-    .col-sm-4.cl
-      .row.no-extra.rel
-        .col-xs-6.col-sm-12.no-extra.med.right-padding
-          .grow-holder
-            - insertMedia('med4', true, true)
-        .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
-          if (json && json.med4_caption)
-            p.centre
-              span.highlight= json.med4_caption
-    .col-sm-4.cl
+    if (json && json.four_column != true)
+      .col-sm-4.cl
+        .row.no-extra.rel
+          .col-xs-6.col-sm-12.no-extra.med.right-padding
+            .grow-holder
+              - insertMedia('med4', true, true)
+          .col-xs-6.col-sm-12.no-extra.left-padding.right-caption
+            if (json && json.med4_caption)
+              p.centre
+                span.highlight= json.med4_caption
+    div.cl(class= (json && json.four_column == true) ? "col-sm-3" : "col-sm-4")
       .row.no-extra.rel
         .col-xs-6.col-sm-12.no-extra.med.right-padding
           .grow-holder
@@ -139,7 +149,7 @@ block content
           if (json && json.med5_caption)
             p.centre
               span.highlight= json.med5_caption
-    .col-sm-4.cl
+    div.cl(class= (json && json.four_column == true) ? "col-sm-3" : "col-sm-4")
       .row.no-extra.rel
         .col-xs-6.col-sm-12.no-extra.med.right-padding
           .grow-holder
@@ -148,6 +158,25 @@ block content
           if (json && json.med6_caption)
             p.centre
               span.highlight= json.med6_caption
+    if (json && json.four_column == true)
+      .col-sm-3.cl
+        .row.no-extra.rel
+          .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
+            .grow-holder
+              - insertMedia('med7', true, true)
+          .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
+            if (json && json.med7_caption)
+              p.centre
+                span.highlight= json.med7_caption
+      .col-sm-3.cl
+        .row.no-extra.rel
+          .col-xs-6.col-sm-12.col-xs-push-6.col-sm-push-0.no-extra.med.left-padding
+            .grow-holder
+              - insertMedia('med8', true, true)
+          .col-xs-6.col-sm-12.col-xs-pull-6.col-sm-pull-0.no-extra.right-padding.left-caption
+            if (json && json.med8_caption)
+              p.centre
+                span.highlight= json.med8_caption
   .row
     - projectNumber
     - for (var i = 0 ; i < records.projects.length; i++)

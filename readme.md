@@ -94,6 +94,11 @@ Finally, videos can be forced to show controls:
     "hero2_controls": true
 ```
 
+Medium images can be displayed in 2 rows of 4. Additional images are med7 and med8 (and their respective captions):
+```
+    "four_column": true
+```
+
 A skeleton text.json file can also be found in the root directory
 
 ## Experiments
