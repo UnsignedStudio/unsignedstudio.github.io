@@ -12,6 +12,7 @@
   "focus": "Having the power or function of generating, originating, producing, or reproducing. Art directed content produced on the fly. ",
   "body": "Our system was operated live on the night. It comprised real-time-ready art directed assets and custom software for audio processing and reaction. Directly hooked into the booth we received a line for audio which was then run through our software to detect Kick, Hi-Hats, Snares while also measuring and evaluating overall energy of the music. Real-time analysis of processed audio then guided the on screen graphics. Output over standard HDMI, our graphics were mapped to eight large format LED displays. We created a minimal CG look with a reductive colour palette, swapping fine details for bold elements which would read well in the live warehouse setting.",
   "hero3_caption": "A quick look behind the scenes.",
+  "hero3_controls": true,
   "hero4_caption": "A large array of large format LED panels served as the canvas for our visuals. Arranged uniquely, forcing the perspective to further reinforce the concept of infinity. ",
   "hero5_caption": "Each of the enivorments in there in different states.",
   "med1_caption": "CONCEPT: Urban Mist - Following a minimal ship gliding through a cityscape. Visuals matched to Flight Facilities.",
