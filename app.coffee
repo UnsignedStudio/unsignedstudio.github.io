@@ -28,8 +28,8 @@ module.exports =
         out: (item) -> item.url
       key_projects:
         data: [
+          { 'name': 'Samsung Galaxy S8 X Boiler Room - Infinity Sounds', 'url': 'samsung-galaxy-s8-X-boiler-room-infinity-sounds' },
           { 'name': 'Marine Traffic', 'url': 'marine-traffic-data-visualisation' },
-          { 'name': 'Melbourne Quarter Projection Wall', 'url': 'melbourne-quarter-projection-wall' },
           { 'name': 'Melbourne Quarter Digital Context Model', 'url': 'melbourne-quarter-digital-context-model' },
           { 'name': 'Squint/Opera By The Numbers', 'url': 'squint-opera-data-viz' }
         ]
@@ -50,3 +50,4 @@ module.exports =
 
   jade:
     pretty: true
+
