@@ -58,6 +58,8 @@ Each project contains a number of images and a text.json file to define various 
 #### text.json
 ```
 {
+  "meta_description": "",
+  "keywords": "",
   "year": "",
   "caption": "",
   "description": "",
@@ -78,7 +80,7 @@ Each project contains a number of images and a text.json file to define various 
   "med6_caption": ""
 }
 ```
-Caption is displayed on the front-page while description is displayed on the project page. the body section appears under the parallax.
+Caption is displayed on the front-page while description is displayed on the project page. the body section appears above the parallax.
 
 hero images 3+ can also have captions:
 ```
