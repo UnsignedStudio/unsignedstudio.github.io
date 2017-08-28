@@ -159,7 +159,7 @@ var numbers = function(p) {
   p.windowResized = function() {
     var myWidth = $("#popup-holder").width();
     var myHeight = $("#popup-holder").height()
-    p.resizeCanvas(windowWidth, windowHeight);
+    p.resizeCanvas(myWidth, myHeight);
   }
 }
 

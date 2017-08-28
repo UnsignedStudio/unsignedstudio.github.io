@@ -5,12 +5,14 @@ block links
   li: a(href= 'about.html') About
 block content
   #experiments-holder
-    each experiment in glob.sync('assets/content/experiments/*')
-      if (glob.sync(experiment + '/thumbnail.+(png|jpg)').length > 0 && glob.sync(experiment + '/experiment.+(png|jpg|js|txt)').length > 0)
-        - var expName = experiment.match('[^\/]+$')[0];
-        - var thumbName = glob.sync(experiment + '/thumbnail.+(png|jpg)')[0].match('[^\/]+$')[0]
-        - var expFile = glob.sync(experiment + '/experiment.+(png|jpg|js|txt)')[0].match('[^\/]+$')[0]
-        img.grid(src= 'content/experiments/' + expName + '/' + thumbName, data-path= 'content/experiments/' + expName + '/' + expFile)
+    if (fs.existsSync('assets/content/experiments/experiments.json'))
+      - var json = JSON.parse(fs.readFileSync('assets/content/experiments/experiments.json'));
+      each expName in json.experiments
+        - var experiment = 'assets/content/experiments/' + expName;
+        if (glob.sync(experiment + '/thumbnail.+(png|jpg)').length > 0 && glob.sync(experiment + '/experiment.+(png|jpg|js|txt)').length > 0)
+          - var thumbName = glob.sync(experiment + '/thumbnail.+(png|jpg)')[0].match('[^\/]+$')[0]
+          - var expFile = glob.sync(experiment + '/experiment.+(png|jpg|js|txt)')[0].match('[^\/]+$')[0]
+          .grid(style= 'background:url("content/experiments/' + expName + '/' + thumbName + '") center no-repeat', data-path= 'content/experiments/' + expName + '/' + expFile)
   .row#experiments-footer
     .col-xs-12
       include footer
