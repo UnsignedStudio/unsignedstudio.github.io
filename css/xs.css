@@ -8,7 +8,7 @@
   
   @media screen and (max-width: 360px) {
     .navbar-brand {
-      padding: 15px 8px;
+      padding: 10px 8px;
     }
     
     #nav-container {

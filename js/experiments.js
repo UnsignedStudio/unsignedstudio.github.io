@@ -2,7 +2,7 @@ var gaps = [];
 var videoAspect = 0;
 
 $(document).ready(function() {
-  links();
+  init();
   resizeGrid();
 });
 
@@ -12,7 +12,7 @@ $(window).resize(function() {
     resizeVideo();
 });
 
-function links() {
+function init() {
   var gridElements = $("#experiments-holder").children();
   gridElements.click(function(e) {
     loadExperiment(e);
@@ -29,12 +29,11 @@ function links() {
     });
     $("#popup-holder").css({
         'background-image': ''
-      });
+    });
     if (typeof p5obj !== 'undefined' && p5obj != null) {
       p5obj.remove();
       p5obj = null;
     }
-    
     videoAspect = 0;
     $("#caption").html('');
     $("#popup-holder").children().remove();
@@ -83,7 +82,6 @@ function resizeVideo() {
   var divAspect = $("#popup-holder").width() / $("#popup-holder").height();
   var video = $("#popup-holder").children().eq(0);
   if (videoAspect > divAspect) {
-    console.log(divAspect);
     video.height($("#popup-holder").height());
     video.width(video.height() * videoAspect);
     translate = 'translateX(' + (video.width() - $("#popup-holder").width()) * -0.5 + 'px)';
@@ -103,69 +101,78 @@ function resizeVideo() {
 
 function resizeGrid() {
   var numOfImages = $(".grid").length;
+  var holderWidth = $("#experiments-holder").width();
   
-  // Calculate grid size
-  var gridSize;
   if (window.innerWidth < 768) {
-    gridSize = 2;
     $("#popup").css({
       'position': 'fixed'
     });
+
+    for (var i = 0; i < numOfImages; i++) {
+      var width = (holderWidth - 20) / 2 + "px";
+      var margin = i % 2 == 0 ?'5px' : '0';
+      $(".grid").eq(i).css({
+        'margin-right': margin,
+        'width': width,
+        'height': width,
+        'background-size': 'cover'
+      });
+    }
   }
   else {
     $("#popup").css({
-      'position': 'absolute'
+      'position': 'fixed'
     });
-    var area = (window.innerHeight - 160) * window.innerWidth;
-    var imageSize = Math.ceil(Math.sqrt(area / numOfImages));
-    gridSize = Math.ceil(window.innerWidth / imageSize);
-  }
-  
-  // Calculate image dimensions and number of gaps based on gridSize
-  var calc = "calc(" + 100 / gridSize + "% - " + (gridSize - 1) * 5 / gridSize + "px)";
-  var numToMove = numOfImages % gridSize == 0 ? 0 : gridSize - numOfImages % gridSize;
-  
-  // Reset images
-  for (var i = 0; i < numOfImages; i++)
-    $(".grid").eq(i).css({
-      'margin-right': '5px',
-      'width': calc
-    });
-  
-  // Remove old gaps
-  for (var i = 0; i < gaps.length; i++)
-    gaps[i].remove();
-  
-  // Create gaps at random points
-  gaps = [];
-  for (var i = 0; i < numToMove; i++) {
-    var elem;
-    if (window.innerWidth < 768)
-      elem = $(".grid").eq(numOfImages - 1).after("<div />");
-    else
-      elem = $(".grid").eq(Math.floor((Math.random() * numOfImages * 0.8))).after("<div />");
-    
-    gaps[i] = elem.next();
-    gaps[i].css({
-      'display': 'inline-block',
-      'margin-bottom': '5px',
-      'margin-right': '5px',
-      'width': calc,
-      'border': 'none',
-      'vertical-align': 'middle'
-    });
-    gaps[i].height(gaps[i].width());
-  }
-  
-  // Remove right margin from far-right items
-  var gridElements = $("#experiments-holder").children();
-  for (var i = gridSize - 1; i < gridElements.length; i += gridSize)
-    if (gridElements.eq(i).children().length > 0)
-      gridElements.eq(i).children().css({
-        'margin-right': '0'
+
+    var sections = Math.ceil(numOfImages / 6);
+    for (var i = 0; i < sections; i++) {
+
+      // 3 wide
+      for (var j = 0; j < 3; j++) {
+        if (i * 6 + j == numOfImages)
+          return;
+
+        var width = ((holderWidth - 11) / 3) + "px";
+        var margin = j < 2 ? '5px' : '0';
+        $(".grid").eq(i * 6 + j).css({
+          'margin-right': margin,
+          'width': width,
+          'height': '363px',
+          'background-size': 'cover'
+        });
+      }
+
+      // 1 large
+      if (i * 6 + 3 == numOfImages)
+        return;
+
+      var width = holderWidth + "px";
+      $(".grid").eq(i * 6 + 3).css({
+        'width': width,
+        'height': '500px',
+        'background-size': 'cover'
       });
-    else
-      gridElements.eq(i).css({
-        'margin-right': '0'
+
+      // 2 wide
+      if (i * 6 + 4 == numOfImages)
+        return;
+
+      var rect = (holderWidth - 6) * 2 / 3 + "px";
+      var square = (holderWidth - 6) * 1 / 3 + "px";
+      $(".grid").eq(i * 6 + 4).css({
+        'margin-right': '5px',
+        'width': i % 2 == 0 ? rect : square,
+        'height': square,
+        'background-size': 'cover'
       });
+
+      if (i * 6 + 5 < numOfImages) {
+        $(".grid").eq(i * 6 + 5).css({
+          'width': i % 2 == 0 ? square : rect,
+          'height': square,
+          'background-size': 'cover'
+        });
+      }
+    }
+  }
 }

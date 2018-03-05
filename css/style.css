@@ -201,7 +201,7 @@ input[type="button"] {
 
 #experiments-footer {
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
   
 @media screen and (max-width: 991px) {
@@ -214,13 +214,18 @@ input[type="button"] {
 /* Experiments image grid */
 #experiments-holder {
   width: 95%;
+  max-width: 1100px;
   margin: auto;
 }
 
-#experiments-holder img {
-  display: inline-block;
+.grid {
+  display: block;
+  float: left;
   margin-bottom: 5px;
-  margin-right: 5px;
+}
+
+.grid:last-child {
+  margin-bottom: 20px;
 }
 
 #popup {
@@ -241,7 +246,7 @@ input[type="button"] {
   left: 2.5%;
   right: 2.5%;
   bottom: 4em;
-  top: 2.5%;
+  top: 0;
   overflow: hidden;
 }
 
@@ -253,7 +258,7 @@ input[type="button"] {
 
 #popup img {
   position: absolute;
-  top: 2.5em;
+  top: 10px;
   right: calc(2.5% + 1em);
   transition: all 0.1s ease-in-out
 }
