@@ -9,7 +9,7 @@ glob         = require 'glob-all'
 marked       = require 'marked'
 
 module.exports =
-  ignores: ['readme.md', 'text.json', '**/layout.*', 'views/casestudy*.*', '**/footer.jade', '**/_*', '.gitignore', 'ship.*conf', 'views']
+  ignores: ['readme.md', 'text.json', '**/layout.*', 'views/casestudy*.*', '**/footer.jade', '**/_*', '.gitignore', 'ship.*conf', 'views', 'package-lock.json']
 
   extensions: [
     js_pipeline(files: 'assets/js/*.coffee'),
