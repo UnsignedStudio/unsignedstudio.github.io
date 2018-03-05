@@ -14,6 +14,10 @@
     background-color: #DCB128;
     opacity: 1
   }
+
+  .navbar-brand {
+    padding: 10px 15px;
+  }
   
   .full-height {
     height: 100%;
